@@ -146,13 +146,22 @@ awk '
  {print}
 ' ./FinalAssembly_Bactopia__input_to_GenoVi.gb > ./FinalAssembly_Bactopia__input_to_GenoVi_corrected.gb 
 ```
+#### Adding translations to GenBank flatfile
+For COGs to be identified and visualized by GenoVi, the input GenBank flatfile must contain translation qualifiers for every CDS. Oftentimes, these are not present in the GenBank flatfile. The custom script `add_translations_to_gb.py` adds them. Hence, the script must be executed before genoVi is run.
+
+```
+python3 add_translations_to_gb.py \
+    -i ./FinalAssembly_Bactopia__input_to_GenoVi_corrected.gb \
+    -o ./FinalAssembly_Bactopia__input_to_GenoVi_corrected_withTranslations.gb \
+    --table 11 --overwrite
+```
 
 #### Execution of GenoVi
 ```bash
 # Removing temporary files from previous run
 rm -rf conf etc circos.conf circos.svg circos.png genovi-temp circos.log circos.debug.log 2>/dev/null
 
-genovi -i ./FinalAssembly_Bactopia__input_to_GenoVi_corrected.gb -cs strong -s complete -t FinalAssembly_Bactopia -te --size -k -v verbose
+genovi -i ./FinalAssembly_Bactopia__input_to_GenoVi_corrected_withTranslations.gb -cs strong -s complete -t FinalAssembly_Bactopia -te --size -k -v verbose
 
 cp ./genovi/genovi.svg FinalAssembly_Bactopia__output_from_GenoVi.svg
 ```
