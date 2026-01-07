@@ -164,6 +164,7 @@ rm -rf conf etc circos.conf circos.svg circos.png genovi-temp circos.log circos.
 genovi -i ./FinalAssembly_Bactopia__input_to_GenoVi_corrected_withTranslations.gb -cs strong -s complete -t FinalAssembly_Bactopia -te --size -k -v verbose
 
 cp ./genovi/genovi.svg FinalAssembly_Bactopia__output_from_GenoVi.svg
+cp ./genovi/genovi_COG_Histogram.png FinalAssembly_Bactopia__COG_Histogram.png 
 ```
 
 #### Cleaning up
@@ -172,4 +173,5 @@ timestamp=$(date +"%Y%m%d_%H%M%S")
 target_dir="genoVi_run_${timestamp}"
 mkdir -p "$target_dir"
 mv circos.conf circos.debug.log circos.log circos.svg conf etc genovi genovi-temp "$target_dir"/
+tar czf ${target_dir}.tar.gz $target_dir
 ```
