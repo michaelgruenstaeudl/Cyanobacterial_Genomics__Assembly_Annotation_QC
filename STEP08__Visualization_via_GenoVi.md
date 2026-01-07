@@ -152,7 +152,15 @@ awk '
 # Removing temporary files from previous run
 rm -rf conf etc circos.conf circos.svg circos.png genovi-temp circos.log circos.debug.log 2>/dev/null
 
-genovi -i ./FinalAssembly_Bactopia__input_to_GenoVi_corrected.gb -cs strong -s complete -t FinalAssembly_Bactopia --size
+genovi -i ./FinalAssembly_Bactopia__input_to_GenoVi_corrected.gb -cs strong -s complete -t FinalAssembly_Bactopia -te --size -k -v verbose
 
-cp ./genovi/genovi.svg FinalAssembly_Bactopia.svg
+cp ./genovi/genovi.svg FinalAssembly_Bactopia__output_from_GenoVi.svg
+```
+
+#### Cleaning up
+```bash
+timestamp=$(date +"%Y%m%d_%H%M%S")
+target_dir="genoVi_run_${timestamp}"
+mkdir -p "$target_dir"
+mv circos.conf circos.debug.log circos.log circos.svg conf etc genovi genovi-temp "$target_dir"/
 ```
