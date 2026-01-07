@@ -8,3 +8,9 @@ Scripts for the assembly, annotation, and polishing of complete cyanobacterial g
 
 02. [Contig circularization](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP02__Circularization_of_contig.md)
 
+...
+
+08. [Visualization via GenoVi](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP08__Visualization_via_GenoVi.md)
+
+![GenoVi output](https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/example_GenoVi/FinalAssembly_Bactopia__output_from_GenoVi.png)
+

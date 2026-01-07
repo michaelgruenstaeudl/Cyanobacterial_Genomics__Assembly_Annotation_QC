@@ -144,7 +144,7 @@ awk '
      next
  }
  {print}
-' input.gb > output.gb
+' ./FinalAssembly_Bactopia__input_to_GenoVi.gb > ./FinalAssembly_Bactopia__input_to_GenoVi_corrected.gb 
 ```
 
 #### Execution of GenoVi
@@ -152,5 +152,7 @@ awk '
 # Removing temporary files from previous run
 rm -rf conf etc circos.conf circos.svg circos.png genovi-temp circos.log circos.debug.log 2>/dev/null
 
-genovi -i ./FinalAssembly_Bactopia_2025_01_06.gb -cs strong -s complete -t FinalAssembly_Bactopia --size
+genovi -i ./FinalAssembly_Bactopia__input_to_GenoVi_corrected.gb -cs strong -s complete -t FinalAssembly_Bactopia --size
+
+cp ./genovi/genovi.svg FinalAssembly_Bactopia.svg
 ```
