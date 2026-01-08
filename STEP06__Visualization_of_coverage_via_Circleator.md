@@ -30,20 +30,25 @@ bwa-mem2 index "$REF"
 bwa-mem2 mem -t "$THREADS" \
   -R "@RG\tID:${MYSAMPLE}\tSM:${MYSAMPLE}\tPL:ILLUMINA" \
   "$REF" "$R1" "$R2" \
-| samtools sort -@ "$THREADS" -o "${MYSAMPLE}.backmap.sorted.bam"
+| samtools sort -@ "$THREADS" -o "${MYSAMPLE}.illumina.backmap.sorted.bam"
 
-samtools index "${MYSAMPLE}.backmap.sorted.bam"
+samtools index "${MYSAMPLE}.illumina.backmap.sorted.bam"
 
 # Alignment summaries
-samtools flagstat "${MYSAMPLE}.backmap.sorted.bam" > "${MYSAMPLE}.backmap.flagstat.txt"
-samtools stats "${MYSAMPLE}.backmap.sorted.bam" > "${MYSAMPLE}.backmap.stats.txt"
+samtools flagstat "${MYSAMPLE}.illumina.backmap.sorted.bam" \
+  > "${MYSAMPLE}.illumina.backmap.flagstat.txt"
 
-# Per-base depth
-samtools depth -a "${MYSAMPLE}.backmap.sorted.bam" > "${MYSAMPLE}.depth.txt"
+samtools stats "${MYSAMPLE}.illumina.backmap.sorted.bam" \
+  > "${MYSAMPLE}.illumina.backmap.stats.txt"
+
+# Per-base coverage depth
+samtools depth -a "${MYSAMPLE}.illumina.backmap.sorted.bam" \
+  > "${MYSAMPLE}.illumina.depth.txt"
 
 # Genome-wide average coverage depth
 awk '{sum += $3; count += 1} END {if (count > 0) print sum / count}' \
-  "${MYSAMPLE}.depth.txt" > "${MYSAMPLE}.average_depth.txt"
+  "${MYSAMPLE}.illumina.depth.txt" \
+  > "${MYSAMPLE}.illumina.average_depth.txt"
 
 ```
 
@@ -53,7 +58,7 @@ awk '{sum += $3; count += 1} END {if (count > 0) print sum / count}' \
 MYSAMPLE="FinalAssembly_Bactopia"
 
 REF="${MYSAMPLE}.fasta"
-ONT_FASTQ="ont_reads.fastq.gz"
+ONT_FASTQ="Nanopore_filtered.q75.fastq.gz"
 THREADS=8
 
 # Define output files
@@ -62,6 +67,8 @@ DEPTH_TXT="${MYSAMPLE}.ont.depth.txt"
 AVG_TXT="${MYSAMPLE}.ont.average_depth.txt"
 
 # Loading modules if conducted on HPC cluster
+module load minimap2
+module load SAMtools
 
 # Checking that required tools available
 command -v minimap2 >/dev/null 2>&1 || { echo "ERROR: minimap2 not found"; exit 1; }
@@ -131,29 +138,40 @@ Circleator draws figures based on the information in its configuration file
 ## =========================
 ## Circleator config: 4.5 Mb bacterial genome
 ## =========================
-## "Genes": "#4daf4a", # medium green
-## "tRNAs": "#984ea3", # purple
-## "rRNAs": "#e41a1c", # red
-## "Illumina Coverage": "#3aa0d5", # blue
-    
-coords outerf=1.07,tick-interval=50000,label-interval=250000,label-units=kb,label-precision=0
+## Color scheme:
+## Genes              = #4daf4a (green)
+## rRNAs              = #e41a1c (red)
+## Illumina coverage  = #3aa0d5 (blue)
+## Inner coverage ring= #984ea3 (violet)
+## GC content         = #ff8c1a / #cc6f00 (orange)
+## Outer frame        = #303030 / #000000 (dark gray / black)
 
+## OUTERMOST REGION (GC + coordinates)
+## GC content (orange)
+%GC0-100 opacity=0.8,heightf=0.06,innerf=1.0,window-size=2000,no-labels=1,color1=#ff8c1a,color2=#cc6f00
+## Coordinate ticks and labels
+coords innerf=1.0,label-interval=250000,tick-interval=50000,label-units=kb,label-precision=0
+## Thinner dark gray outer frame (was 0.022)
+new r8 rectangle 0.012 color1=#303030,color2=#000000,stroke-width=2
+new n1 none 0.004
+
+## FEATURE TRACKS (no tRNAs because these would be too thin to be seen)
 small-cgap
-
 ## Forward strand
 genes-fwd  heightf=0.05,color1=#4daf4a
-tRNAs-fwd  heightf=0.05,innerf=same,color1=#984ea3
 rRNAs-fwd  heightf=0.05,innerf=same,color1=#e41a1c
-
 tiny-cgap
-
 ## Reverse strand
 genes-rev  heightf=0.05,color1=#4daf4a
-tRNAs-rev  heightf=0.05,innerf=same,color1=#984ea3
 rRNAs-rev  heightf=0.05,innerf=same,color1=#e41a1c
 
+## COVERAGE TRACKS
 small-cgap
-new cov graph 0.14 graph-function=BAMCoverage,bam-file=FinalAssembly_Bactopia.backmap.sorted.bam,bam-seqid=FinalAssembly_Bactopia,graph-min=0,graph-max=data_max,window-size=5000,heightf=0.25,opacity=0.85,color1=#3aa0d5
+## Outer coverage (Illumina, blue)
+new cov_illumina graph 0.14 graph-function=BAMCoverage,bam-file=FinalAssembly_Bactopia.illumina.backmap.sorted.bam,bam-seqid=FinalAssembly_Bactopia,graph-min=0,graph-max=data_max,window-size=5000,heightf=0.25,opacity=0.85,color1=#3aa0d5
+## Inner coverage (ONT, violet)
+small-cgap
+new cov_ont graph 0.14 graph-function=BAMCoverage,bam-file=FinalAssembly_Bactopia.ont.backmap.sorted.bam,bam-seqid=FinalAssembly_Bactopia,graph-min=0,graph-max=data_max,window-size=10000,heightf=0.25,opacity=0.85,color1=#984ea3
 ```
 
 ##### Running Circleator
@@ -187,5 +205,6 @@ java -cp "$BATIK_HOME/lib/*:$BATIK_HOME/extensions/*:$BATIK_HOME/batik-rasterize
 Circleator does not produce any legends for the figures it produces. Hence, the legends must be generated separately by the user.
 
 ```bash
-python3 Circleator_legend_maker.sh
+pip install svgwrite
+python3 Circleator_legend_maker.py
 ```
