@@ -12,7 +12,7 @@ Scripts for the assembly, annotation, and polishing of complete cyanobacterial g
 
 06. [Visualization of sequencing coverage via Circleator](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP06__Visualization_of_coverage_via_Circleator.md)
 
-![Circleator output](https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/example_Circleator/)
+![Circleator output](https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/example_Circleator/FinalAssembly_Bactopia_Circleator_output.png)
 
 ...
 
