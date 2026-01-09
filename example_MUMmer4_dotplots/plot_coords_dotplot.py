@@ -8,8 +8,9 @@ COLOR_MAP = {
     "-": "red",
 }
 
-LINE_WIDTH = 2.4
-POINT_SIZE = 6.0
+LINE_WIDTH = 2.4   # triple original
+POINT_SIZE = 6.0   # triple original
+BP_TO_MBP = 1e6
 
 def usage():
     sys.stderr.write(
@@ -17,26 +18,36 @@ def usage():
     )
     sys.exit(1)
 
-def read_coords_tsv(path: str) -> pd.DataFrame:
+def read_coords_tsv(path: str):
     df = pd.read_csv(path, sep="\t", header=None, comment="#", dtype=str)
 
-    if df.shape[1] < 4:
-        raise ValueError("Input file does not appear to be a valid show-coords TSV")
+    if df.shape[1] < 6:
+        raise ValueError("Unexpected show-coords format")
 
-    df = df.rename(columns={0: "rs", 1: "re", 2: "qs", 3: "qe"}).copy()
+    df = df.rename(columns={
+        0: "rs", 1: "re",
+        2: "qs", 3: "qe",
+        df.shape[1] - 2: "ref_name",
+        df.shape[1] - 1: "qry_name",
+    })
+
     for c in ["rs", "re", "qs", "qe"]:
-        df[c] = pd.to_numeric(df[c], errors="raise").astype(int)
+        df[c] = pd.to_numeric(df[c], errors="raise") / BP_TO_MBP
 
     df["strand"] = df.apply(
         lambda r: "+" if (r["qe"] - r["qs"]) > 0 else "-", axis=1
     )
-    return df
 
-def dotplot_segments(df: pd.DataFrame, out_base: str) -> None:
+    ref_name = df["ref_name"].iloc[0]
+    qry_name = df["qry_name"].iloc[0]
+
+    return df, ref_name, qry_name
+
+def dotplot_segments(df, ref_name, qry_name, out_base):
     fig, ax = plt.subplots(figsize=(10, 10))
 
     for strand, g in df.groupby("strand", sort=True):
-        color = COLOR_MAP.get(strand, "black")
+        color = COLOR_MAP[strand]
         for _, r in g.iterrows():
             ax.plot(
                 [r["rs"], r["re"]],
@@ -47,8 +58,8 @@ def dotplot_segments(df: pd.DataFrame, out_base: str) -> None:
         ax.scatter(g["rs"], g["qs"], s=POINT_SIZE, alpha=0.5, color=color)
         ax.scatter(g["re"], g["qe"], s=POINT_SIZE, alpha=0.5, color=color)
 
-    ax.set_xlabel("reference position (bp)")
-    ax.set_ylabel("query position (bp)")
+    ax.set_xlabel(f"{ref_name} (Mbp)")
+    ax.set_ylabel(f"{qry_name} (Mbp)")
     ax.set_aspect("equal", adjustable="box")
     ax.grid(True, linewidth=0.3, alpha=0.4)
 
@@ -64,8 +75,8 @@ def main():
     coords_tsv = sys.argv[1]
     out_base = sys.argv[2]
 
-    df = read_coords_tsv(coords_tsv)
-    dotplot_segments(df, out_base)
+    df, ref_name, qry_name = read_coords_tsv(coords_tsv)
+    dotplot_segments(df, ref_name, qry_name, out_base)
 
 if __name__ == "__main__":
     main()
