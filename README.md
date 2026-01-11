@@ -8,6 +8,8 @@ Scripts for the assembly, annotation, and polishing of complete cyanobacterial g
 
 02. [Contig circularization](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP02__Circularization_of_contig.md)
 
+03. [Quality check via QUAST](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/QUAST)
+
 ...
 
 05. [Visualization of MUMmer4 results as dotplots](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP05__MUMmer4_dotplots.md)
