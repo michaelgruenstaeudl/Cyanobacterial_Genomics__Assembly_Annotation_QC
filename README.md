@@ -8,7 +8,7 @@ Scripts for the assembly, annotation, and polishing of complete cyanobacterial g
 
 02. [Contig circularization](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP02__Circularization_of_contig.md)
 
-03. [Quality check via QUAST](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/QUAST)
+03. [Quality check via QUAST](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03__Quality_eval_via_QUAST.md)
 
 ...
 
