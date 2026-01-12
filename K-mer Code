@@ -1,0 +1,58 @@
+# Make working folder for Jellyfish output
+mkdir -p ~/Limnothrix/backmapping/02a_Illumina_output/jellyfish_counts
+cd ~/Limnothrix/backmapping/02a_Illumina_output/jellyfish_counts
+
+# Count 21-mers in uncompressed Illumina reads
+jellyfish count -C -m 21 -s 1G -t 8 \
+    ~/Limnothrix/raw_reads_local/Limnothrix_Illumina_Jan2025_run1_R1.fastq \
+    ~/Limnothrix/raw_reads_local/Limnothrix_Illumina_Jan2025_run1_R2.fastq \
+    ~/Limnothrix/raw_reads_local/Limnothrix_Illumina_Jan2025_run2_R1.fastq \
+    ~/Limnothrix/raw_reads_local/Limnothrix_Illumina_Jan2025_run2_R2.fastq \
+    -o reads.jf
+
+# Dump k-mer histogram
+jellyfish histo -t 8 reads.jf > reads.histo
+
+python
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Path to Jellyfish histogram
+histo_file = os.path.expanduser(
+    "~/Limnothrix/backmapping/02a_Illumina_output/jellyfish_counts/reads.histo"
+)
+
+# Load k-mer counts
+frequencies = []
+kmer_counts = []
+
+with open(histo_file) as f:
+    for line in f:
+        count, freq = map(int, line.strip().split())
+        frequencies.append(count)
+        kmer_counts.append(freq)
+
+frequencies = np.array(frequencies)
+kmer_counts = np.array(kmer_counts)
+
+# Plot histogram
+plt.figure(figsize=(10,6))
+plt.bar(frequencies, kmer_counts, width=1.0, color='skyblue', edgecolor='black')
+plt.xlabel('k-mer multiplicity')
+plt.ylabel('Number of k-mers')
+plt.title('Read k-mer spectrum for Limnothrix Illumina reads')
+plt.xlim(0, 200)  # zoom in
+plt.yscale('log')  # log scale is common for k-mer spectra
+plt.tight_layout()
+
+# Save PNG
+output_png = os.path.expanduser(
+    "~/Limnothrix/backmapping/02a_Illumina_output/jellyfish_counts/read_kmer_histogram.png"
+)
+plt.savefig(output_png, dpi=300)
+plt.close()
+
+# Exit Python
+exit()
+
