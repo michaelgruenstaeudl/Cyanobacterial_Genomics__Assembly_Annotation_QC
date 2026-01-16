@@ -12,7 +12,7 @@ Scripts for the assembly, annotation, and polishing of complete cyanobacterial g
 
 04. [Visualization of k-mer spectra via Jellyfish](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP04__Kmer_spectrum_via_Jellyfish.md)
 
-<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/example_Jellyfish_kmerSpectra/foobarbaz.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
+<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/example_Jellyfish_kmerSpectra/read_kmer_histogram.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
 05. [Visualization of MUMmer4 results as dotplots](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP05__MUMmer4_dotplots.md)
 
@@ -26,7 +26,7 @@ Scripts for the assembly, annotation, and polishing of complete cyanobacterial g
 
 08a. [Visualization of gene location via GenoVi](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP08a__Visualization_via_GenoVi.md)
 
-<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/example_GenoVi/FinalAssembly_Bactopia__output_from_GenoVi.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
+<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/example_GenoVi_Viz/FinalAssembly_Bactopia__output_from_GenoVi.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
 08b. [Barchart-style gene tally compatible with GenoVi visualization](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP08b__Gene_tally_of_GenoVi.md)
 
