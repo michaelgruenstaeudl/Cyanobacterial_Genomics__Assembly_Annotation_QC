@@ -12,7 +12,7 @@ Scripts for the assembly, annotation, and polishing of complete cyanobacterial g
 
 04. [Visualization of k-mer spectra via Jellyfish](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP04__Kmer_spectrum_via_Jellyfish.md)
 
-<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/example_Jellyfish_kmerSpectra/read_kmer_histogram.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
+<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/example_Jellyfish_kmerSpectra/kmer_spectrum_Illumina_k21_ONT_k17_combined.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
 05. [Visualization of MUMmer4 results as dotplots](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP05__MUMmer4_dotplots.md)
 

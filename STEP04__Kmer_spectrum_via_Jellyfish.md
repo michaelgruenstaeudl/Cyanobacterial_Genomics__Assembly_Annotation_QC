@@ -66,31 +66,73 @@ jellyfish histo -t "$THREADS" "ont_reads_k${K}.jf" > "ont_reads_k${K}.histo"
 
 ```python
 import os
+import tempfile
+import shutil
+
 import pandas as pd
 import seaborn as sns
+
+import matplotlib
+matplotlib.use("Agg")  # robust non-interactive backend
 import matplotlib.pyplot as plt
 
 
 def load_histo(path: str) -> pd.DataFrame:
-    return pd.read_csv(path, sep=r"\s+", header=None, names=["multiplicity", "n_kmers"])
+    """
+    Read a Jellyfish .histo file (two columns: multiplicity, n_kmers) into a DataFrame.
+    """
+    df = pd.read_csv(path, sep=r"\s+", header=None, names=["multiplicity", "n_kmers"])
+    df["multiplicity"] = pd.to_numeric(df["multiplicity"], errors="coerce")
+    df["n_kmers"] = pd.to_numeric(df["n_kmers"], errors="coerce")
+    df = df.dropna().sort_values("multiplicity")
+    return df
 
 
-def plot_spectrum(
-    df: pd.DataFrame,
-    title: str,
+def copy_to_tmp(src_path: str) -> str:
+    """
+    Copy a file to /tmp and return the /tmp path (often faster on mounted filesystems).
+    """
+    tmp_path = os.path.join(tempfile.gettempdir(), os.path.basename(src_path))
+    shutil.copy2(src_path, tmp_path)
+    return tmp_path
+
+
+def plot_two_spectra(
+    df_illumina: pd.DataFrame,
+    df_ont: pd.DataFrame,
     out_svg: str,
-    x_max: int = 200,
+    title: str = "Read k-mer spectra",
+    x_max: int | None = 200,
     log_y: bool = True,
-):
+) -> None:
+    """
+    Plot Illumina and ONT k-mer spectra on the same axes and save as SVG.
+
+    x_max:
+      - set to an integer (e.g., 200) to zoom for readability
+      - set to None to plot the entire x-range (can be very wide)
+    """
+    df_i = df_illumina.copy()
+    df_o = df_ont.copy()
+
+    if x_max is not None:
+        df_i = df_i[df_i["multiplicity"] <= x_max]
+        df_o = df_o[df_o["multiplicity"] <= x_max]
+
+    df_i["platform"] = "Illumina"
+    df_o["platform"] = "Oxford Nanopore"
+    df_all = pd.concat([df_i, df_o], ignore_index=True)
+
     sns.set_theme(style="whitegrid")
 
-    df_plot = df[df["multiplicity"] <= x_max].copy()
-
-    plt.figure(figsize=(11, 6))
-    ax = sns.barplot(
-        data=df_plot,
+    fig, ax = plt.subplots(figsize=(11, 6), constrained_layout=True)
+    sns.lineplot(
+        data=df_all,
         x="multiplicity",
         y="n_kmers",
+        hue="platform",
+        linewidth=2,
+        ax=ax,
     )
 
     ax.set_title(title)
@@ -100,61 +142,59 @@ def plot_spectrum(
     if log_y:
         ax.set_yscale("log")
 
-    step = 5 if x_max <= 100 else 10
-    ax.set_xticks(list(range(0, x_max + 1, step)))
+    tmp_svg = os.path.join(tempfile.gettempdir(), os.path.basename(out_svg))
+    fig.savefig(tmp_svg, format="svg")
+    plt.close(fig)
 
-    plt.tight_layout()
-    plt.savefig(out_svg, format="svg")
-    plt.close()
+    os.makedirs(os.path.dirname(out_svg), exist_ok=True)
+    shutil.copy2(tmp_svg, out_svg)
 
 
-# ---------------- Illumina ----------------
+# ---------------- Parameters ----------------
 K_ILLUMINA = 21
-ILM_BASE = os.path.expanduser(
-    f"~/data/Limnothrix/05_kmer_spectrum/KmerSpectrum_Illumina_k{K_ILLUMINA}"
-)
-
-illumina_histo = os.path.join(
-    ILM_BASE, f"illumina_reads_k{K_ILLUMINA}.histo"
-)
-illumina_svg = os.path.join(
-    ILM_BASE, f"illumina_reads_k{K_ILLUMINA}_spectrum.svg"
-)
-
-df_illumina = load_histo(illumina_histo)
-plot_spectrum(
-    df_illumina,
-    title=f"Illumina read k-mer spectrum (k={K_ILLUMINA})",
-    out_svg=illumina_svg,
-    x_max=200,
-    log_y=True,
-)
-
-
-# ---------------- Oxford Nanopore ----------------
 K_ONT = 17
-ONT_BASE = os.path.expanduser(
-    f"~/data/Limnothrix/05_kmer_spectrum/KmerSpectrum_ONT_k{K_ONT}"
+
+# Set to None to plot full multiplicity range; keep as 200/500 for a classic zoomed spectrum view
+X_MAX = 200
+
+# Use absolute paths if you want to avoid dependence on current working directory:
+# ILM_BASE = os.path.expanduser(f"~/data/Limnothrix/05_kmer_spectrum/KmerSpectrum_Illumina_k{K_ILLUMINA}")
+# ONT_BASE = os.path.expanduser(f"~/data/Limnothrix/05_kmer_spectrum/KmerSpectrum_ONT_k{K_ONT}")
+
+ILM_BASE = os.path.expanduser(f"05_kmer_spectrum/KmerSpectrum_Illumina_k{K_ILLUMINA}")
+ONT_BASE = os.path.expanduser(f"05_kmer_spectrum/KmerSpectrum_ONT_k{K_ONT}")
+
+illumina_histo = os.path.join(ILM_BASE, f"illumina_reads_k{K_ILLUMINA}.histo")
+ont_histo = os.path.join(ONT_BASE, f"ont_reads_k{K_ONT}.histo")
+
+# Output (choose a combined output location; here: Illumina directory)
+combined_svg = os.path.join(
+    ILM_BASE, f"kmer_spectrum_Illumina_k{K_ILLUMINA}_ONT_k{K_ONT}_combined.svg"
 )
 
-ont_histo = os.path.join(
-    ONT_BASE, f"ont_reads_k{K_ONT}.histo"
-)
-ont_svg = os.path.join(
-    ONT_BASE, f"ont_reads_k{K_ONT}_spectrum.svg"
-)
+# ---------------- Load data (full histograms) ----------------
+if not os.path.isfile(illumina_histo):
+    raise FileNotFoundError(f"Histogram not found: {illumina_histo}")
+if not os.path.isfile(ont_histo):
+    raise FileNotFoundError(f"Histogram not found: {ont_histo}")
 
-df_ont = load_histo(ont_histo)
-plot_spectrum(
-    df_ont,
-    title=f"Oxford Nanopore read k-mer spectrum (k={K_ONT})",
-    out_svg=ont_svg,
-    x_max=200,
+illumina_histo_tmp = copy_to_tmp(illumina_histo)
+ont_histo_tmp = copy_to_tmp(ont_histo)
+
+df_illumina = load_histo(illumina_histo_tmp)
+df_ont = load_histo(ont_histo_tmp)
+
+# ---------------- Plot combined ----------------
+plot_two_spectra(
+    df_illumina=df_illumina,
+    df_ont=df_ont,
+    out_svg=combined_svg,
+    title=f"k-mer spectra (Illumina k={K_ILLUMINA}, ONT k={K_ONT})",
+    x_max=X_MAX,
     log_y=True,
 )
 
 print("Wrote:")
-print(" ", illumina_svg)
-print(" ", ont_svg)
+print(" ", combined_svg)
 
 ```
