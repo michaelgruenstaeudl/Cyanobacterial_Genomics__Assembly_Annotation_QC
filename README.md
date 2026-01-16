@@ -8,7 +8,9 @@ Scripts for the assembly, annotation, and polishing of complete cyanobacterial g
 
 02. [Contig circularization](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP02__Circularization_of_contig.md)
 
-03. [Quality check via QUAST](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03__Quality_eval_via_QUAST.md)
+03a. [Quality check via QUAST](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03__Quality_eval_via_QUAST.md)
+
+03b. Quality control analysis: inference of Mercury QV values
 
 04. [Visualization of k-mer spectra via Jellyfish](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP04__Kmer_spectrum_via_Jellyfish.md)
 
@@ -22,7 +24,9 @@ Scripts for the assembly, annotation, and polishing of complete cyanobacterial g
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/example_Circleator/02_output/FinalAssembly_Bactopia_Circleator_plusLegend.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
-...
+07a. Show synteny and collinearity between Limnothrix B-16 and our assembly using Circos
+
+07b. Show inversions within our assembly using Circos
 
 08a. [Visualization of gene location via GenoVi](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP08a__Visualization_via_GenoVi.md)
 
