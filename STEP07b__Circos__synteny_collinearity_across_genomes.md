@@ -115,7 +115,7 @@ show-coords -rclT genome1_vs_genome2.delta > genome1_vs_genome2.coords.tsv
 #### STEP 3. Convert coordinates to links
 Conversion is conducted by Python script `coords_to_links.py`:
 
-##### Running `coords_to_links.py`
+##### Script `coords_to_links.py`
 ```python
 
 #!/usr/bin/env python3
@@ -178,12 +178,88 @@ Important: the `ref` and `qry` IDs in `links.txt` must match the IDs in `karyoty
 If your IDs do not match, the easiest fix is to ensure the FASTA headers written by `gbk_to_circos.py` match the karyotype IDs. The script prefixes records as `genome1_<recordid>` and `genome2_<recordid>`, and those same ids should appear in the FASTA headers.
 
 
-#### STEP 4. Prepare inputs, configure Circos, run Circos
+#### STEP 4. Correcting the IDs in the karyotype files
+The correction is conducted by Python script `fix_karyotype_ids_from_links.py`:
+
+##### Script `fix_karyotype_ids_from_links.py`
+```python
+
+#!/usr/bin/env python3
+
+from pathlib import Path
+import sys
+
+def get_link_ids(links_path: Path):
+    with links_path.open() as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            fields = line.split()
+            if len(fields) >= 4:
+                return fields[0], fields[3]
+    return None, None
+
+
+def fix_karyotype(karyo_in: Path, karyo_out: Path, new_id: str):
+    with karyo_in.open() as fin, karyo_out.open("w") as fout:
+        for line in fin:
+            if line.startswith("chr"):
+                parts = line.rstrip("\n").split()
+                # Circos karyotype format:
+                # chr - <id> <label> <start> <end> <color>
+                parts[2] = new_id
+                fout.write(" ".join(parts) + "\n")
+            else:
+                fout.write(line)
+
+
+def main():
+    links = Path("links.txt")
+    if not links.exists():
+        sys.exit("ERROR: links.txt not found")
+
+    id1, id2 = get_link_ids(links)
+    if id1 is None:
+        print("links.txt is empty, no changes made")
+        return
+
+    print(f"Using IDs from links.txt: {id1}, {id2}")
+
+    fix_karyotype(
+        Path("genome1.karyotype.txt"),
+        Path("genome1.karyotype.fixed.txt"),
+        id1
+    )
+
+    fix_karyotype(
+        Path("genome2.karyotype.txt"),
+        Path("genome2.karyotype.fixed.txt"),
+        id2
+    )
+
+    print("Wrote:")
+    print("  genome1.karyotype.fixed.txt")
+    print("  genome2.karyotype.fixed.txt")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+##### Run script `fix_karyotype_ids_from_links.py`
+```bash
+python fix_karyotype_ids_from_links.py
+```
+
+
+#### STEP 5. Prepare inputs, configure Circos, run Circos
 
 ##### Assemble input files for Circos in specific folder `circos`
 ```bash
 mkdir -p circos
-cat genome1.karyotype.txt genome2.karyotype.txt > karyotype.txt
+cat genome1.karyotype.fixed.txt genome2.karyotype.fixed.txt > karyotype.txt
 cp karyotype.txt links.txt genome1.genes.txt genome2.genes.txt circos/
 cd circos
 ```
@@ -259,12 +335,17 @@ file = links.txt
 radius = 0.70r
 bezier_radius = 0.10r
 thickness = 1
-color = blue_a3
+color = blue
 </link>
 </links>
 ```
 
 ##### Run Circos
 ```bash
+# Activate circos
+conda activate circos_compare
+# Run circos
 circos -conf circos.conf
 ```
+
+The final image is saved as ./circos/circos.png

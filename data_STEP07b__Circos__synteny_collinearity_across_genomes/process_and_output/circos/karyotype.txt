@@ -1,2 +1,2 @@
-chr - genome1_CorrectedCP166615_1 genome1:CorrectedCP166615.1 0 4539749 vlgrey
-chr - genome2_FinalAssembly_Ba_1 genome2:FinalAssembly_Ba.1 0 4536413 vlgrey
+chr - CorrectedCP166615.1 genome1:CorrectedCP166615.1 0 4539749 vlgrey
+chr - FinalAssembly_Ba.1 genome2:FinalAssembly_Ba.1 0 4536413 vlgrey
