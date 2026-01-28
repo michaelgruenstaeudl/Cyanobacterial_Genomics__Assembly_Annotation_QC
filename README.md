@@ -32,7 +32,8 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 - [Quality check via QUAST](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03a__Quality_eval_via_QUAST.md)
 
 - [Inference of Mercury QV values](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03b__Mercury_QV.md)
-**NOTE:** Does not fully work yet! Bug-fixing needed!
+
+**NOTE:** Does not fully work yet - Bug-fixing needed! See Issue #2.
 
 ---
 
@@ -42,7 +43,8 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP04a__Kmer_spectrum_Jellyfish/kmer_spectrum_Illumina_k21_ONT_k17_combined.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
 - [Visualization of k-mer spectra via Mercury](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP04b__Kmer_spectrum_Mercury.md)
-**NOTE:** Does not fully work yet! Bug-fixing needed!
+
+**NOTE:** Does not fully work yet - Bug-fixing needed!
 
 Find information on hwo to interpret Mercury K-mer spectra plots [here](https://github.com/ebp-nor/genome-assembly-workshop-2022/blob/main/08_Merqury.md#interpreting-a-merqury-assembly-spectrum-plot)
 
@@ -66,7 +68,10 @@ Find information on hwo to interpret Mercury K-mer spectra plots [here](https://
 - Show inversions within the assembly using Circos
 
 - [Show synteny and collinearity between *Limnothrix* B-16 and the assembly using Circos](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP07b__Circos__synteny_collinearity_across_genomes.md)
-**NOTE:** Visualization is too reudimentary as of yet! Improvement needed!
+
+<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP07b__Circos__synteny_collinearity_across_genomes/process_and_output/circos/circos.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
+
+**NOTE:** Visualization is too rudimentary as of yet - Improvement needed! See Issue #3.
 
 ---
 
