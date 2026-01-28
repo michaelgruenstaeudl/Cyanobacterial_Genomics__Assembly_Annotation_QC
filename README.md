@@ -44,6 +44,8 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 - [Visualization of k-mer spectra via Mercury](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP04b__Kmer_spectrum_Mercury.md)
 **NOTE:** Does not fully work yet! Bug-fixing needed!
 
+Find information on hwo to interpret Mercury K-mer spectra plots [here](https://github.com/ebp-nor/genome-assembly-workshop-2022/blob/main/08_Merqury.md#interpreting-a-merqury-assembly-spectrum-plot)
+
 ---
 
 ### 05. Whole-Genome Alignment
