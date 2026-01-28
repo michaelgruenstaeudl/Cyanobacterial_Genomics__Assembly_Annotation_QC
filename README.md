@@ -56,8 +56,10 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 ---
 
 ### 07. Synteny and Structural Analysis
-- Show synteny and collinearity between *Limnothrix* B-16 and the assembly using Circos
 - Show inversions within the assembly using Circos
+
+- Show synteny and collinearity between *Limnothrix* B-16 and the assembly using Circos
+
 
 ---
 
