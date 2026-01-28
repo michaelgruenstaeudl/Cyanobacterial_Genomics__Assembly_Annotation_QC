@@ -39,6 +39,8 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP04a__Kmer_spectrum_Jellyfish/kmer_spectrum_Illumina_k21_ONT_k17_combined.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
+- Visualization of k-mer spectra via Mercury
+
 ---
 
 ### 05. Whole-Genome Alignment
@@ -58,7 +60,7 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 ### 07. Synteny and Structural Analysis
 - Show inversions within the assembly using Circos
 
-- Show synteny and collinearity between *Limnothrix* B-16 and the assembly using Circos
+- [Show synteny and collinearity between *Limnothrix* B-16 and the assembly using Circos](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP07b__Circos__synteny_collinearity_across_genomes.md)
 
 
 ---
