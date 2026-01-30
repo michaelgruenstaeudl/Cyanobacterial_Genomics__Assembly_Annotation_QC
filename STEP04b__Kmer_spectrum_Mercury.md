@@ -31,7 +31,7 @@ conda activate merqury
 #--- INPUT -------------------------------------------------------------
 R1=/homes/mgruenstaeudl/data/Limnothrix/02_processed_reads/Illumina_filt_R1_paired.fastq.gz
 R2=/homes/mgruenstaeudl/data/Limnothrix/02_processed_reads/Illumina_filt_R2_paired.fastq.gz
-ASM=/homes/mgruenstaeudl/data/Limnothrix/04_backmapping/01a_Illumina_input/FinalAssembly_Bactopia.fasta
+ASM=/homes/mgruenstaeudl/data/Limnothrix/05b_kmer_spectrum_Mercury/input/FinalAssembly_Bactopia.fasta
 OUT=merqury_single_assembly
 K=21
 THREADS="${SLURM_CPUS_PER_TASK:-10}"
@@ -76,8 +76,8 @@ conda activate merqury
 R1=/homes/mgruenstaeudl/data/Limnothrix/02_processed_reads/Illumina_filt_R1_paired.fastq.gz
 R2=/homes/mgruenstaeudl/data/Limnothrix/02_processed_reads/Illumina_filt_R2_paired.fastq.gz
 
-ASM1=/homes/mgruenstaeudl/data/Limnothrix/04_backmapping/01a_Illumina_input/FinalAssembly_Bactopia.fasta
-ASM2=/homes/mgruenstaeudl/data/Limnothrix/04_backmapping/01a_Illumina_input/Plasmid_Bactopia.fasta
+ASM1=/homes/mgruenstaeudl/data/Limnothrix/05b_kmer_spectrum_Mercury/input/FinalAssembly_Bactopia.fasta
+ASM2=/homes/mgruenstaeudl/data/Limnothrix/05b_kmer_spectrum_Mercury/input/PlasmidGenome_Bactopia.fasta
 
 OUT=merqury_compare
 K=21
