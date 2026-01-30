@@ -31,7 +31,7 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 ### 03. Assembly Quality Assessment
 - [Quality check via QUAST](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03a__Quality_eval_via_QUAST.md)
 
-- [Inference of Mercury QV values](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03b__Mercury_QV.md)
+- [Inference of Merqury QV values](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03b__Merqury_QV.md)
 
 (Insert table here.)
 
@@ -42,11 +42,9 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP04a__Kmer_spectrum_Jellyfish/kmer_spectrum_Illumina_k21_ONT_k17_combined.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
-- [Visualization of k-mer spectra via Mercury](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP04b__Kmer_spectrum_Mercury.md)
+- [Visualization of k-mer spectra via Merqury](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP04b__Kmer_spectrum_Merqury.md)
 
-(Insert figures here.)
-
-Find information on hwo to interpret Mercury K-mer spectra plots [here](https://github.com/ebp-nor/genome-assembly-workshop-2022/blob/main/08_Merqury.md#interpreting-a-merqury-assembly-spectrum-plot)
+<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP04b_Kmer_spectrum_Merqury/output/merqury_compare_2026-01-30.BothGenomes.spectra-cn.fl.pdf" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
 ---
 
