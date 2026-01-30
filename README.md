@@ -42,13 +42,14 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP04a__Kmer_spectrum_Jellyfish/kmer_spectrum_Illumina_k21_ONT_k17_combined.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
-**TO DO:** Extend the x-axis in this figure.
+###### **TO DO:** Extend the x-axis in this figure.
 
 - [Visualization of k-mer spectra via Merqury](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP04b__Kmer_spectrum_Merqury.md)
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP04b_Kmer_spectrum_Merqury/output/merqury_compare_2026-01-30.BothGenomes.spectra-cn.fl.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
-**TO DO:** Create the same figure based on the Nanopore data; maybe create a facet plot for both.
+###### **TO DO:** Create the same figure based on the Nanopore data; maybe create a facet plot for both.
+
 ---
 
 ### 05. Whole-Genome Alignment
@@ -72,7 +73,7 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP07b__Circos__synteny_collinearity_across_genomes/process_and_output/circos/circos.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
-**NOTE:** Visualization is too rudimentary as of yet - Improvement needed! See [Issue #3](https://github.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/issues/3).
+###### **NOTE:** Visualization is too rudimentary as of yet - Improvement needed! See [Issue #3](https://github.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/issues/3).
 
 ---
 
