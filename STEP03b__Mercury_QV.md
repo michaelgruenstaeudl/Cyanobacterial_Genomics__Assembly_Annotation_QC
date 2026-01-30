@@ -40,7 +40,8 @@ THREADS="${SLURM_CPUS_PER_TASK:-10}"
 
 #--- RUN ---------------------------------------------------------------
 mkdir -p "$OUT"
-PREFIX="${OUT}_$(date +%Y-%m-%d_%H-%M-%S)"
+mkdir -p "logs/$OUT"
+PREFIX="${OUT}_$(date +%Y-%m-%d)"
 
 # 1) Build read k-mer database
 meryl count k="$K" threads="$THREADS" memory=8 \

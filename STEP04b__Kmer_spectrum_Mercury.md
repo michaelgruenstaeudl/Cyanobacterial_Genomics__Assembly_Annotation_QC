@@ -38,7 +38,8 @@ THREADS="${SLURM_CPUS_PER_TASK:-10}"
 
 #--- RUN ---------------------------------------------------------------
 mkdir -p "$OUT"
-PREFIX="${OUT}_$(date +%Y-%m-%d_%H-%M-%S)"
+mkdir -p "logs/$OUT"
+PREFIX="${OUT}_$(date +%Y-%m-%d)"
 
 # Build the meryl database from paired-end reads
 meryl count k="$K" threads="$THREADS" memory=8 \
@@ -46,9 +47,7 @@ meryl count k="$K" threads="$THREADS" memory=8 \
   output "$OUT/${PREFIX}.meryl"
 
 # Run Merqury (single assembly)
-merqury.sh "$OUT/${PREFIX}.meryl" "$ASM" "$OUT/${PREFIX}" \
-  > "$OUT/${PREFIX}_merqury.out" \
-  2> "$OUT/${PREFIX}_merqury.err"
+merqury.sh "$OUT/${PREFIX}.meryl" "$ASM" "$OUT/${PREFIX}"
 
 ```
 
@@ -79,7 +78,8 @@ THREADS="${SLURM_CPUS_PER_TASK:-10}"
 
 #--- RUN ---------------------------------------------------------------
 mkdir -p "$OUT"
-PREFIX="${OUT}_$(date +%Y-%m-%d_%H-%M-%S)"
+mkdir -p "logs/$OUT"
+PREFIX="${OUT}_$(date +%Y-%m-%d)"
 
 # Build the meryl database from paired-end reads
 meryl count k="$K" threads="$THREADS" memory=8 \
@@ -87,8 +87,6 @@ meryl count k="$K" threads="$THREADS" memory=8 \
   output "$OUT/${PREFIX}.meryl"
 
 # Run Merqury comparison (two assemblies)
-merqury.sh "$OUT/${PREFIX}.meryl" "$ASM1" "$ASM2" "$OUT/${PREFIX}" \
-  > "$OUT/${PREFIX}_merqury.out" \
-  2> "$OUT/${PREFIX}_merqury.err"
+merqury.sh "$OUT/${PREFIX}.meryl" "$ASM1" "$ASM2" "$OUT/${PREFIX}"
 
 ```
