@@ -30,8 +30,8 @@ eval "$(/homes/mgruenstaeudl/miniconda3/bin/conda shell.bash hook)"
 conda activate merqury
 
 #--- INPUT -------------------------------------------------------------
-R1=/homes/mgruenstaeudl/denovo_assembly/Limnothrix/Illumina_filt_R1_paired.fastq.gz
-R2=/homes/mgruenstaeudl/denovo_assembly/Limnothrix/Illumina_filt_R1_paired.fastq.gz
+R1=/homes/mgruenstaeudl/data/Limnothrix/02_processed_reads/Illumina_filt_R1_paired.fastq.gz
+R2=/homes/mgruenstaeudl/data/Limnothrix/02_processed_reads/Illumina_filt_R2_paired.fastq.gz
 ASM=/homes/mgruenstaeudl/data/Limnothrix/04_backmapping/01a_Illumina_input/FinalAssembly_Bactopia.fasta
 
 OUT=merqury_qv
@@ -40,39 +40,30 @@ THREADS="${SLURM_CPUS_PER_TASK:-10}"
 
 #--- RUN ---------------------------------------------------------------
 mkdir -p "$OUT"
-cd "$OUT"
-
-ln -sf "$R1" .
-ln -sf "$R2" .
-ln -sf "$ASM" .
-
-R1_BN="$(basename "$R1")"
-R2_BN="$(basename "$R2")"
-ASM_BN="$(basename "$ASM")"
-
-# Stable prefix from R1
-base="${R1_BN%.fastq.gz}"
-base="${base%.fq.gz}"
-base="${base%_R1*}"
-base="${base%_1*}"
+PREFIX="${OUT}_$(date +%Y-%m-%d_%H-%M-%S)"
 
 # 1) Build read k-mer database
 meryl count k="$K" threads="$THREADS" memory=8 \
-  "$R1_BN" "$R2_BN" \
-  output "${base}.meryl"
+  "$R1" "$R2" \
+  output "$OUT/${PREFIX}.reads.meryl"
 
 # 2) Build assembly k-mer database
 meryl count k="$K" threads="$THREADS" memory=8 \
-  "$ASM_BN" \
-  output "asm.meryl"
+  "$ASM" \
+  output "$OUT/${PREFIX}.asm.meryl"
 
 # 3) Compute assembly-only k-mers (those in asm but not in reads)
-meryl difference "asm.meryl" "${base}.meryl" output "asm.only.meryl"
+meryl difference \
+  "$OUT/${PREFIX}.asm.meryl" \
+  "$OUT/${PREFIX}.reads.meryl" \
+  output "$OUT/${PREFIX}.asm.only.meryl"
 
 # 4) Compute QV
-# Merqury's qv.sh prints QV and related stats; capture output to a file.
-qv.sh "asm.meryl" "asm.only.meryl" > "${OUT}_QV.txt"
+qv.sh \
+  "$OUT/${PREFIX}.asm.meryl" \
+  "$OUT/${PREFIX}.asm.only.meryl" \
+  > "$OUT/${PREFIX}_QV.txt"
 
 echo "Wrote:"
-echo "  $(pwd)/${OUT}_QV.txt"
+echo "  $OUT/${PREFIX}_QV.txt"
 ```
