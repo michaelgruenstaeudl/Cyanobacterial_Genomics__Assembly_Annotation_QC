@@ -38,8 +38,8 @@ conda activate merqury
 R1=/homes/mgruenstaeudl/data/Limnothrix/02_processed_reads/Illumina_filt_R1_paired.fastq.gz
 R2=/homes/mgruenstaeudl/data/Limnothrix/02_processed_reads/Illumina_filt_R2_paired.fastq.gz
 
-ASM1=/homes/mgruenstaeudl/data/Limnothrix/05b_kmer_spectrum_Mercury/input/BacterialGenome_Bactopia.fasta
-ASM2=/homes/mgruenstaeudl/data/Limnothrix/05b_kmer_spectrum_Mercury/input/PlasmidGenome_Bactopia.fasta
+ASM1=/homes/mgruenstaeudl/data/Limnothrix/05b_kmer_spectrum_Merqury/input/BacterialGenome_Bactopia.fasta
+ASM2=/homes/mgruenstaeudl/data/Limnothrix/05b_kmer_spectrum_Merqury/input/PlasmidGenome_Bactopia.fasta
 
 OUT=merqury_compare
 PREFIX="$(basename "$OUT")_$(date +%Y-%m-%d)"
