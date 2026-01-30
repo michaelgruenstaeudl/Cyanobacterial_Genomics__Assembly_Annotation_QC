@@ -33,7 +33,7 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 
 - [Inference of Mercury QV values](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03b__Mercury_QV.md)
 
-**NOTE:** Does not fully work yet - Bug-fixing needed! See [Issue #2](https://github.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/issues/2).
+(Insert table here.)
 
 ---
 
@@ -44,7 +44,7 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 
 - [Visualization of k-mer spectra via Mercury](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP04b__Kmer_spectrum_Mercury.md)
 
-**NOTE:** Does not fully work yet - Bug-fixing needed!
+(Insert figures here.)
 
 Find information on hwo to interpret Mercury K-mer spectra plots [here](https://github.com/ebp-nor/genome-assembly-workshop-2022/blob/main/08_Merqury.md#interpreting-a-merqury-assembly-spectrum-plot)
 
