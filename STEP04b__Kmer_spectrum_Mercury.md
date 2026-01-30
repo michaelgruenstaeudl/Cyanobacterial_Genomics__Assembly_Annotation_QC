@@ -19,7 +19,7 @@ conda activate merqury
 #!/bin/bash
 #SBATCH --job-name=merqury_single
 #SBATCH --mail-user=m_gruenstaeudl@fhsu.edu
-#SBATCH --time=04:00:00
+#SBATCH --time=01:00:00
 #SBATCH --mem=16G
 #SBATCH --cpus-per-task=10
 
@@ -38,7 +38,8 @@ THREADS="${SLURM_CPUS_PER_TASK:-10}"
 
 #--- RUN ---------------------------------------------------------------
 mkdir -p "$OUT"
-mkdir -p "logs/$OUT"
+mkdir -p "logs/$OUT"  # IMPORTANT for Merqury!
+mkdir -p figs/
 PREFIX="${OUT}_$(date +%Y-%m-%d)"
 
 # Build the meryl database from paired-end reads
@@ -49,6 +50,12 @@ meryl count k="$K" threads="$THREADS" memory=8 \
 # Run Merqury (single assembly)
 merqury.sh "$OUT/${PREFIX}.meryl" "$ASM" "$OUT/${PREFIX}"
 
+#--- VISUALIZE ---------------------------------------------------------
+Rscript "$MERQURY/plot/plot_spectra_cn.R" \
+  -f merqury_single_assembly/merqury_single_assembly_2026-01-29.FinalAssembly_Bactopia.spectra-cn.hist \
+  -o figs/merqury_single_assembly_2026-01-29.FinalAssembly_Bactopia.spectra-cn \
+  -x 10 -y 6 -m 200 -t line -p
+
 ```
 
 ##### Set up an SBATCH file for evaluation of two assemblies: `run_mercury_compare_two_asm.sh`
@@ -56,7 +63,7 @@ merqury.sh "$OUT/${PREFIX}.meryl" "$ASM" "$OUT/${PREFIX}"
 #!/bin/bash
 #SBATCH --job-name=merqury_compare_two
 #SBATCH --mail-user=m_gruenstaeudl@fhsu.edu
-#SBATCH --time=04:00:00
+#SBATCH --time=01:00:00
 #SBATCH --mem=16G
 #SBATCH --cpus-per-task=10
 
@@ -78,7 +85,8 @@ THREADS="${SLURM_CPUS_PER_TASK:-10}"
 
 #--- RUN ---------------------------------------------------------------
 mkdir -p "$OUT"
-mkdir -p "logs/$OUT"
+mkdir -p "logs/$OUT"  # IMPORTANT for Merqury!
+mkdir -p figs/
 PREFIX="${OUT}_$(date +%Y-%m-%d)"
 
 # Build the meryl database from paired-end reads
@@ -89,4 +97,19 @@ meryl count k="$K" threads="$THREADS" memory=8 \
 # Run Merqury comparison (two assemblies)
 merqury.sh "$OUT/${PREFIX}.meryl" "$ASM1" "$ASM2" "$OUT/${PREFIX}"
 
+#--- VISUALIZE ---------------------------------------------------------
+Rscript "$MERQURY/plot/plot_spectra_cn.R" \
+  -f merqury_compare/merqury_compare_2026-01-29.spectra-cn.hist \
+  -o figs/merqury_compare_2026-01-29.spectra-cn \
+  -x 10 -y 6 -m 200 -t line -p
+
+Rscript "$MERQURY/plot/plot_spectra_cn.R" \
+  -f merqury_compare/merqury_compare_2026-01-29.FinalAssembly_Bactopia.spectra-cn.hist \
+  -o figs/merqury_compare_2026-01-29.FinalAssembly_Bactopia.spectra-cn \
+  -x 10 -y 6 -m 200 -t line -p
+
+Rscript "$MERQURY/plot/plot_spectra_cn.R" \
+  -f merqury_compare/merqury_compare_2026-01-29.Plasmid_Bactopia.spectra-cn.hist \
+  -o figs/merqury_compare_2026-01-29.Plasmid_Bactopia.spectra-cn \
+  -x 10 -y 6 -m 200 -n 100000 -t line -p
 ```
