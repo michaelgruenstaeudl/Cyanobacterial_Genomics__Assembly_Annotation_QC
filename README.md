@@ -33,7 +33,40 @@ Each chapter corresponds to one logical step in the genome assembly and evaluati
 
 - [Inference of Merqury QV values](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP03b__Merqury_QV.md)
 
-(Insert table here.)
+
+###### What the .qv file format means
+
+The Merqury QV output file has five columns:
+
+```
+<label>   <err_kmers>   <total_kmers>   <QV>   <error_rate>
+```
+
+Column descriptions
+
+| Column      | Meaning                                          |
+| ----------- | ------------------------------------------------ |
+| label       | Assembly name (or combined assemblies)           |
+| err_kmers   | Number of assembly k-mers not found in the reads |
+| total_kmers | Total number of assembly k-mers                  |
+| QV          | Phred-scaled quality value                       |
+| error_rate  | Estimated base error rate                        |
+
+
+
+###### RESULTS
+
+```text
+<label>                         <err_kmers>   <total_kmers>   <QV>     <error_rate>
+BacterialGenome_Bactopia        0             4536393        +inf    0
+PlasmidGenome_Bactopia          0             4018           +inf    0
+both                            0             4540411        +inf    0
+```
+
+**Notes:**
+* A `+inf` QV indicates zero observed error k-mers relative to the reads.
+* An `error_rate` of `0` reflects no estimated base errors under this metric.
+
 
 ---
 

@@ -1,21 +1,3 @@
-### Inference of QV for genome assembly via Mercury
-
-#### Installation of Mercury on Beocat
-```bash
-# Load compiler
-module load GCC
-# Installation of Mercury
-conda config --set solver classic
-conda config --set channel_priority strict
-env -u LD_LIBRARY_PATH conda create -n merqury -c conda-forge -c bioconda merqury --solver=classic
-# Activation of Mercury
-conda activate merqury
-```
-
-#### Running Merqury
-
-##### Set up an SBATCH file for evaluation of assembly quality: `run_merqury_qv.sh`
-```bash
 #!/bin/bash
 #SBATCH --job-name=merqury_qv
 #SBATCH --mail-user=m_gruenstaeudl@fhsu.edu
@@ -61,33 +43,3 @@ QV_SH="$CONDA_PREFIX/share/merqury/eval/qv.sh"
   "$ASM1" \
   "$ASM2" \
   "${PREFIX}"
-
-```
-
-#--- FILE HYGIENE ------------------------------------------------------
-
-# This script runs from OUTSIDE $OUT (do not cd).
-OUT=merqury_qv
-
-shopt -s nullglob
-
-# Compress all meryl databases created by the QV workflow:
-#   *.reads.meryl  *.asm.meryl  *.asm.only.meryl
-for mdb in "$OUT"/*.meryl; do
-  if [[ -d "$mdb" ]]; then
-    tarball="${mdb}.tar.gz"
-
-    echo "  -> Compressing $(basename "$mdb")"
-    tar -czf "$tarball" -C "$OUT" "$(basename "$mdb")"
-
-    # Verify archive exists and is non-empty
-    if [[ -s "$tarball" ]]; then
-      rm -rf "$mdb"
-      echo "     Removed original $(basename "$mdb")"
-    else
-      echo "     ERROR: Failed to create $(basename "$tarball"); keeping original" >&2
-    fi
-  fi
-done
-
-shopt -u nullglob
