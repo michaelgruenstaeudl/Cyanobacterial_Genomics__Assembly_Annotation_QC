@@ -54,7 +54,7 @@ Column descriptions
 
 
 
-###### RESULTS
+###### RESULTS FOR BACTERIAL GENOME
 
 ```text
 <label>                         <err_kmers>   <total_kmers>   <QV>     <error_rate>
@@ -67,6 +67,8 @@ both                            0             4540411        +inf    0
 * A `+inf` QV indicates zero observed error k-mers relative to the reads.
 * An `error_rate` of `0` reflects no estimated base errors under this metric.
 
+
+###### **TO DO:** Do both quality checks (QUAST, Mercury) also for plasmid genome
 
 ---
 
@@ -97,6 +99,8 @@ both                            0             4540411        +inf    0
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP06__Coverage_Viz_Circleator/02_output/FinalAssembly_Bactopia_Circleator_plusLegend.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
+###### **TO DO:** Do coverage visualization also for plasmid genome
+
 ---
 
 ### 07. Synteny and Structural Analysis
@@ -114,6 +118,8 @@ both                            0             4540411        +inf    0
 - [Visualization of gene location via GenoVi](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP08a__Visualization_via_GenoVi.md)
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP08a__Visualization_via_GenoVi/FinalAssembly_Bactopia__output_from_GenoVi.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
+
+###### **TO DO:** Do GenoVi visualization also for plasmid genome
 
 - [Barchart-style gene tally compatible with GenoVi visualization](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP08b__Gene_tally_of_GenoVi.md)
 
