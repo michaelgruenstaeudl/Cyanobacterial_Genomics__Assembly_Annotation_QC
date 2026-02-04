@@ -150,12 +150,13 @@ def main(coords_tsv: str, out_links: str, min_len: int = 1000, min_id: float = 9
             if l1 < min_len or pid < min_id:
                 continue
 
-            # Circos wants: <chr1> <start1> <end1> <chr2> <start2> <end2>
-            # Ensure start <= end
+            # Genome 1: always normalize
             a1, b1 = (s1, e1) if s1 <= e1 else (e1, s1)
-            a2, b2 = (s2, e2) if s2 <= e2 else (e2, s2)
+            # Genome 2: PRESERVE orientation for inversion detection
+            a2, b2 = s2, e2
 
             g.write(f"{ref}\t{a1}\t{b1}\t{qry}\t{a2}\t{b2}\n")
+
 
     print(f"Wrote links: {out}")
 
@@ -335,9 +336,20 @@ file = links.txt
 radius = 0.70r
 bezier_radius = 0.10r
 thickness = 1
+
+# default: collinear
 color = blue
+
+<rules>
+  <rule>
+    condition = var(inv)
+    color     = red
+  </rule>
+</rules>
+
 </link>
 </links>
+
 ```
 
 ##### Run Circos
