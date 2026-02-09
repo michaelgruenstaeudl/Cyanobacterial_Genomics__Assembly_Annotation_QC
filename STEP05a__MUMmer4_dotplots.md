@@ -50,17 +50,3 @@ echo "  delta-filter -r -q -l 5000 ${PFX}.delta > ${PFX}.filt.delta"
 show-coords -H -T -r -c "${PFX}.filt.delta" > "${PFX}.coords.tsv"
 
 ```
-
-#### Visualization of dotplots via matplotlib
-
-##### Plot from `show-coords` TSV
-
-```bash
-python plot_coords_dotplot.py Limnothrix_sp_BLA16_vs_BactopiaAssembly.coords.tsv Limnothrix_sp_BLA16_vs_BactopiaAssembly.dotplot
-```
-
-##### Plot directly from filtered `.delta` file
-
-```bash
-python plot_delta_dotplot.py Limnothrix_sp_BLA16_vs_BactopiaAssembly.filt.delta Limnothrix_sp_BLA16_vs_BactopiaAssembly.delta_dotplot
-```

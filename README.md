@@ -88,9 +88,20 @@ both                            0             4540411        +inf    0
 ---
 
 ### 05. Whole-Genome Alignment
-- [Visualization of MUMmer4 results as dotplots](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP05__MUMmer4_dotplots.md)
+- [Visualization of MUMmer4 results as dotplots](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP05a__MUMmer4_dotplots.md)
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP05__MUMmer4_dotplots/Limnothrix_sp_BLA16_vs_BactopiaAssembly.dotplot.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
+
+- [Inference of inversions](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP05b__Inversions.md)
+
+```text
+Limnothrix_sp_BL_A_16_CP166615	82994	113322	30329
+Limnothrix_sp_BL_A_16_CP166615	592628	736045	143418
+Limnothrix_sp_BL_A_16_CP166615	1756173	1817785	61613
+Limnothrix_sp_BL_A_16_CP166615	2674925	2733309	58385
+Limnothrix_sp_BL_A_16_CP166615	3085082	3131342	46261
+Limnothrix_sp_BL_A_16_CP166615	4038055	4191007	152953
+```
 
 ---
 
