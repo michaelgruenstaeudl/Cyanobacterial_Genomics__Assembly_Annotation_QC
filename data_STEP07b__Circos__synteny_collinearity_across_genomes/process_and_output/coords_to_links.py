@@ -31,11 +31,19 @@ def main(coords_tsv: str, out_links: str, min_len: int = 1000, min_id: float = 9
                 continue
 
             # Circos wants: <chr1> <start1> <end1> <chr2> <start2> <end2>
-            # Ensure start <= end
+            # Keep start <= end for plotting
             a1, b1 = (s1, e1) if s1 <= e1 else (e1, s1)
             a2, b2 = (s2, e2) if s2 <= e2 else (e2, s2)
 
-            g.write(f"{ref}\t{a1}\t{b1}\t{qry}\t{a2}\t{b2}\n")
+            # Detect inversion in second genome
+            is_inversion = s2 > e2
+            inv_flag = "1" if is_inversion else "0"
+
+            # Determine inversion
+            inv = 1 if (s2 > e2) else 0
+            g.write(f"{ref}\t{a1}\t{b1}\t{qry}\t{a2}\t{b2}\tinv={inv}\n")
+
+
 
     print(f"Wrote links: {out}")
 
