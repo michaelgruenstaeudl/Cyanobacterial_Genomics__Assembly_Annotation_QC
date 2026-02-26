@@ -121,7 +121,7 @@ Conversion is conducted by Python script `coords_to_links.py`:
 #!/usr/bin/env python3
 from pathlib import Path
 
-def main(coords_tsv: str, out_links: str, min_len: int = 1000, min_id: float = 90.0):
+def main(coords_tsv: str, out_links: str, min_len: int = 5000, min_id: float = 95.0):
     inp = Path(coords_tsv)
     out = Path(out_links)
 
@@ -150,12 +150,19 @@ def main(coords_tsv: str, out_links: str, min_len: int = 1000, min_id: float = 9
             if l1 < min_len or pid < min_id:
                 continue
 
-            # Genome 1: always normalize
+            # Circos wants: <chr1> <start1> <end1> <chr2> <start2> <end2>
+            # Keep start <= end for plotting
             a1, b1 = (s1, e1) if s1 <= e1 else (e1, s1)
-            # Genome 2: PRESERVE orientation for inversion detection
-            a2, b2 = s2, e2
+            a2, b2 = (s2, e2) if s2 <= e2 else (e2, s2)
 
-            g.write(f"{ref}\t{a1}\t{b1}\t{qry}\t{a2}\t{b2}\n")
+            # Detect inversion in second genome
+            is_inversion = s2 > e2
+            inv_flag = "1" if is_inversion else "0"
+
+            # Determine inversion
+            inv = 1 if (s2 > e2) else 0
+            g.write(f"{ref}\t{a1}\t{b1}\t{qry}\t{a2}\t{b2}\tinv={inv}\n")
+
 
 
     print(f"Wrote links: {out}")
@@ -165,14 +172,14 @@ if __name__ == "__main__":
     if len(sys.argv) < 3:
         raise SystemExit("Usage: coords_to_links.py <A_vs_B.coords.tsv> <links.txt> [min_len] [min_id]\n"
                          "Example: coords_to_links.py A_vs_B.coords.tsv links.txt 1000 90")
-    min_len = int(sys.argv[3]) if len(sys.argv) >= 4 else 1000
-    min_id  = float(sys.argv[4]) if len(sys.argv) >= 5 else 90.0
+    min_len = int(sys.argv[3]) if len(sys.argv) >= 4 else 5000
+    min_id  = float(sys.argv[4]) if len(sys.argv) >= 5 else 95.0
     main(sys.argv[1], sys.argv[2], min_len=min_len, min_id=min_id)
 ```
 
 ##### Running `coords_to_links.py`
 ```bash
-python coords_to_links.py genome1_vs_genome2.coords.tsv links.txt 1000 90
+python coords_to_links.py genome1_vs_genome2.coords.tsv links.txt 5000 95
 ```
 
 Important: the `ref` and `qry` IDs in `links.txt` must match the IDs in `karyotype.txt`.
@@ -330,26 +337,23 @@ extend_bin = no
 </plot>
 </plots>
 
+
 <links>
-<link>
-file = links.txt
-radius = 0.70r
-bezier_radius = 0.10r
-thickness = 1
+  <link>
+    file   = links.txt
+    radius = 0.90r
 
-# default: collinear
-color = blue
+    color = blue
 
-<rules>
-  <rule>
-    condition = var(inv)
-    color     = red
-  </rule>
-</rules>
+    <rules>
+      <rule>
+        condition = var(inv) == 1
+        color     = red
+      </rule>
+    </rules>
 
-</link>
+  </link>
 </links>
-
 ```
 
 ##### Run Circos

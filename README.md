@@ -121,7 +121,6 @@ Limnothrix_sp_BL_A_16_CP166615	4038055	4191007	152953
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP07b__Circos__synteny_collinearity_across_genomes/process_and_output/circos/circos.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
-###### **NOTE:** Visualization is too rudimentary as of yet - Improvement needed! See [Issue #3](https://github.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/issues/3).
 
 ---
 

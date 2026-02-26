@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
 
-def main(coords_tsv: str, out_links: str, min_len: int = 1000, min_id: float = 90.0):
+def main(coords_tsv: str, out_links: str, min_len: int = 5000, min_id: float = 95.0):
     inp = Path(coords_tsv)
     out = Path(out_links)
 
@@ -52,6 +52,6 @@ if __name__ == "__main__":
     if len(sys.argv) < 3:
         raise SystemExit("Usage: coords_to_links.py <A_vs_B.coords.tsv> <links.txt> [min_len] [min_id]\n"
                          "Example: coords_to_links.py A_vs_B.coords.tsv links.txt 1000 90")
-    min_len = int(sys.argv[3]) if len(sys.argv) >= 4 else 1000
-    min_id  = float(sys.argv[4]) if len(sys.argv) >= 5 else 90.0
+    min_len = int(sys.argv[3]) if len(sys.argv) >= 4 else 5000
+    min_id  = float(sys.argv[4]) if len(sys.argv) >= 5 else 95.0
     main(sys.argv[1], sys.argv[2], min_len=min_len, min_id=min_id)
