@@ -135,6 +135,10 @@ Limnothrix_sp_BL_A_16_CP166615	4038055	4191007	152953
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP08b__Gene_tally_of_GenoVi/genovi_COG_Classification_COG_barplot.png" style="display:block; margin-left:auto; margin-right:auto; width:100%;">
 
+
+### 09. Tabular summary of genome characteristics and annotation
+- [Generate a tabular summary of the characteristics and annotations of an input genome](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP09__Generate_tabular_genome_summary.py)
+
 ---
 
 ## Notes
