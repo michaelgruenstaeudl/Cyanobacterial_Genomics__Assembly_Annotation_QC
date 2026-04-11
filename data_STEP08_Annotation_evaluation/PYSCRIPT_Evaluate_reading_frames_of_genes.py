@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-Summarize a bacterial genome from a GenBank flatfile.
+Evaluates if the reading frames of the genes of a bacterial genome 
+(available in GenBank flatfile format) are intact.
 
 Typical usage:
-    python STEP09__Generate_tabular_genome_summary.py genome.gb -o genome_summary
+    python PYSCRIPT_Evaluate_reading_frames_of_genes.py genome.gb -o genome_summary
 
 Outputs:
     <prefix>.replicons.tsv   per-record/per-replicon metrics
@@ -19,8 +20,6 @@ Notes
     * otherwise counted as complete
 - "Intergenic spacers" are computed from merged annotated intervals formed from
   gene/CDS/RNA/pseudogene features, so the result is annotation-centric.
-- Assembly completeness/contamination are not inferable from a standard GenBank
-  flatfile alone; those require external tools/metadata (e.g. CheckM/BUSCO).
 """
 
 from __future__ import annotations
@@ -531,7 +530,7 @@ def print_human_readable(genome_summary: Dict[str, float]) -> None:
 # ------------------------------- main ---------------------------------- #
 
 def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="Summarize a bacterial genome from a GenBank flatfile.")
+    p = argparse.ArgumentParser(description="Evaluates if the reading frames of the genes of a bacterial genome are intact.")
     p.add_argument("genbank", help="Input GenBank flatfile (.gb, .gbk, .gbff)")
     p.add_argument(
         "-o", "--out-prefix",
