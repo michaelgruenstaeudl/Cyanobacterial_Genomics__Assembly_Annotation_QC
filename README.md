@@ -81,7 +81,7 @@ both                            0             4540411        +inf    0
 
 - [Visualization of k-mer spectra via Merqury](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP04b__Kmer_spectrum_Merqury.md)
 
-<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP04b_Kmer_spectrum_Merqury/output/merqury_compare_2026-01-30.BothGenomes.spectra-cn.fl.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
+<img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP04b__Kmer_spectrum_Merqury/output/merqury_compare_2026-01-30.BothGenomes.spectra-cn.fl.png" style="display:block; margin-left:auto; margin-right:auto; width:50%;">
 
 ###### **TO DO:** Create the same figure based on the Nanopore data; maybe create a facet plot for both.
 
@@ -124,16 +124,16 @@ Limnothrix_sp_BL_A_16_CP166615	4038055	4191007	152953
 ---
 
 ### 08. Evaluation of genome annotations
-- [Evaluate if the reading frames of the genes of the genome are intact](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/data_STEP08_Annotation_evaluation/PYSCRIPT_Evaluate_reading_frames_of_genes.py)
+- [Evaluate if the reading frames of the genes of the genome are intact](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/data_STEP08__Annotation_evaluation/PYSCRIPT_Evaluate_reading_frames_of_genes.py)
 
 
-- [Compare gene set of two input genomes by gene name and start-position proximity](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/data_STEP08_Annotation_evaluation/PYSCRIPT_Compare_genes_by_name_and_position.py)
+- [Compare gene set of two input genomes by gene name and start-position proximity](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/data_STEP08__Annotation_evaluation/PYSCRIPT_Compare_genes_by_name_and_position.py)
 
 ```python
 python PYSCRIPT_Compare_genes_by_name_and_position.py Limnothrix_sp_HT2024_Bactopia.gb Limnothrix_sp_HT2024_bacass.gb --max-start-diff 500
 ```
 
-- [Standardize the annotations of a bacterial genome](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/data_STEP08_Annotation_evaluation/PYSCRIPT_Standardize_annotations_of_bacterial_genome.py)
+- [Standardize the annotations of a bacterial genome](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/data_STEP08__Annotation_evaluation/PYSCRIPT_Standardize_annotations_of_bacterial_genome.py)
 This script ensures that every `CDS` and every `gene` annotation contain at least a `gene`-tag as well as a `product`-tag. The `gene`-tag contains the four-letter gene abbreviation. The full behaviour of the script is as follows:
 ```python
 python PYSCRIPT_Standardize_annotations_of_bacterial_genome.py input.gb output.gb
