@@ -8,19 +8,20 @@ conda activate qiime2-amplicon-2026.1
 # =========================
 # User-configurable values
 # =========================
-LOCATION="HorseThief_Reservoir" # CHANGE AS NEEDED!
-SAMPLE="30_1305444119_HT1"      # CHANGE AS NEEDED!
+LOCATION="FossilLake" # CHANGE AS NEEDED!
+SAMPLE="30_1305444119_FL1"      # CHANGE AS NEEDED!
 THRESHOLD="0.01"               # Donut plot grouping threshold
 TRUNC_LEN="250"                # DADA2 truncation length
 
 # Input/output names
+ORIG_DIR="$(pwd)"
 FASTQ_FILE="16S_rRNA_seq_${SAMPLE}.assembled.fastq.gz"
 WORKDIR="16S_rRNA_seq_${SAMPLE}"
 MANIFEST="manifest.tsv"
 
 # Classifier
-CLASSIFIER_FILE="silva-138-99-515-806-nb-classifier.qza"
-CLASSIFIER_URL="https://data.qiime2.org/classifiers/sklearn-1.4.2/silva/silva-138-99-nb-classifier.qza"
+CLASSIFIER_FILE_READS="silva-138-99-seqs-515-806.qza"
+CLASSIFIER_FILE_TAX="silva-138-99-tax-515-806.qza"
 
 # =========================
 # Preflight checks
@@ -39,7 +40,9 @@ command -v wget >/dev/null 2>&1 || { echo "Error: wget not found in PATH."; exit
 # =========================
 mkdir -p "$WORKDIR"
 mv "$FASTQ_FILE" "$WORKDIR/"
-cp make_donut_graph.py "$WORKDIR/"
+mv "$CLASSIFIER_FILE_READS" "$WORKDIR/"
+mv "$CLASSIFIER_FILE_TAX" "$WORKDIR/"
+mv make_donut_graph.py "$WORKDIR/"
 cd "$WORKDIR"
 
 printf "sample-id\tabsolute-filepath\n" > "$MANIFEST"
@@ -86,12 +89,14 @@ qiime metadata tabulate \
 # =========================
 # Assign taxonomy using SILVA
 # =========================
-wget -O "$CLASSIFIER_FILE" "$CLASSIFIER_URL"
-
-qiime feature-classifier classify-sklearn \
-  --i-classifier "$CLASSIFIER_FILE" \
-  --i-reads rep-seqs.qza \
-  --o-classification taxonomy.qza
+qiime feature-classifier classify-consensus-blast \
+  --i-query rep-seqs.qza \
+  --i-reference-reads  "$CLASSIFIER_FILE_READS" \
+  --i-reference-taxonomy "$CLASSIFIER_FILE_TAX" \
+  --p-perc-identity 0.97 \
+  --p-query-cov 0.8 \
+  --o-classification taxonomy.qza \
+  --o-search-results blast-results.qza
 
 # =========================
 # Generate taxonomy outputs
@@ -141,9 +146,12 @@ qiime tools export \
   --input-path genus-table.qza \
   --output-path exported-genus-table
 
+# Convert BIOM table to TSV (prefixed filename)
+GENUS_TSV="${WORKDIR}_genus-table.tsv"
+
 biom convert \
   -i exported-genus-table/feature-table.biom \
-  -o genus-table.tsv \
+  -o "$GENUS_TSV" \
   --to-tsv
 
 # =========================
@@ -151,7 +159,17 @@ biom convert \
 # =========================
 python make_donut_graph.py \
   --manifest "$MANIFEST" \
-  --table genus-table.tsv \
+  --table "$GENUS_TSV" \
   --threshold "$THRESHOLD"
 
-echo "Done. Results are in: $(pwd)"
+# Rename donut outputs (prepend WORKDIR)
+PNG_OUT="${WORKDIR}_donut.png"
+SVG_OUT="${WORKDIR}_donut.svg"
+
+mv *_donut.png "$PNG_OUT"
+mv *_donut.svg "$SVG_OUT"
+
+# Copy outputs back to original directory
+cp "$GENUS_TSV" "$ORIG_DIR/"
+cp "$PNG_OUT" "$ORIG_DIR/"
+cp "$SVG_OUT" "$ORIG_DIR/"
