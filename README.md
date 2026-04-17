@@ -179,6 +179,12 @@ python PYSCRIPT_Standardize_annotations_of_bacterial_genome.py input.gb output.g
 
 <img src="https://raw.githubusercontent.com/michaelgruenstaeudl/Cyanobacterial_Genome_Assembly/main/data_STEP09b__Gene_tally_of_GenoVi/genovi_COG_Classification_COG_barplot.png" style="display:block; margin-left:auto; margin-right:auto; width:100%;">
 
+
+---
+
+### 10. QIIME2 analysis
+- [QIIME2 analysis](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/data_STEP10__QIIME2_analysis/)
+
 ---
 
 ## Notes
