@@ -183,7 +183,7 @@ python PYSCRIPT_Standardize_annotations_of_bacterial_genome.py input.gb output.g
 ---
 
 ### 10. QIIME2 analysis
-- [QIIME2 analysis](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/data_STEP10__QIIME2_analysis/)
+- [QIIME2 analysis](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP10__QIIME2_analysis.md)
 
 ---
 
