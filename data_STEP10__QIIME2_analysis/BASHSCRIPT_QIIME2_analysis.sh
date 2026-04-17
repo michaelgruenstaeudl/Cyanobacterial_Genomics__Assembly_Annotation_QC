@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Load conda
+source ~/miniconda3/etc/profile.d/conda.sh
+conda activate qiime2-amplicon-2026.1
+ 
 # =========================
 # User-configurable values
 # =========================
-LOCATION="FossilLake"          # CHANGE AS NEEDED!
-SAMPLE="30_1302373217_FL"      # CHANGE AS NEEDED!
+LOCATION="HorseThief_Reservoir" # CHANGE AS NEEDED!
+SAMPLE="30_1305444119_HT1"      # CHANGE AS NEEDED!
 THRESHOLD="0.01"               # Donut plot grouping threshold
 TRUNC_LEN="250"                # DADA2 truncation length
 
