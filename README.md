@@ -182,8 +182,20 @@ python PYSCRIPT_Standardize_annotations_of_bacterial_genome.py input.gb output.g
 
 ---
 
-### 10. QIIME2 analysis
-- [QIIME2 analysis](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP10__QIIME2_analysis.md)
+### 10. Metagenomic analysis of 16S rRNA amplicon data using QIIME2
+- [Metagenomic analysis](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP10__QIIME2_analysis.md)
+
+| Metric             | HorseThief_lake_water_2 | HorseThief_in_cultivation |
+| ------------------ | ----------------------- | ------------------------- |
+| Raw reads          | 54,376                  | 91,377                    |
+| ASV method         | DADA2                   | DADA2                     |
+| Number of ASVs     | 201                     | 272                       |
+| Number of genera   | 53                      | 67                        |
+| Number of families | 40                      | 46                        |
+| Shannon diversity  | 6.570                   | 6.341                     |
+| Pielou evenness    | 0.859                   | 0.784                     |
+| Simpson diversity  | 0.983                   | 0.972                     |
+
 
 ---
 

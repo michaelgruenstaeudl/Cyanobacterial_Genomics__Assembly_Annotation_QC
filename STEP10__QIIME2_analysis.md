@@ -48,9 +48,7 @@ NR>1 {
 ```bash
 # Log ASV inference method because DADA2 uses exact sequence variants rather than OTU clustering by similarity threshold
 echo "ASV method: DADA2 (no similarity threshold, exact sequence inference)" >> $LOG_FILE
-```
 
-```bash
 # Summarize feature table
 qiime feature-table summarize \
   --i-table table.qza \
