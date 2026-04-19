@@ -16,6 +16,8 @@ Features
 - Optional filtering:
     only include rows whose taxonomy contains a particular name at a particular rank
     using --filter-rank and --filter-name together
+- Optional metadata file:
+    maps file names to sample names used as y-axis labels in the figure
 """
 
 from __future__ import annotations
@@ -69,13 +71,6 @@ def passes_filter(
     filter_rank: str | None,
     filter_name: str | None,
 ) -> bool:
-    """
-    Return True if the row passes the optional taxonomy filter.
-
-    If no filter is specified, all rows pass.
-    If both filter_rank and filter_name are specified, only rows where
-    taxonomy_map[filter_rank] == filter_name pass.
-    """
     if filter_rank is None and filter_name is None:
         return True
 
@@ -83,6 +78,47 @@ def passes_filter(
         return False
 
     return taxonomy_map.get(filter_rank, "") == filter_name
+
+
+def read_metadata(metadata_path: Path) -> Dict[str, str]:
+    mapping: Dict[str, str] = {}
+
+    with metadata_path.open("r", encoding="utf-8") as handle:
+        for line_number, raw_line in enumerate(handle, start=1):
+            line = raw_line.strip()
+
+            if not line:
+                continue
+            if line.startswith("#"):
+                continue
+
+            parts = line.split("\t")
+            if len(parts) < 2:
+                raise ValueError(
+                    f"{metadata_path}: line {line_number} malformed "
+                    "(expected at least 2 tab-separated columns: file_name and sample_name)"
+                )
+
+            file_name = parts[0].strip()
+            sample_name = parts[1].strip()
+
+            if not file_name:
+                raise ValueError(
+                    f"{metadata_path}: line {line_number} has an empty file name."
+                )
+            if not sample_name:
+                raise ValueError(
+                    f"{metadata_path}: line {line_number} has an empty sample name."
+                )
+
+            mapping[file_name] = sample_name
+
+            file_path = Path(file_name)
+            mapping[file_path.stem] = sample_name
+            if file_path.suffix != ".tsv":
+                mapping[file_path.name + ".tsv"] = sample_name
+
+    return mapping
 
 
 def read_and_aggregate_tsv(
@@ -159,10 +195,17 @@ def collect_tables(
     threshold: float,
     filter_rank: str | None = None,
     filter_name: str | None = None,
+    metadata_map: Dict[str, str] | None = None,
+    metadata_path: Path | None = None,
 ) -> pd.DataFrame:
     tsv_files = sorted(folder.glob("*.tsv"))
+
+    if metadata_path is not None:
+        metadata_path = metadata_path.resolve()
+        tsv_files = [fp for fp in tsv_files if fp.resolve() != metadata_path]
+
     if not tsv_files:
-        raise FileNotFoundError(f"No .tsv files found in {folder}")
+        raise FileNotFoundError(f"No .tsv taxonomy files found in {folder}")
 
     all_tables: Dict[str, Dict[str, float]] = {}
 
@@ -184,14 +227,22 @@ def collect_tables(
             }
 
         percentages = collapse_small_categories(percentages, threshold)
-        all_tables[file_path.stem] = percentages
+
+        sample_label = file_path.stem
+        if metadata_map is not None:
+            sample_label = (
+                metadata_map.get(file_path.name)
+                or metadata_map.get(file_path.stem)
+                or sample_label
+            )
+
+        all_tables[sample_label] = percentages
 
     df = pd.DataFrame.from_dict(all_tables, orient="index").fillna(0.0)
 
     if df.empty:
         raise ValueError("No valid data found.")
 
-    # remove samples that have no remaining signal after filtering
     df = df.loc[df.sum(axis=1) > 0]
 
     if df.empty:
@@ -290,6 +341,12 @@ def main() -> None:
         default=None,
         help="Optional taxonomy name used to filter rows. Must be used together with --filter-rank.",
     )
+    parser.add_argument(
+        "--metadata",
+        type=Path,
+        default=None,
+        help="Optional tab-separated metadata file mapping file names to sample names.",
+    )
 
     args = parser.parse_args()
 
@@ -301,12 +358,18 @@ def main() -> None:
             "--filter-rank and --filter-name must be provided together."
         )
 
+    metadata_map = None
+    if args.metadata is not None:
+        metadata_map = read_metadata(args.metadata)
+
     df = collect_tables(
         folder=args.folder,
         rank=args.rank,
         threshold=args.threshold,
         filter_rank=args.filter_rank,
         filter_name=args.filter_name,
+        metadata_map=metadata_map,
+        metadata_path=args.metadata,
     )
 
     plot_stacked_barh(
