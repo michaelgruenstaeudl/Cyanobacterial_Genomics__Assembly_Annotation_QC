@@ -4,7 +4,7 @@ Evaluates if the reading frames of the genes of a bacterial genome
 (available in GenBank flatfile format) are intact.
 
 Typical usage:
-    python PYSCRIPT_Evaluate_reading_frames_of_genes.py genome.gb -o genome_summary
+    python PYSCRIPT_Evaluate_reading_frames_of_genes.py -i genome.gb -o genome_summary
 
 Outputs:
     <prefix>.replicons.tsv   per-record/per-replicon metrics
@@ -531,7 +531,11 @@ def print_human_readable(genome_summary: Dict[str, float]) -> None:
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Evaluates if the reading frames of the genes of a bacterial genome are intact.")
-    p.add_argument("genbank", help="Input GenBank flatfile (.gb, .gbk, .gbff)")
+    p.add_argument(
+        "-i", "--input",
+        required=True,
+        help="Input GenBank flatfile (.gb, .gbk, .gbff)"
+    )
     p.add_argument(
         "-o", "--out-prefix",
         default=None,
@@ -543,7 +547,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
 
-    in_path = args.genbank
+    in_path = args.input
     out_prefix = args.out_prefix
     if out_prefix is None:
         base = os.path.basename(in_path)

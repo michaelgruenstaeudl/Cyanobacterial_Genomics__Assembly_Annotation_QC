@@ -37,6 +37,7 @@
 from Bio import SeqIO
 import csv
 import argparse
+import re
 from collections import defaultdict
 
 
@@ -64,6 +65,17 @@ def normalize_standard_name(name):
     return name.strip()
 
 
+def normalize_rna_label_suffix(value):
+    """
+    Remove a trailing standalone RNA label token used in some gene annotations.
+
+    Examples:
+        "thrT tRNA" -> "thrT"
+        "rrsA rRNA" -> "rrsA"
+    """
+    return re.sub(r"\s+(?:trna|rrna)\s*$", "", value, flags=re.IGNORECASE).strip()
+
+
 def get_feature_identifier(feature):
     """
     Return the best available identifier for a feature.
@@ -89,6 +101,10 @@ def get_feature_identifier(feature):
 
             if key == "standard_name":
                 value = normalize_standard_name(value)
+
+            # Gene annotations may include a trailing "tRNA"/"rRNA" token while
+            # corresponding tRNA/rRNA features often omit it.
+            value = normalize_rna_label_suffix(value)
 
             return key, value
 
