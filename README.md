@@ -125,19 +125,28 @@ Limnothrix_sp_BL_A_16_CP166615	4038055	4191007	152953
 
 ### 08. Evaluation of genome annotations
 - [Evaluate if the reading frames of the genes of the genome are intact](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/data_STEP08__Annotation_evaluation/Step1__PYSCRIPT_Evaluate_reading_frames_of_genes.py)
-```python
+```bash
+# Bacterial genome
 python Step1__PYSCRIPT_Evaluate_reading_frames_of_genes.py -i Limnothrix_sp_HT2024_Bactopia.gb -o Limnothrix_sp_HT2024_Bactopia_ANNOTATION-INFO
+# Bacterial plasmid
+python Step1__PYSCRIPT_Evaluate_reading_frames_of_genes.py -i Limnothrix_sp_HT2024_plasmid.gb -o Limnothrix_sp_HT2024_plasmid_ANNOTATION-INFO
 ```
 
 - [Compare gene set of two input genomes by gene name and start-position proximity](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/data_STEP08__Annotation_evaluation/Step2__PYSCRIPT_Compare_genes_by_name_and_position.py)
-```python
+```bash
+# Bacterial genome
 python Step2__PYSCRIPT_Compare_genes_by_name_and_position.py Limnothrix_sp_HT2024_Bactopia.gb Limnothrix_sp_HT2024_bacass.gb --max-start-diff 500
 ```
 
 - [Standardize the annotations of a bacterial genome](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/data_STEP08__Annotation_evaluation/Step3__PYSCRIPT_Standardize_annotations_of_bacterial_genome.py)
 This script ensures that every `CDS` and every `gene` annotation contain at least a `gene`-tag as well as a `product`-tag. The `gene`-tag contains the four-letter gene abbreviation. The full behaviour of the script is as follows:
-```python
+```bash
+# Bacterial genome
 python Step3__PYSCRIPT_Standardize_annotations_of_bacterial_genome.py input.gb output.gb
+grep -v '/gene="unknown_gene"' output.gb | grep -v "/locus_tag=" > output_final.gb
+# Bacterial plasmid
+python Step3__PYSCRIPT_Standardize_annotations_of_bacterial_genome.py Limnothrix_sp_HT2024_plasmid.gb Limnothrix_sp_HT2024_plasmid_TMP.gb
+grep -v '/gene="unknown_gene"' Limnothrix_sp_HT2024_plasmid_TMP.gb | grep -v "/locus_tag=" > Limnothrix_sp_HT2024_plasmid_FINAL.gb
 ```
 
 #### Behavior Table
@@ -166,6 +175,13 @@ python Step3__PYSCRIPT_Standardize_annotations_of_bacterial_genome.py input.gb o
 | 6        | Skip logging and UniProt lookup for annotations whose `standard_name` is `hypothetical protein CDS` or `hypothetical protein gene`, but still standardize their product to `hypothetical protein` |
 | 7        | Record conflicts and unresolved cases in the report                                                                                                                                               |
 
+
+
+- Run PAGP
+Foo bar baz
+```bash
+Foo bar baz
+```
 
 ---
 
