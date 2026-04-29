@@ -177,10 +177,40 @@ grep -v '/gene="unknown_gene"' Limnothrix_sp_HT2024_plasmid_TMP.gb | grep -v "/l
 
 
 
-- Run PAGP
-Foo bar baz
+- Run PAGP to evaluate annotations
+
+##### Run on plasmid sequence
 ```bash
-Foo bar baz
+$ head Limnothrix_sp_HT2024_plasmid_GENOME.yaml
+fasta:
+    class: File
+    location: Limnothrix_sp_HT2024_plasmid_GENOME.fasta
+submol:
+    class: File
+    location: Limnothrix_sp_HT2024_plasmid_SUBMOL_PRE.yaml
+
+$ head Limnothrix_sp_HT2024_plasmid_SUBMOL_PRE.yaml
+topology: 'circular'
+location: plasmid
+organism:
+    genus_species: 'Limnothrix sp.'
+    strain: 'HorseThiefRes_Aug2024'
+contact_info:
+    last_name: 'Michael'
+    first_name: 'Gruenstaeudl'
+    email: 'm_gruenstaeudl@fhsu.edu'
+    organization: 'Fort Hays State University'
+
+$ head Limnothrix_sp_HT2024_plasmid_GENOME.fasta
+>Limnothrix sp. HorseThiefRes_Aug2024 plasmid, complete sequence [plasmid-name=unnamed]
+ATGCCTGTGCAGGACACAGACGAGGCTATACCTGTCAGTGTACCTGAATCCTCGAATTCC
+TCAATCCCATTAGCTGAGGTCTCACCCCGAGACAAGCCGTGGGATAAGCATCGCGCTAAT
+...
+
+$ pgap.py -r Limnothrix_sp_HT2024_plasmid_GENOME.yaml
+Output will be placed in: /mnt/c/Users/m_gruenstaeudl/OneDrive - Fort Hays State University/Desktop/temp/plasmid/output
+PGAP version 2025-05-06.build7983 is up to date.
+PGAP completed successfully.
 ```
 
 ---
