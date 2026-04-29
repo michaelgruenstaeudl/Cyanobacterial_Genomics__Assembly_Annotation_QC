@@ -177,7 +177,7 @@ grep -v '/gene="unknown_gene"' Limnothrix_sp_HT2024_plasmid_TMP.gb | grep -v "/l
 
 
 
-- Run PAGP to evaluate annotations
+- Run PAGP to generate PAGP annotations
 
 ##### Run on plasmid sequence
 ```bash
@@ -212,6 +212,15 @@ Output will be placed in: /mnt/c/Users/m_gruenstaeudl/OneDrive - Fort Hays State
 PGAP version 2025-05-06.build7983 is up to date.
 PGAP completed successfully.
 ```
+
+- Merging PAGP-generated and own annotations
+```bash
+python Step4__Merge_GenBank_tags.py \
+    Limnothrix_sp_HT2024_plasmid_PGAP.gbk \
+    Limnothrix_sp_HT2024_plasmid_GENOME.gb \
+    Limnothrix_sp_HT2024_plasmid_MERGED.gb
+```
+
 
 ---
 
