@@ -1,0 +1,6 @@
+fasta: 
+    class: File
+    location: Limnothrix_sp_HT2024_plasmid_GENOME.fasta
+submol:
+    class: File
+    location: Limnothrix_sp_HT2024_plasmid_SUBMOL_PRE.yaml

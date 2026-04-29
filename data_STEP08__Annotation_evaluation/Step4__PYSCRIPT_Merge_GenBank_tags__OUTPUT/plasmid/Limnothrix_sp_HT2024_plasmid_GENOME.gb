@@ -1,0 +1,165 @@
+LOCUS       Limnothrix_sp_HT2024_plasmid        4038 bp    DNA     circular UNA 28-APR-2026
+DEFINITION  Limnothrix sp. HT2024, plasmid.
+ACCESSION   Limnothrix_sp_HT2024_plasmid
+KEYWORDS    .
+SOURCE      Limnothrix sp. HT2024 plasmid
+  ORGANISM  Limnothrix sp. HT2024 plasmid
+            Bacteria; Bacillati; Cyanobacteriota; Cyanophyceae;
+            Pseudanabaenales; Pseudanabaenaceae; Limnothrix.
+FEATURES             Location/Qualifiers
+     CDS             1..957
+                     /product="replication protein A"
+                     /inference="COORDINATES:ab initio
+                     prediction:MetaGeneAnnotator"
+                     /transl_table=11
+                     /codon_start=1
+                     /gene="repA"
+                     /note="cyanobase_aa:slr9101 replication protein A
+                     [pid:49.0%, q_cov:92.5%, s_cov:91.4%, Eval:1.8e-85]"
+                     /note="MGA_1"
+                     /standard_name="Replication protein A CDS"
+     gene            1..957
+                     /product="replication protein A"
+                     /inference="COORDINATES:ab initio
+                     prediction:MetaGeneAnnotator"
+                     /gene="repA"
+                     /note="cyanobase_aa:slr9101 replication protein A
+                     [pid:49.0%, q_cov:92.5%, s_cov:91.4%, Eval:1.8e-85]"
+                     /note="MGA_1"
+                     /standard_name="Replication protein A gene"
+     CDS             985..1941
+                     /product="hypothetical protein"
+                     /inference="COORDINATES:ab initio
+                     prediction:MetaGeneAnnotator"
+                     /transl_table=11
+                     /codon_start=1
+                     /note="MGA_2"
+                     /standard_name="hypothetical protein CDS"
+     gene            985..1941
+                     /product="hypothetical protein"
+                     /inference="COORDINATES:ab initio
+                     prediction:MetaGeneAnnotator"
+                     /note="MGA_2"
+                     /standard_name="hypothetical protein CDS"
+     CDS             1360..1941
+                     /product="hypothetical protein"
+                     /protein_id="gnl|Bakta|LDEDNI_00030"
+                     /codon_start=1
+                     /transl_table=11
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /standard_name="hypothetical protein CDS"
+     gene            1360..1941
+                     /standard_name="hypothetical protein gene"
+                     /product="hypothetical protein"
+     CDS             1984..2556
+                     /product="hypothetical protein"
+                     /protein_id="gnl|Bakta|LDEDNI_00025"
+                     /codon_start=1
+                     /transl_table=11
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /standard_name="hypothetical protein CDS"
+     gene            1984..2556
+                     /standard_name="hypothetical protein gene"
+                     /product="hypothetical protein"
+     CDS             2708..3199
+                     /db_xref="PFAM:PF04383.16"
+                     /product="hypothetical protein"
+                     /protein_id="gnl|Bakta|LDEDNI_00020"
+                     /codon_start=1
+                     /transl_table=11
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /standard_name="hypothetical protein CDS"
+     gene            2708..3199
+                     /standard_name="hypothetical protein gene"
+                     /product="hypothetical protein"
+     CDS             complement(3442..3699)
+                     /product="hypothetical protein"
+                     /protein_id="gnl|Bakta|LDEDNI_00015"
+                     /codon_start=1
+                     /transl_table=11
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /standard_name="hypothetical protein CDS"
+     gene            complement(3442..3699)
+                     /standard_name="hypothetical protein gene"
+                     /product="hypothetical protein"
+     CDS             3711..3881
+                     /db_xref="PFAM:PF07411.15"
+                     /product="hypothetical protein"
+                     /protein_id="gnl|Bakta|LDEDNI_00010"
+                     /codon_start=1
+                     /transl_table=11
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /standard_name="hypothetical protein CDS"
+     gene            3711..3881
+                     /standard_name="hypothetical protein gene"
+                     /product="hypothetical protein"
+ORIGIN      
+        1 atgcctgtgc aggacacaga cgaggctata cctgtcagtg tacctgaatc ctcgaattcc
+       61 tcaatcccat tagctgaggt ctcaccccga gacaagccgt gggataagca tcgcgctaat
+      121 tgcgacaagg caacccgtca ctacgagggc agcgagttca atcgctacgc agaacggatg
+      181 acgttttgct cggaatttct agggttcggg ctagttggag ctgacgacgg cgaattcaaa
+      241 ttgaagttac ggacggctcg attctgtcga gtgcgtcact gccctgtttg ccagtggcga
+      301 cgatccctca tgtggaaagc caaggcatat aggatcctgc cctctattgt ttctgagtat
+      361 ccccagcacc gctggttatt cctgacgttg actcagcgca atgtgctgat tgtcgatcta
+      421 cgccagaccc taaaggatat gaaccgaggg tggcagcgat tggttcaact caaagcatgg
+      481 cccgcgattg gttggttgcg atcaactgag gtcacgcgcg gtagggatgg atccgctcac
+      541 ccacacttcc actgcttgct gttgattccg cctggatatt tcagcggcaa gtcctatctc
+      601 aagcaagctg agtgggtcgc actctggcga cgatccatgc ggcttgatta caacccaatt
+      661 ctcgatgttc aggcggttaa gcagggaaag cagccgatgt cattgatccc cgagctattg
+      721 aagtattgcg ttaaggagtc agacctggtt gcagatcgtg agtggtttct ggaactgacc
+      781 cgccagatgc acaaaatccg ctgcgttgcc accggcgggg tactgaagaa atatctcagg
+      841 gagctagagg aggatccaga tgacctgatt ggacaagagg agtcgggtga gtctgacctt
+      901 gctgagttgt gggctgtgtg gaaacgccag gagcggaagt accgcttaag tctttgagcc
+      961 tttagtagtt tacagtgaac caccatgtct gatgagtatc gcttagttcc cgagcttgac
+     1021 catgaaggca atgaaaccgg tttctatact cgggagccgg atggggttag tgggatgact
+     1081 gtgacagcgc tggctaacct ttgctctgtt acacaaccag ctatcaccca gcttttaggg
+     1141 cgaattcaag cttctaaccc cataacgaac gaccttccaa atcgcctgaa atcttttgca
+     1201 ggtcaagact tgaggctcat aacgaacgat tcccagaatc gcctgttggt tcctgatgaa
+     1261 gcttgttggg caattcttgg ctattacgct tttgatgctc gtgactatgc cggtaaagct
+     1321 gttgcacagc aaagctatga ccgtatcggt ggcgctggta tgcgcctgtt tatttggtct
+     1381 cgaactggat ttgtcccagg acatctgcgt ccatctctta aaagcagtac gacggtctac
+     1441 atcgagcgtc tagaaaatat ccgcgaccac cgtactccag acgataagtg gactactttt
+     1501 cgtgaaggcg ctgaggtact cctcctggta gagaaagaat ttcaagtccc tgttgatcag
+     1561 atggatttgt gcgacggcag cattggactc aggtggtcag cgtaccggaa gggacaacct
+     1621 tgggcaaagc caactggtac ttacactcat gtttttagag accagcgagg ggagcaagag
+     1681 gcaattgctt atgacctttc agagctgccg gtttttcgca aatggcttcg tgatgagtat
+     1741 gttccctttc atttgcctga atatcttgct gacaagtatg gcaagctagc ctgtcgggaa
+     1801 atttacgacg cgataggtgg actgactgag cgtgtagagg aagtgtgtgc tatcaagcgc
+     1861 atgactgaca aacaacagca gctctacgag aatttcaaaa aactacgttc tcaacttttg
+     1921 tctgtagaca atcctgggta gtcatttgtc gggtagacta tagtagtcta ctagtaatct
+     1981 accatgccaa ctgctaatcc caaaatttcg gcttacgtcc cgcaagacct gtacgatcgc
+     2041 ttcatagatt tcaaggagca acgtggttta tcgtcggctt cacaggccgc aatcgttatc
+     2101 ctgactgaat tctttggatg tggcacacct agtagattac caagtgattc accaggtgtg
+     2161 ccattagaag agtttcaggc cctagtccaa cgggttgacc atctatcgga gctagtcaag
+     2221 tcgttgactg tccctactac tcaacaagat gaaatagagt cacctgttaa gcaattgccg
+     2281 ttgttgacgc aggattctga ccttgttgcc gatctagaac agggtattcc actaagtagt
+     2341 tcactcagta gtcctaatga taaattaggc actctttctc aaggcttaag cgccagaggg
+     2401 ttagctgagc ggatgaatcg tgaccactca actattcttc ggagaagtaa atcacccaat
+     2461 ttttccgcct ggtcgaagga tttggatcct gagaacatct cgtggatcta cgatgaaaaa
+     2521 acaaaaaagt ttttcccttt cagtgaacca aggtagtcta ctgtagttca ctgtgatatg
+     2581 atttgttttg ctaggcaatg ctgggaagca acctagtcca ggtgtcagtc aaccccagtg
+     2641 agccttcgtg ccgagcacgc ctcactgggg ttgctgctat agccttcttg tcgaatgggg
+     2701 ttacgccatg ggcggaactg ttagcttctt cgatcagttc cccgaatttg aggggcaaaa
+     2761 ggttgaaatc cgtggtgtgg atggttactt cagtgcggct gacatgagcc gtgcgatgga
+     2821 agcttttgat ggcaaaatcc gtcgcttcaa taactggaca cgtacagact ttgcacaacg
+     2881 cttactcaag cgaattagtc agagaactgg aatcccaatt gactactcag atttgagtag
+     2941 tcaacctcag accccgctca tagactacgt tcggggcggt acaaccgggg tatggattca
+     3001 tccctacgtt gccatctctt atgcaatgag cgttccagag ttccaggctg aggtaaacat
+     3061 ctggattgtc gatatgctca ccatgcgaac agttaatcct catgttctgc aatggtcacc
+     3121 cgccgaatac ctacgcggga tggaaatggt gcgggatgac attgaggaaa tctacggtaa
+     3181 gcgcgatcgg cgtggctgaa atccactgcc caactaagcc ggtcactctg ccctgaactg
+     3241 acacctggaa aaaatccgcc tccccctctg ggggacggga gggggactga gatattcgcg
+     3301 tgtaactgaa aagctttgtc gggtctcgcg atgcctctgc gcaaccctta gcgcctgcgc
+     3361 agggtatcgc gctattttaa caggcttgtc aagtcagatc tacttgctct gcactttctg
+     3421 atctgaagtt accgccttgg gctatgagaa aagatttaaa aaggcgatga caatttcaga
+     3481 aatcttgcca gtgagttttg ctcgccatcc atcactagct ccagtgactt ctagggttcc
+     3541 ttccagactc cctaaaactc ttccctgcga catctgttgc agcctgagtc ttgcttcctg
+     3601 taaagacttt gctggaattt caaaaccata gatttcacca tcaaattggt actcacacag
+     3661 ccatattttg tattcggtac aattattatt aacgttcatt gtggttactc atgcggtacg
+     3721 aatatttccg tgacactcag agtcaatggc gttggcgctt taaggcatcc aacggcaaaa
+     3781 tcatcgcggt atcgagtgag tcctatgtca gcatggttga ttgcttgcac gcgattcgct
+     3841 tggttcaggg gtcggcggca gctcgaatcc atcccgtctg acttcacttg aattatgagg
+     3901 gataactctg attcgccgaa tcggggttat tccttgtggt gattgagttt cagcgatttt
+     3961 tggaggtcaa agatacaacg aacccccgtg atagagttgg gttaccacac gccaactaaa
+     4021 tatccggggg ttcgttaa
+//

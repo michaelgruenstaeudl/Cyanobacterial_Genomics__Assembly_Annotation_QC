@@ -1,0 +1,22 @@
+topology: 'circular'
+location: plasmid
+organism:
+    genus_species: 'Limnothrix sp.'
+    strain: 'HorseThiefRes_Aug2024'
+contact_info:
+    last_name: 'Michael'
+    first_name: 'Gruenstaeudl'
+    email: 'm_gruenstaeudl@fhsu.edu'
+    organization: 'Fort Hays State University'
+    department: 'Biological Sciences'
+    phone: '785-628-5264'
+    fax: '785-628-4153'
+    street: '600 Park Street'
+    city: 'Hays'
+    state: 'KS'
+    postal_code: '67601'
+    country: 'USA'
+authors:
+    - author:  
+        last_name: 'Michael'    
+        first_name: 'Gruenstaeudl'

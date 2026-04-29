@@ -1,0 +1,1314 @@
+Seq-submit ::= {
+  sub {
+    contact {
+      contact {
+        name name {
+          last "Michael",
+          first "Gruenstaeudl",
+          initials "G."
+        },
+        affil std {
+          affil "Fort Hays State University",
+          div "Biological Sciences",
+          city "Hays",
+          sub "KS",
+          country "USA",
+          street "600 Park Street",
+          email "m_gruenstaeudl@fhsu.edu",
+          fax "785-628-4153",
+          phone "785-628-5264",
+          postal-code "67601"
+        }
+      }
+    },
+    cit {
+      authors {
+        names std {
+          {
+            name name {
+              last "Michael",
+              first "Gruenstaeudl",
+              initials "G."
+            }
+          }
+        },
+        affil std {
+          affil "Fort Hays State University",
+          div "Biological Sciences",
+          city "Hays",
+          sub "KS",
+          country "USA",
+          street "600 Park Street",
+          email "m_gruenstaeudl@fhsu.edu",
+          fax "785-628-4153",
+          phone "785-628-5264",
+          postal-code "67601"
+        }
+      },
+      date std {
+        year 2026,
+        month 4,
+        day 29,
+        hour 0,
+        minute 39,
+        second 16
+      }
+    },
+    subtype update
+  },
+  data entrys {
+    set {
+      class genbank,
+      descr {
+        comment "The annotation was added by the assembly submitters using the
+ NCBI Prokaryotic Genome Annotation Pipeline (PGAP). Information about
+ stand-alone PGAP can be found here: https://github.com/ncbi/pgap/",
+        user {
+          type str "StructuredComment",
+          data {
+            {
+              label str "StructuredCommentPrefix",
+              data str "##Genome-Annotation-Data-START##"
+            },
+            {
+              label str "Annotation Provider",
+              data str "Fort Hays State University"
+            },
+            {
+              label str "Annotation Date",
+              data str "04/29/2026 00:43:02"
+            },
+            {
+              label str "Annotation Pipeline",
+              data str "NCBI Prokaryotic Genome Annotation Pipeline (PGAP)"
+            },
+            {
+              label str "Annotation Method",
+              data str "Best-placed reference protein set; GeneMarkS-2+"
+            },
+            {
+              label str "Annotation Software revision",
+              data str "2025-05-06.build7983"
+            },
+            {
+              label str "Features Annotated",
+              data str "Gene; CDS; rRNA; tRNA; ncRNA"
+            },
+            {
+              label str "Genes (total)",
+              data str "6"
+            },
+            {
+              label str "CDSs (total)",
+              data str "6"
+            },
+            {
+              label str "Genes (coding)",
+              data str "6"
+            },
+            {
+              label str "CDSs (with protein)",
+              data str "6"
+            },
+            {
+              label str "Genes (RNA)",
+              data str "0"
+            },
+            {
+              label str "rRNAs",
+              data str " "
+            },
+            {
+              label str "complete rRNAs",
+              data str " "
+            },
+            {
+              label str "partial rRNAs",
+              data str " "
+            },
+            {
+              label str "tRNAs",
+              data str "0"
+            },
+            {
+              label str "ncRNAs",
+              data str "0"
+            },
+            {
+              label str "Pseudo Genes (total)",
+              data str "0"
+            },
+            {
+              label str "CDSs (without protein)",
+              data str "0"
+            },
+            {
+              label str "StructuredCommentSuffix",
+              data str "##Genome-Annotation-Data-END##"
+            }
+          }
+        },
+        user {
+          type str "AnnotationChecksum",
+          data {
+            {
+              label str "Checksum",
+              data str "091BC4270FBB7CBDA49E40011F154C46"
+            }
+          }
+        }
+      },
+      seq-set {
+        set {
+          class nuc-prot,
+          descr {
+            source {
+              genome plasmid,
+              org {
+                taxname "Limnothrix sp.",
+                db {
+                  {
+                    db "taxon",
+                    tag id 3100312
+                  }
+                },
+                orgname {
+                  name binomial {
+                    genus "Limnothrix",
+                    species "sp."
+                  },
+                  mod {
+                    {
+                      subtype strain,
+                      subname "HorseThiefRes_Aug2024"
+                    }
+                  },
+                  lineage "Bacteria; Bacillati; Cyanobacteriota; Cyanophyceae;
+ Pseudanabaenales; Pseudanabaenaceae; Limnothrix",
+                  gcode 11,
+                  div "BCT"
+                }
+              },
+              subtype {
+                {
+                  subtype plasmid-name,
+                  name "unnamed"
+                }
+              }
+            },
+            user {
+              type str "NcbiCleanup",
+              data {
+                {
+                  label str "method",
+                  data str "ExtendedSeqEntryCleanup"
+                },
+                {
+                  label str "version",
+                  data int 1
+                },
+                {
+                  label str "month",
+                  data int 4
+                },
+                {
+                  label str "day",
+                  data int 29
+                },
+                {
+                  label str "year",
+                  data int 2026
+                }
+              }
+            }
+          },
+          seq-set {
+            seq {
+              id {
+                local str "Limnothrix"
+              },
+              descr {
+                molinfo {
+                  biomol genomic,
+                  completeness complete
+                },
+                create-date std {
+                  year 2026,
+                  month 4,
+                  day 29,
+                  hour 0,
+                  minute 39,
+                  second 16
+                }
+              },
+              inst {
+                repr raw,
+                mol dna,
+                length 4038,
+                topology circular,
+                seq-data ncbi2na '397B928448629CC5ED2EC5E0D760F5D0D53C9E2B7455
+88425BA8C24D99C3E610A415B4718A9262F4367192068E1BFE7683F72AF6A72FA27861A60F40F8
+2F1A1A763DED8B9B4795EFE52E9863574EE8094293328D795DCFBF78B3552459EBCF5E1BE1D264
+3B9E3ED8DC65215C0A338162AE9263EBD074093A5663EBEBE6341E2B4666B2A3A359D1511F51E7
+E7BE3D65E8CFD2690B5CDD0909E2EAD91DE9863539A7E3C4150F763BD29AF092A024963B4F8D56
+273E0B3E6F0A2D217AF9236E2EBF7A078565239100D679BE5169AAC78203374A89C8A28D48E178
+FA108A2DAB8B785F9E2FBA9EEE8065289A0B167C2DFE25FCB2FC4B81453B78E2CD9F2F5627E14E
+0A43805AFDCC76A25A3AAF2EA387B8499E9C17F9DEF11052734549FF2A60F427DC154C18185F50
+365E037FE4AD087E29D306063D520D97BEBD78E09FBEA43DFA73C67FE39DB87396B027BE449027
+385B36BA67ACE65EFCFEB7607A3FB54A1379B5377C024B186B713626DC8033598516C75218C2E8
+71FF6E0A678AC75D7AC88083F42D5EF8D23A3FB986924FA1D2BAD26C5A0A8417EA40941EB1F11D
+3BFF221498AA242290F9F385FD22796BFF640E9F6E38B3BD5FD3F978337E7842CE909C97B6A03F
+186632BA1E1E26EC8A0BBB9CD09938784041249DC620FD00071BDD07FEDEC8435EACB4FEDAB21C
+CB2DC72C3714E5079C35403F69F1B564217B18D9F4C8FD0A241BAFCDB69F44A590DBCD78783DFE
+8EE91172C8F142E3D14AEE53C822FD295CB506AF85373689CB42DBE1ED5C71D042380C8B45EF09
+0F96FBE1928F785FBE58DC812ACF51C2CBD1D2CB5C38C0F291DFDD0A7C26522AF2789A3836E147
+41CF7DA20B034543FF597AD828FE8D7881376E8DC638001000BFF57F4B8142B2DC7B2F47B8CE3F
+BFE7290E7A824172D4AED2D0552E25F6E58919747AAF9E7325F7ED83AAF194EA681EF27DF634BD
+560FE2A900AF80D6EBBA3AF1F4B9A784E25B98E827FE3A4035B67D0C1E846C487F91067C74260F
+2D2207A0D50F871D23F8B2D05D215674C871BDAA6B105AACE8F4D5C6F94DDF390E26F522F529E2
+B0137A3ED8CE74539812F0D74EF790EB4565831719A8E80EB9A8E13E280DC6B0998DA6E9E0351E
+541C25AD1DE5781E117A000D65D55DEAA1A8AA8788CF66EC1E009FEDAB766397799057C997992A
+CD99CFF04A7ED0B48DC7E7791FDE3782F165FA9CE2008FC00A63843F480DF94B8BFE7653534727
+52E1F72AF5F521D5C01DF57984DEF925E2DF9F5EC087F9E83F4014C8FD14D03EB1D112533FECF6
+B10F3CF06F4FBAF1D39AC60CFD6E11D22D0E9BE99FC293506900D366B362E2D73B493AF8F9F919
+8F67EBD2AB69A49D835356DE1F47E0F38A8C1DE3D960DAAF3D7EEB8F8BF498FFE8AD0231060556
+E322FABC511941C0CD6AAF6F00'H
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      id local id 1,
+                      data gene {
+                        locus-tag "pgaptmp_000001"
+                      },
+                      location int {
+                        from 177,
+                        to 956,
+                        strand plus,
+                        id local str "Limnothrix"
+                      }
+                    },
+                    {
+                      id local id 4,
+                      data gene {
+                        locus-tag "pgaptmp_000002"
+                      },
+                      location int {
+                        from 984,
+                        to 1940,
+                        strand plus,
+                        id local str "Limnothrix"
+                      }
+                    },
+                    {
+                      id local id 7,
+                      data gene {
+                        locus-tag "pgaptmp_000003"
+                      },
+                      location int {
+                        from 1983,
+                        to 2555,
+                        strand plus,
+                        id local str "Limnothrix"
+                      }
+                    },
+                    {
+                      id local id 10,
+                      data gene {
+                        locus-tag "pgaptmp_000004"
+                      },
+                      location int {
+                        from 2707,
+                        to 3198,
+                        strand plus,
+                        id local str "Limnothrix"
+                      }
+                    },
+                    {
+                      id local id 13,
+                      data gene {
+                        locus-tag "pgaptmp_000005"
+                      },
+                      location int {
+                        from 3441,
+                        to 3698,
+                        strand minus,
+                        id local str "Limnothrix"
+                      }
+                    },
+                    {
+                      id local id 16,
+                      data gene {
+                        locus-tag "pgaptmp_000006"
+                      },
+                      location int {
+                        from 3710,
+                        to 3880,
+                        strand plus,
+                        id local str "Limnothrix"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            seq {
+              id {
+                general {
+                  db "extdb",
+                  tag str "pgaptmp_000004"
+                }
+              },
+              descr {
+                molinfo {
+                  biomol peptide,
+                  completeness complete
+                }
+              },
+              inst {
+                repr raw,
+                mol aa,
+                length 163,
+                seq-data iupacaa "MGGTVSFFDQFPEFEGQKVEIRGVDGYFSAADMSRAMEAFDGKI
+RRFNNWTRTDFAQRLLKRISQRTGIPIDYSDLSSQPQTPLIDYVRGGTTGVWIHPYVAISYAMSVPEFQAEVNIWIVD
+MLTMRTVNPHVLQWSPAEYLRGMEMVRDDIEEIYGKRDRRG"
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      id local id 12,
+                      data prot {
+                        name {
+                          "KilA-N domain-containing protein"
+                        }
+                      },
+                      location int {
+                        from 0,
+                        to 162,
+                        id general {
+                          db "extdb",
+                          tag str "pgaptmp_000004"
+                        }
+                      },
+                      ext {
+                        type str "CombinedFeatureUserObjects",
+                        data {
+                          {
+                            label str "GeneOntology",
+                            data fields {
+                              {
+                                label str "Function",
+                                data fields {
+                                  {
+                                    label id 1,
+                                    data fields {
+                                      {
+                                        label str "text string",
+                                        data str "DNA-binding transcription
+ factor activity"
+                                      },
+                                      {
+                                        label str "go id",
+                                        data str "0003700"
+                                      },
+                                      {
+                                        label str "evidence",
+                                        data str "IEA"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    label id 2,
+                                    data fields {
+                                      {
+                                        label str "text string",
+                                        data str "sequence-specific DNA binding"
+                                      },
+                                      {
+                                        label str "go id",
+                                        data str "0043565"
+                                      },
+                                      {
+                                        label str "evidence",
+                                        data str "IEA"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            seq {
+              id {
+                general {
+                  db "extdb",
+                  tag str "pgaptmp_000005"
+                }
+              },
+              descr {
+                molinfo {
+                  biomol peptide,
+                  completeness complete
+                }
+              },
+              inst {
+                repr raw,
+                mol aa,
+                length 85,
+                seq-data iupacaa "MNVNNNCTEYKIWLCEYQFDGEIYGFEIPAKSLQEARLRLQQMS
+QGRVLGSLEGTLEVTGASDGWRAKLTGKISEIVIAFLNLFS"
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      id local id 15,
+                      data prot {
+                        name {
+                          "hypothetical protein"
+                        }
+                      },
+                      location int {
+                        from 0,
+                        to 84,
+                        id general {
+                          db "extdb",
+                          tag str "pgaptmp_000005"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            seq {
+              id {
+                general {
+                  db "extdb",
+                  tag str "pgaptmp_000006"
+                }
+              },
+              descr {
+                molinfo {
+                  biomol peptide,
+                  completeness complete
+                }
+              },
+              inst {
+                repr raw,
+                mol aa,
+                length 56,
+                seq-data iupacaa "MRYEYFRDTQSQWRWRFKASNGKIIAVSSESYVSMVDCLHAIRL
+VQGSAAARIHPV"
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      id local id 18,
+                      data prot {
+                        name {
+                          "YegP family protein"
+                        }
+                      },
+                      location int {
+                        from 0,
+                        to 55,
+                        id general {
+                          db "extdb",
+                          tag str "pgaptmp_000006"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            seq {
+              id {
+                general {
+                  db "extdb",
+                  tag str "pgaptmp_000001"
+                }
+              },
+              descr {
+                molinfo {
+                  biomol peptide,
+                  completeness complete
+                }
+              },
+              inst {
+                repr raw,
+                mol aa,
+                length 259,
+                seq-data iupacaa "MTFCSEFLGFGLVGADDGEFKLKLRTARFCRVRHCPVCQWRRSL
+MWKAKAYRILPSIVSEYPQHRWLFLTLTQRNVLIVDLRQTLKDMNRGWQRLVQLKAWPAIGWLRSTEVTRGRDGSAHP
+HFHCLLLIPPGYFSGKSYLKQAEWVALWRRSMRLDYNPILDVQAVKQGKQPMSLIPELLKYCVKESDLVADREWFLEL
+TRQMHKIRCVATGGVLKKYLRELEEDPDDLIGQEESGESDLAELWAVWKRQERKYRLSL"
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      id local id 3,
+                      data prot {
+                        name {
+                          "protein rep"
+                        }
+                      },
+                      location int {
+                        from 0,
+                        to 258,
+                        id general {
+                          db "extdb",
+                          tag str "pgaptmp_000001"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            seq {
+              id {
+                general {
+                  db "extdb",
+                  tag str "pgaptmp_000002"
+                }
+              },
+              descr {
+                molinfo {
+                  biomol peptide,
+                  completeness complete
+                }
+              },
+              inst {
+                repr raw,
+                mol aa,
+                length 318,
+                seq-data iupacaa "MSDEYRLVPELDHEGNETGFYTREPDGVSGMTVTALANLCSVTQ
+PAITQLLGRIQASNPITNDLPNRLKSFAGQDLRLITNDSQNRLLVPDEACWAILGYYAFDARDYAGKAVAQQSYDRIG
+GAGMRLFIWSRTGFVPGHLRPSLKSSTTVYIERLENIRDHRTPDDKWTTFREGAEVLLLVEKEFQVPVDQMDLCDGSI
+GLRWSAYRKGQPWAKPTGTYTHVFRDQRGEQEAIAYDLSELPVFRKWLRDEYVPFHLPEYLADKYGKLACREIYDAIG
+GLTERVEEVCAIKRMTDKQQQLYENFKKLRSQLLSVDNPG"
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      id local id 6,
+                      data prot {
+                        name {
+                          "hypothetical protein"
+                        }
+                      },
+                      location int {
+                        from 0,
+                        to 317,
+                        id general {
+                          db "extdb",
+                          tag str "pgaptmp_000002"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            seq {
+              id {
+                general {
+                  db "extdb",
+                  tag str "pgaptmp_000003"
+                }
+              },
+              descr {
+                molinfo {
+                  biomol peptide,
+                  completeness complete
+                }
+              },
+              inst {
+                repr raw,
+                mol aa,
+                length 190,
+                seq-data iupacaa "MPTANPKISAYVPQDLYDRFIDFKEQRGLSSASQAAIVILTEFF
+GCGTPSRLPSDSPGVPLEEFQALVQRVDHLSELVKSLTVPTTQQDEIESPVKQLPLLTQDSDLVADLEQGIPLSSSLS
+SPNDKLGTLSQGLSARGLAERMNRDHSTILRRSKSPNFSAWSKDLDPENISWIYDEKTKKFFPFSEPR"
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      id local id 9,
+                      data prot {
+                        name {
+                          "helix-turn-helix domain-containing protein"
+                        }
+                      },
+                      location int {
+                        from 0,
+                        to 189,
+                        id general {
+                          db "extdb",
+                          tag str "pgaptmp_000003"
+                        }
+                      },
+                      ext {
+                        type str "CombinedFeatureUserObjects",
+                        data {
+                          {
+                            label str "GeneOntology",
+                            data fields {
+                              {
+                                label str "Process",
+                                data fields {
+                                  {
+                                    label id 1,
+                                    data fields {
+                                      {
+                                        label str "text string",
+                                        data str "regulation of DNA-templated
+ transcription"
+                                      },
+                                      {
+                                        label str "go id",
+                                        data str "0006355"
+                                      },
+                                      {
+                                        label str "evidence",
+                                        data str "IEA"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                label str "Function",
+                                data fields {
+                                  {
+                                    label id 1,
+                                    data fields {
+                                      {
+                                        label str "text string",
+                                        data str "DNA binding"
+                                      },
+                                      {
+                                        label str "go id",
+                                        data str "0003677"
+                                      },
+                                      {
+                                        label str "evidence",
+                                        data str "IEA"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    label id 2,
+                                    data fields {
+                                      {
+                                        label str "text string",
+                                        data str "DNA-binding transcription
+ factor activity"
+                                      },
+                                      {
+                                        label str "go id",
+                                        data str "0003700"
+                                      },
+                                      {
+                                        label str "evidence",
+                                        data str "IEA"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          annot {
+            {
+              data ftable {
+                {
+                  id local id 2,
+                  data cdregion {
+                    code {
+                      id 11
+                    }
+                  },
+                  product whole general {
+                    db "extdb",
+                    tag str "pgaptmp_000001"
+                  },
+                  location int {
+                    from 177,
+                    to 956,
+                    strand plus,
+                    id local str "Limnothrix"
+                  },
+                  qual {
+                    {
+                      qual "inference",
+                      val "COORDINATES: protein motif:HMM:NF013603.6"
+                    }
+                  },
+                  ext {
+                    type str "CombinedFeatureUserObjects",
+                    data {
+                      {
+                        label str "ModelEvidence",
+                        data object {
+                          type str "ModelEvidence",
+                          data {
+                            {
+                              label str "Method",
+                              data str "Protein Homology"
+                            },
+                            {
+                              label str "SeedProtein",
+                              data str "gnl|HMM|NF013603.6"
+                            },
+                            {
+                              label str "SeedAlignPlacement",
+                              num 2,
+                              data ints {
+                                252,
+                                929
+                              }
+                            },
+                            {
+                              label str "SeedCluster",
+                              data str "unknown"
+                            },
+                            {
+                              label str "Cluster",
+                              data str "ArchId:10477677"
+                            },
+                            {
+                              label str "ClusterName",
+                              data str "protein rep"
+                            },
+                            {
+                              label str "BestCDSIdentity",
+                              data real { 0, 10, 0 }
+                            },
+                            {
+                              label str "BestHMMHit",
+                              data str "gnl|HMM|NF013603.6"
+                            },
+                            {
+                              label str "naming_ev_source",
+                              data str "SPARCLE"
+                            },
+                            {
+                              label str "prot_support",
+                              data real { 0, 10, 0 }
+                            },
+                            {
+                              label str "support",
+                              data real { 999091322188859, 10, -12 }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  id local id 5,
+                  data cdregion {
+                    frame one,
+                    code {
+                      id 11
+                    }
+                  },
+                  product whole general {
+                    db "extdb",
+                    tag str "pgaptmp_000002"
+                  },
+                  location int {
+                    from 984,
+                    to 1940,
+                    strand plus,
+                    id local str "Limnothrix"
+                  },
+                  qual {
+                    {
+                      qual "inference",
+                      val "COORDINATES: ab initio prediction:GeneMarkS-2+"
+                    }
+                  },
+                  ext {
+                    type str "CombinedFeatureUserObjects",
+                    data {
+                      {
+                        label str "ModelEvidence",
+                        data object {
+                          type str "ModelEvidence",
+                          data {
+                            {
+                              label str "Method",
+                              data str "GeneMarkS-2+"
+                            },
+                            {
+                              label str "BestNamingHit",
+                              data str "gi|504894560"
+                            },
+                            {
+                              label str "NamingHitCluster",
+                              data str "6137624"
+                            },
+                            {
+                              label str "NamingHitProteinSource",
+                              data str "Other"
+                            },
+                            {
+                              label str "phages_in_naming_hit_cluster_ratio",
+                              data real { 0, 10, 0 }
+                            },
+                            {
+                              label str "best_naming_coverage",
+                              data real { 572327, 10, -4 }
+                            },
+                            {
+                              label str "best_naming_subject_coverage",
+                              data real { 777778, 10, -4 }
+                            },
+                            {
+                              label str "AbInitioEnds",
+                              data bool TRUE
+                            },
+                            {
+                              label str "PureAbInitioConcurs",
+                              data bool TRUE
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  id local id 8,
+                  data cdregion {
+                    frame one,
+                    code {
+                      id 11
+                    }
+                  },
+                  product whole general {
+                    db "extdb",
+                    tag str "pgaptmp_000003"
+                  },
+                  location int {
+                    from 1983,
+                    to 2555,
+                    strand plus,
+                    id local str "Limnothrix"
+                  },
+                  qual {
+                    {
+                      qual "inference",
+                      val "COORDINATES: ab initio prediction:GeneMarkS-2+"
+                    }
+                  },
+                  ext {
+                    type str "CombinedFeatureUserObjects",
+                    data {
+                      {
+                        label str "ModelEvidence",
+                        data object {
+                          type str "ModelEvidence",
+                          data {
+                            {
+                              label str "Method",
+                              data str "GeneMarkS-2+"
+                            },
+                            {
+                              label str "Cluster",
+                              data str "ArchId:10622089"
+                            },
+                            {
+                              label str "ClusterName",
+                              data str "helix-turn-helix domain-containing
+ protein"
+                            },
+                            {
+                              label str "AbInitioEnds",
+                              data bool TRUE
+                            },
+                            {
+                              label str "PureAbInitioConcurs",
+                              data bool TRUE
+                            },
+                            {
+                              label str "naming_ev_source",
+                              data str "SPARCLE"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        label str "GeneOntology",
+                        data fields {
+                          {
+                            label str "Process",
+                            data fields {
+                              {
+                                label id 1,
+                                data fields {
+                                  {
+                                    label str "text string",
+                                    data str "regulation of DNA-templated
+ transcription"
+                                  },
+                                  {
+                                    label str "go id",
+                                    data str "0006355"
+                                  },
+                                  {
+                                    label str "evidence",
+                                    data str "IEA"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            label str "Function",
+                            data fields {
+                              {
+                                label id 1,
+                                data fields {
+                                  {
+                                    label str "text string",
+                                    data str "DNA binding"
+                                  },
+                                  {
+                                    label str "go id",
+                                    data str "0003677"
+                                  },
+                                  {
+                                    label str "evidence",
+                                    data str "IEA"
+                                  }
+                                }
+                              },
+                              {
+                                label id 2,
+                                data fields {
+                                  {
+                                    label str "text string",
+                                    data str "DNA-binding transcription factor
+ activity"
+                                  },
+                                  {
+                                    label str "go id",
+                                    data str "0003700"
+                                  },
+                                  {
+                                    label str "evidence",
+                                    data str "IEA"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  id local id 11,
+                  data cdregion {
+                    code {
+                      id 11
+                    }
+                  },
+                  product whole general {
+                    db "extdb",
+                    tag str "pgaptmp_000004"
+                  },
+                  location int {
+                    from 2707,
+                    to 3198,
+                    strand plus,
+                    id local str "Limnothrix"
+                  },
+                  qual {
+                    {
+                      qual "inference",
+                      val "COORDINATES: protein motif:HMM:NF016283.6"
+                    }
+                  },
+                  ext {
+                    type str "CombinedFeatureUserObjects",
+                    data {
+                      {
+                        label str "ModelEvidence",
+                        data object {
+                          type str "ModelEvidence",
+                          data {
+                            {
+                              label str "Method",
+                              data str "Protein Homology"
+                            },
+                            {
+                              label str "SeedProtein",
+                              data str "gnl|HMM|NF016283.6"
+                            },
+                            {
+                              label str "SeedAlignPlacement",
+                              num 2,
+                              data ints {
+                                2758,
+                                3063
+                              }
+                            },
+                            {
+                              label str "SeedCluster",
+                              data str "unknown"
+                            },
+                            {
+                              label str "Cluster",
+                              data str "ArchId:10516234"
+                            },
+                            {
+                              label str "ClusterName",
+                              data str "KilA-N domain-containing protein"
+                            },
+                            {
+                              label str "BestCDSIdentity",
+                              data real { 0, 10, 0 }
+                            },
+                            {
+                              label str "BestHMMHit",
+                              data str "gnl|HMM|NF016283.6"
+                            },
+                            {
+                              label str "PureAbInitioConcurs",
+                              data bool TRUE
+                            },
+                            {
+                              label str "naming_ev_source",
+                              data str "SPARCLE"
+                            },
+                            {
+                              label str "prot_support",
+                              data real { 999091322188859, 10, -15 }
+                            },
+                            {
+                              label str "support",
+                              data real { 100011708752282, 10, -11 }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        label str "GeneOntology",
+                        data fields {
+                          {
+                            label str "Function",
+                            data fields {
+                              {
+                                label id 1,
+                                data fields {
+                                  {
+                                    label str "text string",
+                                    data str "DNA-binding transcription factor
+ activity"
+                                  },
+                                  {
+                                    label str "go id",
+                                    data str "0003700"
+                                  },
+                                  {
+                                    label str "evidence",
+                                    data str "IEA"
+                                  }
+                                }
+                              },
+                              {
+                                label id 2,
+                                data fields {
+                                  {
+                                    label str "text string",
+                                    data str "sequence-specific DNA binding"
+                                  },
+                                  {
+                                    label str "go id",
+                                    data str "0043565"
+                                  },
+                                  {
+                                    label str "evidence",
+                                    data str "IEA"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  id local id 14,
+                  data cdregion {
+                    frame one,
+                    code {
+                      id 11
+                    }
+                  },
+                  product whole general {
+                    db "extdb",
+                    tag str "pgaptmp_000005"
+                  },
+                  location int {
+                    from 3441,
+                    to 3698,
+                    strand minus,
+                    id local str "Limnothrix"
+                  },
+                  qual {
+                    {
+                      qual "inference",
+                      val "COORDINATES: ab initio prediction:GeneMarkS-2+"
+                    }
+                  },
+                  ext {
+                    type str "CombinedFeatureUserObjects",
+                    data {
+                      {
+                        label str "ModelEvidence",
+                        data object {
+                          type str "ModelEvidence",
+                          data {
+                            {
+                              label str "Method",
+                              data str "GeneMarkS-2+"
+                            },
+                            {
+                              label str "AbInitioEnds",
+                              data bool TRUE
+                            },
+                            {
+                              label str "PureAbInitioConcurs",
+                              data bool TRUE
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  id local id 17,
+                  data cdregion {
+                    code {
+                      id 11
+                    }
+                  },
+                  product whole general {
+                    db "extdb",
+                    tag str "pgaptmp_000006"
+                  },
+                  location int {
+                    from 3710,
+                    to 3880,
+                    strand plus,
+                    id local str "Limnothrix"
+                  },
+                  qual {
+                    {
+                      qual "inference",
+                      val "COORDINATES: protein motif:HMM:NF019057.6"
+                    }
+                  },
+                  ext {
+                    type str "CombinedFeatureUserObjects",
+                    data {
+                      {
+                        label str "ModelEvidence",
+                        data object {
+                          type str "ModelEvidence",
+                          data {
+                            {
+                              label str "Method",
+                              data str "Protein Homology"
+                            },
+                            {
+                              label str "SeedProtein",
+                              data str "gnl|HMM|NF019057.6"
+                            },
+                            {
+                              label str "SeedAlignPlacement",
+                              num 2,
+                              data ints {
+                                3743,
+                                3847
+                              }
+                            },
+                            {
+                              label str "SeedCluster",
+                              data str "unknown"
+                            },
+                            {
+                              label str "Cluster",
+                              data str "ArchId:10007345"
+                            },
+                            {
+                              label str "ClusterName",
+                              data str "YegP family protein"
+                            },
+                            {
+                              label str "BestCDSIdentity",
+                              data real { 0, 10, 0 }
+                            },
+                            {
+                              label str "BestHMMHit",
+                              data str "gnl|HMM|NF019057.6"
+                            },
+                            {
+                              label str "naming_ev_source",
+                              data str "SPARCLE"
+                            },
+                            {
+                              label str "prot_support",
+                              data real { 0, 10, 0 }
+                            },
+                            {
+                              label str "support",
+                              data real { 999091322188859, 10, -12 }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
