@@ -213,7 +213,7 @@ PGAP version 2025-05-06.build7983 is up to date.
 PGAP completed successfully.
 ```
 
-- Merging PAGP-generated and own annotations
+- [Merging PAGP-generated and own annotations](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/data_STEP08__Annotation_evaluation/Step4__PYSCRIPT_Merge_GenBank_tags.py)
 ```bash
 python Step4__Merge_GenBank_tags.py \
     Limnothrix_sp_HT2024_plasmid_PGAP.gbk \
@@ -255,6 +255,12 @@ python Step4__Merge_GenBank_tags.py \
 
 ---
 
+### 11. Preparing submission to GenBank
+
+- [Submission preparation to GenBank via Geneious submission plugin](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP11__Submission_via_Geneious_plugin.md)
+
+---
+
 ## Notes
 
 - Image files are stored in the corresponding `data_STEPXX__*` directories.
@@ -262,3 +268,4 @@ python Step4__Merge_GenBank_tags.py \
 - Individual steps can be adapted to other bacterial genomes with minimal modification.
 
 ---
+

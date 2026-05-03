@@ -1,0 +1,2 @@
+Bin Id	Marker lineage	# genomes	# markers	# marker sets	0	1	2	3	4	5+	Completeness	Contamination	Strain heterogeneity
+annotation	Cyanobacteria (1)	129	472	368	5	464	3	0	0	0	98.82	0.61	0.00

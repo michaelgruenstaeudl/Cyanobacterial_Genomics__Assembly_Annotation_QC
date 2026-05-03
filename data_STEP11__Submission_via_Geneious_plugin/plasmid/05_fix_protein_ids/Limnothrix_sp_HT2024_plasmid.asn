@@ -1,0 +1,748 @@
+Seq-submit ::= {
+  sub {
+    contact {
+      contact {
+        name name {
+          last "Gruenstaeudl",
+          first "Michael"
+        },
+        affil std {
+          affil "Fort Hays State University",
+          div "Biological Sciences",
+          city "Hays",
+          sub "Kansas",
+          country "USA",
+          street "600 Park St",
+          email "m_gruenstaeudl@fhsu.edu",
+          phone "7856285264",
+          postal-code "67601"
+        }
+      }
+    },
+    cit {
+      authors {
+        names std {
+          {
+            name name {
+              last "Acquah",
+              first "Louisa",
+              initials "L."
+            }
+          },
+          {
+            name name {
+              last "Gruenstaeudl",
+              first "Michael",
+              initials "M."
+            }
+          }
+        },
+        affil std {
+          affil "Fort Hays State University",
+          div "Biological Sciences",
+          city "Hays",
+          sub "Kansas",
+          country "USA",
+          street "600 Park St",
+          email "m_gruenstaeudl@fhsu.edu",
+          phone "7856285264",
+          postal-code "67601"
+        }
+      },
+      date std {
+        year 2026,
+        month 5,
+        day 2
+      }
+    },
+    subtype new,
+    tool "Geneious Prime 2026.0.1 Submission Plugin 1.7.0"
+  },
+  data entrys {
+    set {
+      class genbank,
+      seq-set {
+        set {
+          class nuc-prot,
+          descr {
+            source {
+              genome plasmid,
+              org {
+                taxname "Limnothrix sp.",
+                orgname {
+                  mod {
+                    {
+                      subtype strain,
+                      subname "HT2024"
+                    },
+                    {
+                      subtype specimen-voucher,
+                      subname "Limnothrix sp. strain HT2024"
+                    }
+                  },
+                  gcode 11
+                }
+              },
+              subtype {
+                {
+                  subtype plasmid-name,
+                  name "p01"
+                },
+                {
+                  subtype country,
+                  name "USA"
+                },
+                {
+                  subtype collection-date,
+                  name "31-Aug-2024"
+                },
+                {
+                  subtype collected-by,
+                  name "Louisa Acquah"
+                },
+                {
+                  subtype identified-by,
+                  name "Louisa Acquah"
+                }
+              }
+            },
+            pub {
+              pub {
+                gen {
+                  cit "Unpublished",
+                  authors {
+                    names std {
+                      {
+                        name name {
+                          last "Acquah",
+                          first "Louisa",
+                          initials "L."
+                        }
+                      },
+                      {
+                        name name {
+                          last "Gruenstaeudl",
+                          first "Michael",
+                          initials "M."
+                        }
+                      }
+                    },
+                    affil std {
+                      affil "Fort Hays State University",
+                      div "Biological Sciences",
+                      city "Hays",
+                      sub "Kansas",
+                      country "USA",
+                      street "600 Park St",
+                      email "m_gruenstaeudl@fhsu.edu",
+                      phone "7856285264",
+                      postal-code "67601"
+                    }
+                  },
+                  title "Genome sequencing of bloom-forming cyanobacteria from
+ HorseThief Reservoir, Jetmore, Kansas"
+                }
+              }
+            },
+            create-date std {
+              year 2026,
+              month 5,
+              day 2
+            }
+          },
+          seq-set {
+            seq {
+              id {
+                local str "Limnothrix_sp_HT2024_plasmid"
+              },
+              descr {
+                molinfo {
+                  biomol genomic
+                }
+              },
+              inst {
+                repr raw,
+                mol dna,
+                length 4038,
+                topology circular,
+                seq-data ncbi2na '397B928448629CC5ED2EC5E0D760F5D0D53C9E2B7455
+88425BA8C24D99C3E610A415B4718A9262F4367192068E1BFE7683F72AF6A72FA27861A60F40F8
+2F1A1A763DED8B9B4795EFE52E9863574EE8094293328D795DCFBF78B3552459EBCF5E1BE1D264
+3B9E3ED8DC65215C0A338162AE9263EBD074093A5663EBEBE6341E2B4666B2A3A359D1511F51E7
+E7BE3D65E8CFD2690B5CDD0909E2EAD91DE9863539A7E3C4150F763BD29AF092A024963B4F8D56
+273E0B3E6F0A2D217AF9236E2EBF7A078565239100D679BE5169AAC78203374A89C8A28D48E178
+FA108A2DAB8B785F9E2FBA9EEE8065289A0B167C2DFE25FCB2FC4B81453B78E2CD9F2F5627E14E
+0A43805AFDCC76A25A3AAF2EA387B8499E9C17F9DEF11052734549FF2A60F427DC154C18185F50
+365E037FE4AD087E29D306063D520D97BEBD78E09FBEA43DFA73C67FE39DB87396B027BE449027
+385B36BA67ACE65EFCFEB7607A3FB54A1379B5377C024B186B713626DC8033598516C75218C2E8
+71FF6E0A678AC75D7AC88083F42D5EF8D23A3FB986924FA1D2BAD26C5A0A8417EA40941EB1F11D
+3BFF221498AA242290F9F385FD22796BFF640E9F6E38B3BD5FD3F978337E7842CE909C97B6A03F
+186632BA1E1E26EC8A0BBB9CD09938784041249DC620FD00071BDD07FEDEC8435EACB4FEDAB21C
+CB2DC72C3714E5079C35403F69F1B564217B18D9F4C8FD0A241BAFCDB69F44A590DBCD78783DFE
+8EE91172C8F142E3D14AEE53C822FD295CB506AF85373689CB42DBE1ED5C71D042380C8B45EF09
+0F96FBE1928F785FBE58DC812ACF51C2CBD1D2CB5C38C0F291DFDD0A7C26522AF2789A3836E147
+41CF7DA20B034543FF597AD828FE8D7881376E8DC638001000BFF57F4B8142B2DC7B2F47B8CE3F
+BFE7290E7A824172D4AED2D0552E25F6E58919747AAF9E7325F7ED83AAF194EA681EF27DF634BD
+560FE2A900AF80D6EBBA3AF1F4B9A784E25B98E827FE3A4035B67D0C1E846C487F91067C74260F
+2D2207A0D50F871D23F8B2D05D215674C871BDAA6B105AACE8F4D5C6F94DDF390E26F522F529E2
+B0137A3ED8CE74539812F0D74EF790EB4565831719A8E80EB9A8E13E280DC6B0998DA6E9E0351E
+541C25AD1DE5781E117A000D65D55DEAA1A8AA8788CF66EC1E009FEDAB766397799057C997992A
+CD99CFF04A7ED0B48DC7E7791FDE3782F165FA9CE2008FC00A63843F480DF94B8BFE7653534727
+52E1F72AF5F521D5C01DF57984DEF925E2DF9F5EC087F9E83F4014C8FD14D03EB1D112533FECF6
+B10F3CF06F4FBAF1D39AC60CFD6E11D22D0E9BE99FC293506900D366B362E2D73B493AF8F9F919
+8F67EBD2AB69A49D835356DE1F47E0F38A8C1DE3D960DAAF3D7EEB8F8BF498FFE8AD0231060556
+E322FABC511941C0CD6AAF6F00'H
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      id local id 2,
+                      data gene {
+                        locus-tag "pgaptmp_000001"
+                      },
+                      location int {
+                        from 177,
+                        to 956,
+                        strand plus,
+                        id local str "Limnothrix_sp_HT2024_plasmid"
+                      },
+                      xref {
+                        {
+                          id local id 1
+                        }
+                      }
+                    },
+                    {
+                      id local id 4,
+                      data gene {
+                        locus-tag "pgaptmp_000002"
+                      },
+                      location int {
+                        from 984,
+                        to 1940,
+                        strand plus,
+                        id local str "Limnothrix_sp_HT2024_plasmid"
+                      },
+                      qual {
+                        {
+                          qual "inference",
+                          val "COORDINATES: ab initio
+ prediction:MetaGeneAnnotator"
+                        }
+                      },
+                      xref {
+                        {
+                          id local id 3
+                        }
+                      }
+                    },
+                    {
+                      id local id 6,
+                      data gene {
+                        locus-tag "pgaptmp_000003"
+                      },
+                      location int {
+                        from 1983,
+                        to 2555,
+                        strand plus,
+                        id local str "Limnothrix_sp_HT2024_plasmid"
+                      },
+                      xref {
+                        {
+                          id local id 5
+                        }
+                      }
+                    },
+                    {
+                      id local id 8,
+                      data gene {
+                        locus-tag "pgaptmp_000004"
+                      },
+                      location int {
+                        from 2707,
+                        to 3198,
+                        strand plus,
+                        id local str "Limnothrix_sp_HT2024_plasmid"
+                      },
+                      xref {
+                        {
+                          id local id 7
+                        }
+                      }
+                    },
+                    {
+                      id local id 10,
+                      data gene {
+                        locus-tag "pgaptmp_000005"
+                      },
+                      location int {
+                        from 3441,
+                        to 3698,
+                        strand minus,
+                        id local str "Limnothrix_sp_HT2024_plasmid"
+                      },
+                      xref {
+                        {
+                          id local id 9
+                        }
+                      }
+                    },
+                    {
+                      id local id 12,
+                      data gene {
+                        locus-tag "pgaptmp_000006"
+                      },
+                      location int {
+                        from 3710,
+                        to 3880,
+                        strand plus,
+                        id local str "Limnothrix_sp_HT2024_plasmid"
+                      },
+                      xref {
+                        {
+                          id local id 11
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            seq {
+              id {
+                local str "Limnothrix_sp_HT2024_plasmid3"
+              },
+              descr {
+                title "protein rep (plasmid) [Limnothrix sp.]",
+                molinfo {
+                  biomol peptide,
+                  tech concept-trans
+                }
+              },
+              inst {
+                repr raw,
+                mol aa,
+                length 259,
+                seq-data ncbieaa "MTFCSEFLGFGLVGADDGEFKLKLRTARFCRVRHCPVCQWRRSL
+MWKAKAYRILPSIVSEYPQHRWLFLTLTQRNVLIVDLRQTLKDMNRGWQRLVQLKAWPAIGWLRSTEVTRGRDGSAHP
+HFHCLLLIPPGYFSGKSYLKQAEWVALWRRSMRLDYNPILDVQAVKQGKQPMSLIPELLKYCVKESDLVADREWFLEL
+TRQMHKIRCVATGGVLKKYLRELEEDPDDLIGQEESGESDLAELWAVWKRQERKYRLSL"
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      data prot {
+                        name {
+                          "protein rep"
+                        }
+                      },
+                      location int {
+                        from 0,
+                        to 258,
+                        id local str "Limnothrix_sp_HT2024_plasmid3"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            seq {
+              id {
+                local str "Limnothrix_sp_HT2024_plasmid5"
+              },
+              descr {
+                title "hypothetical protein pgaptmp_000002 (plasmid)
+ [Limnothrix sp.]",
+                molinfo {
+                  biomol peptide,
+                  tech concept-trans
+                }
+              },
+              inst {
+                repr raw,
+                mol aa,
+                length 318,
+                seq-data ncbieaa "MSDEYRLVPELDHEGNETGFYTREPDGVSGMTVTALANLCSVTQ
+PAITQLLGRIQASNPITNDLPNRLKSFAGQDLRLITNDSQNRLLVPDEACWAILGYYAFDARDYAGKAVAQQSYDRIG
+GAGMRLFIWSRTGFVPGHLRPSLKSSTTVYIERLENIRDHRTPDDKWTTFREGAEVLLLVEKEFQVPVDQMDLCDGSI
+GLRWSAYRKGQPWAKPTGTYTHVFRDQRGEQEAIAYDLSELPVFRKWLRDEYVPFHLPEYLADKYGKLACREIYDAIG
+GLTERVEEVCAIKRMTDKQQQLYENFKKLRSQLLSVDNPG"
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      data prot {
+                        name {
+                          "hypothetical protein"
+                        }
+                      },
+                      location int {
+                        from 0,
+                        to 317,
+                        id local str "Limnothrix_sp_HT2024_plasmid5"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            seq {
+              id {
+                local str "Limnothrix_sp_HT2024_plasmid7"
+              },
+              descr {
+                title "helix-turn-helix domain-containing protein (plasmid)
+ [Limnothrix sp.]",
+                molinfo {
+                  biomol peptide,
+                  tech concept-trans
+                }
+              },
+              inst {
+                repr raw,
+                mol aa,
+                length 190,
+                seq-data ncbieaa "MPTANPKISAYVPQDLYDRFIDFKEQRGLSSASQAAIVILTEFF
+GCGTPSRLPSDSPGVPLEEFQALVQRVDHLSELVKSLTVPTTQQDEIESPVKQLPLLTQDSDLVADLEQGIPLSSSLS
+SPNDKLGTLSQGLSARGLAERMNRDHSTILRRSKSPNFSAWSKDLDPENISWIYDEKTKKFFPFSEPR"
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      data prot {
+                        name {
+                          "helix-turn-helix domain-containing protein"
+                        }
+                      },
+                      location int {
+                        from 0,
+                        to 189,
+                        id local str "Limnothrix_sp_HT2024_plasmid7"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            seq {
+              id {
+                local str "Limnothrix_sp_HT2024_plasmid9"
+              },
+              descr {
+                title "KilA-N domain-containing protein (plasmid) [Limnothrix
+ sp.]",
+                molinfo {
+                  biomol peptide,
+                  tech concept-trans
+                }
+              },
+              inst {
+                repr raw,
+                mol aa,
+                length 163,
+                seq-data ncbieaa "MGGTVSFFDQFPEFEGQKVEIRGVDGYFSAADMSRAMEAFDGKI
+RRFNNWTRTDFAQRLLKRISQRTGIPIDYSDLSSQPQTPLIDYVRGGTTGVWIHPYVAISYAMSVPEFQAEVNIWIVD
+MLTMRTVNPHVLQWSPAEYLRGMEMVRDDIEEIYGKRDRRG"
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      data prot {
+                        name {
+                          "KilA-N domain-containing protein"
+                        }
+                      },
+                      location int {
+                        from 0,
+                        to 162,
+                        id local str "Limnothrix_sp_HT2024_plasmid9"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            seq {
+              id {
+                local str "Limnothrix_sp_HT2024_plasmid11"
+              },
+              descr {
+                title "hypothetical protein pgaptmp_000005 (plasmid)
+ [Limnothrix sp.]",
+                molinfo {
+                  biomol peptide,
+                  tech concept-trans
+                }
+              },
+              inst {
+                repr raw,
+                mol aa,
+                length 85,
+                seq-data ncbieaa "MNVNNNCTEYKIWLCEYQFDGEIYGFEIPAKSLQEARLRLQQMS
+QGRVLGSLEGTLEVTGASDGWRAKLTGKISEIVIAFLNLFS"
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      data prot {
+                        name {
+                          "hypothetical protein"
+                        }
+                      },
+                      location int {
+                        from 0,
+                        to 84,
+                        id local str "Limnothrix_sp_HT2024_plasmid11"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            seq {
+              id {
+                local str "Limnothrix_sp_HT2024_plasmid13"
+              },
+              descr {
+                title "YegP family protein (plasmid) [Limnothrix sp.]",
+                molinfo {
+                  biomol peptide,
+                  tech concept-trans
+                }
+              },
+              inst {
+                repr raw,
+                mol aa,
+                length 56,
+                seq-data ncbieaa "MRYEYFRDTQSQWRWRFKASNGKIIAVSSESYVSMVDCLHAIRL
+VQGSAAARIHPV"
+              },
+              annot {
+                {
+                  data ftable {
+                    {
+                      data prot {
+                        name {
+                          "YegP family protein"
+                        }
+                      },
+                      location int {
+                        from 0,
+                        to 55,
+                        id local str "Limnothrix_sp_HT2024_plasmid13"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          annot {
+            {
+              data ftable {
+                {
+                  id local id 1,
+                  data cdregion {
+                    frame one,
+                    code {
+                      id 11
+                    }
+                  },
+                  product whole local str "Limnothrix_sp_HT2024_plasmid3",
+                  location int {
+                    from 177,
+                    to 956,
+                    strand plus,
+                    id local str "Limnothrix_sp_HT2024_plasmid"
+                  },
+                  qual {
+                    {
+                      qual "inference",
+                      val "COORDINATES: protein motif:HMM:NF013603.6"
+                    }
+                  },
+                  xref {
+                    {
+                      data gene {
+                        locus-tag "pgaptmp_000001"
+                      }
+                    },
+                    {
+                      id local id 2
+                    }
+                  }
+                },
+                {
+                  id local id 3,
+                  data cdregion {
+                    frame one,
+                    code {
+                      id 11
+                    }
+                  },
+                  product whole local str "Limnothrix_sp_HT2024_plasmid5",
+                  location int {
+                    from 984,
+                    to 1940,
+                    strand plus,
+                    id local str "Limnothrix_sp_HT2024_plasmid"
+                  },
+                  qual {
+                    {
+                      qual "inference",
+                      val "COORDINATES: ab initio prediction:GeneMarkS-2+"
+                    }
+                  },
+                  xref {
+                    {
+                      data gene {
+                        locus-tag "pgaptmp_000002"
+                      }
+                    },
+                    {
+                      id local id 4
+                    }
+                  }
+                },
+                {
+                  id local id 5,
+                  data cdregion {
+                    frame one,
+                    code {
+                      id 11
+                    }
+                  },
+                  product whole local str "Limnothrix_sp_HT2024_plasmid7",
+                  location int {
+                    from 1983,
+                    to 2555,
+                    strand plus,
+                    id local str "Limnothrix_sp_HT2024_plasmid"
+                  },
+                  qual {
+                    {
+                      qual "inference",
+                      val "COORDINATES: ab initio prediction:GeneMarkS-2+"
+                    }
+                  },
+                  xref {
+                    {
+                      data gene {
+                        locus-tag "pgaptmp_000003"
+                      }
+                    },
+                    {
+                      id local id 6
+                    }
+                  }
+                },
+                {
+                  id local id 7,
+                  data cdregion {
+                    frame one,
+                    code {
+                      id 11
+                    }
+                  },
+                  product whole local str "Limnothrix_sp_HT2024_plasmid9",
+                  location int {
+                    from 2707,
+                    to 3198,
+                    strand plus,
+                    id local str "Limnothrix_sp_HT2024_plasmid"
+                  },
+                  qual {
+                    {
+                      qual "inference",
+                      val "COORDINATES: protein motif:HMM:NF016283.6"
+                    }
+                  },
+                  xref {
+                    {
+                      data gene {
+                        locus-tag "pgaptmp_000004"
+                      }
+                    },
+                    {
+                      id local id 8
+                    }
+                  }
+                },
+                {
+                  id local id 9,
+                  data cdregion {
+                    frame one,
+                    code {
+                      id 11
+                    }
+                  },
+                  product whole local str "Limnothrix_sp_HT2024_plasmid11",
+                  location int {
+                    from 3441,
+                    to 3698,
+                    strand minus,
+                    id local str "Limnothrix_sp_HT2024_plasmid"
+                  },
+                  qual {
+                    {
+                      qual "inference",
+                      val "COORDINATES: ab initio prediction:GeneMarkS-2+"
+                    }
+                  },
+                  xref {
+                    {
+                      data gene {
+                        locus-tag "pgaptmp_000005"
+                      }
+                    },
+                    {
+                      id local id 10
+                    }
+                  }
+                },
+                {
+                  id local id 11,
+                  data cdregion {
+                    frame one,
+                    code {
+                      id 11
+                    }
+                  },
+                  product whole local str "Limnothrix_sp_HT2024_plasmid13",
+                  location int {
+                    from 3710,
+                    to 3880,
+                    strand plus,
+                    id local str "Limnothrix_sp_HT2024_plasmid"
+                  },
+                  qual {
+                    {
+                      qual "inference",
+                      val "COORDINATES: protein motif:HMM:NF019057.6"
+                    }
+                  },
+                  xref {
+                    {
+                      data gene {
+                        locus-tag "pgaptmp_000006"
+                      }
+                    },
+                    {
+                      id local id 12
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
