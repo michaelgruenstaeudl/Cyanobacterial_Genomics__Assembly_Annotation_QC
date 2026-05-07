@@ -44,35 +44,35 @@ FEATURES             Location/Qualifiers
                      /db_xref="taxon:3100312"
                      /plasmid="p01"
      gene            178..957
-                     /locus_tag="pgaptmp_000001"
+                     /locus_tag="AC2IAX_p000001"
      CDS             178..957
-                     /locus_tag="pgaptmp_000001"
+                     /locus_tag="AC2IAX_p000001"
                      /inference="COORDINATES: protein motif:HMM:NF013603.6"
                      /note="Derived by automated computational analysis using
                      gene prediction method: Protein Homology."
                      /codon_start=1
                      /transl_table=11
                      /product="protein rep"
-                     /protein_id="extdb:pgaptmp_000001"
+                     /protein_id="extdb:AC2IAX_p000001"
                      /translation="MTFCSEFLGFGLVGADDGEFKLKLRTARFCRVRHCPVCQWRRSLM
                      WKAKAYRILPSIVSEYPQHRWLFLTLTQRNVLIVDLRQTLKDMNRGWQRLVQLKAWPAI
                      GWLRSTEVTRGRDGSAHPHFHCLLLIPPGYFSGKSYLKQAEWVALWRRSMRLDYNPILD
                      VQAVKQGKQPMSLIPELLKYCVKESDLVADREWFLELTRQMHKIRCVATGGVLKKYLRE
                      LEEDPDDLIGQEESGESDLAELWAVWKRQERKYRLSL"
      gene            985..1941
-                     /locus_tag="pgaptmp_000002"
+                     /locus_tag="AC2IAX_p000002"
                      /inference="COORDINATES:ab initio
                      prediction:MetaGeneAnnotator"
                      /note="MGA_2"
      CDS             985..1941
-                     /locus_tag="pgaptmp_000002"
+                     /locus_tag="AC2IAX_p000002"
                      /inference="COORDINATES: ab initio prediction:GeneMarkS-2+"
                      /note="Derived by automated computational analysis using
                      gene prediction method: GeneMarkS-2+."
                      /codon_start=1
                      /transl_table=11
                      /product="hypothetical protein"
-                     /protein_id="extdb:pgaptmp_000002"
+                     /protein_id="extdb:AC2IAX_p000002"
                      /translation="MSDEYRLVPELDHEGNETGFYTREPDGVSGMTVTALANLCSVTQP
                      AITQLLGRIQASNPITNDLPNRLKSFAGQDLRLITNDSQNRLLVPDEACWAILGYYAFD
                      ARDYAGKAVAQQSYDRIGGAGMRLFIWSRTGFVPGHLRPSLKSSTTVYIERLENIRDHR
@@ -80,9 +80,9 @@ FEATURES             Location/Qualifiers
                      VFRDQRGEQEAIAYDLSELPVFRKWLRDEYVPFHLPEYLADKYGKLACREIYDAIGGLT
                      ERVEEVCAIKRMTDKQQQLYENFKKLRSQLLSVDNPG"
      gene            1984..2556
-                     /locus_tag="pgaptmp_000003"
+                     /locus_tag="AC2IAX_p000003"
      CDS             1984..2556
-                     /locus_tag="pgaptmp_000003"
+                     /locus_tag="AC2IAX_p000003"
                      /inference="COORDINATES: ab initio prediction:GeneMarkS-2+"
                      /note="Derived by automated computational analysis using
                      gene prediction method: GeneMarkS-2+. GO_function:
@@ -93,15 +93,15 @@ FEATURES             Location/Qualifiers
                      /codon_start=1
                      /transl_table=11
                      /product="helix-turn-helix domain-containing protein"
-                     /protein_id="extdb:pgaptmp_000003"
+                     /protein_id="extdb:AC2IAX_p000003"
                      /translation="MPTANPKISAYVPQDLYDRFIDFKEQRGLSSASQAAIVILTEFFG
                      CGTPSRLPSDSPGVPLEEFQALVQRVDHLSELVKSLTVPTTQQDEIESPVKQLPLLTQD
                      SDLVADLEQGIPLSSSLSSPNDKLGTLSQGLSARGLAERMNRDHSTILRRSKSPNFSAW
                      SKDLDPENISWIYDEKTKKFFPFSEPR"
      gene            2708..3199
-                     /locus_tag="pgaptmp_000004"
+                     /locus_tag="AC2IAX_p000004"
      CDS             2708..3199
-                     /locus_tag="pgaptmp_000004"
+                     /locus_tag="AC2IAX_p000004"
                      /inference="COORDINATES: protein motif:HMM:NF016283.6"
                      /note="Derived by automated computational analysis using
                      gene prediction method: Protein Homology. GO_function:
@@ -111,36 +111,36 @@ FEATURES             Location/Qualifiers
                      /codon_start=1
                      /transl_table=11
                      /product="KilA-N domain-containing protein"
-                     /protein_id="extdb:pgaptmp_000004"
+                     /protein_id="extdb:AC2IAX_p000004"
                      /translation="MGGTVSFFDQFPEFEGQKVEIRGVDGYFSAADMSRAMEAFDGKIR
                      RFNNWTRTDFAQRLLKRISQRTGIPIDYSDLSSQPQTPLIDYVRGGTTGVWIHPYVAIS
                      YAMSVPEFQAEVNIWIVDMLTMRTVNPHVLQWSPAEYLRGMEMVRDDIEEIYGKRDRRG
                      "
                      /db_xref="PFAM:PF04383.16"
      gene            complement(3442..3699)
-                     /locus_tag="pgaptmp_000005"
+                     /locus_tag="AC2IAX_p000005"
      CDS             complement(3442..3699)
-                     /locus_tag="pgaptmp_000005"
+                     /locus_tag="AC2IAX_p000005"
                      /inference="COORDINATES: ab initio prediction:GeneMarkS-2+"
                      /note="Derived by automated computational analysis using
                      gene prediction method: GeneMarkS-2+."
                      /codon_start=1
                      /transl_table=11
                      /product="hypothetical protein"
-                     /protein_id="extdb:pgaptmp_000005"
+                     /protein_id="extdb:AC2IAX_p000005"
                      /translation="MNVNNNCTEYKIWLCEYQFDGEIYGFEIPAKSLQEARLRLQQMSQ
                      GRVLGSLEGTLEVTGASDGWRAKLTGKISEIVIAFLNLFS"
      gene            3711..3881
-                     /locus_tag="pgaptmp_000006"
+                     /locus_tag="AC2IAX_p000006"
      CDS             3711..3881
-                     /locus_tag="pgaptmp_000006"
+                     /locus_tag="AC2IAX_p000006"
                      /inference="COORDINATES: protein motif:HMM:NF019057.6"
                      /note="Derived by automated computational analysis using
                      gene prediction method: Protein Homology."
                      /codon_start=1
                      /transl_table=11
                      /product="YegP family protein"
-                     /protein_id="extdb:pgaptmp_000006"
+                     /protein_id="extdb:AC2IAX_p000006"
                      /translation="MRYEYFRDTQSQWRWRFKASNGKIIAVSSESYVSMVDCLHAIRLV
                      QGSAAARIHPV"
                      /db_xref="PFAM:PF07411.15"

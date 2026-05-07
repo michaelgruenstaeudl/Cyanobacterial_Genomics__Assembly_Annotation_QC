@@ -1,0 +1,75 @@
+Reading input files
+    Removed skipped qualifier /standard_name
+      CDS translated with cds=True
+Added new CDS feature
+Skipped donor gene; paired gene/CDS transfer failed because PGAP feature with same gene, protein_id, locus_tag, or standard_name has both start and stop within 100 bp
+Exact same-type match found for CDS
+    Already present /product
+    Already present /inference
+    Already present /transl_table
+    Already present /codon_start
+    Already present /note
+    Skipped /standard_name; never transferred
+Exact same-type match found for gene
+    Skipped /product; not valid for gene feature
+    Added qualifier /inference
+    Added qualifier /note
+    Skipped /standard_name; never transferred
+    Removed skipped qualifier /standard_name
+      CDS translated with cds=True
+Added new CDS feature
+Skipped donor gene; paired gene/CDS transfer failed because translation is highly similar to nearby PGAP CDS within 300 bp
+Exact same-type match found for CDS
+    Already present /product
+    Already present /protein_id
+    Already present /codon_start
+    Already present /transl_table
+    Already present /inference
+    Skipped /standard_name; never transferred
+Exact same-type match found for gene
+    Skipped /standard_name; never transferred
+    Skipped /product; not valid for gene feature
+Exact same-type match found for CDS
+    Added qualifier /db_xref
+    Already present /product
+    Already present /protein_id
+    Already present /codon_start
+    Already present /transl_table
+    Already present /inference
+    Skipped /standard_name; never transferred
+      CDS translated with cds=True
+Exact same-type match found for gene
+    Skipped /standard_name; never transferred
+    Skipped /product; not valid for gene feature
+Exact same-type match found for CDS
+    Already present /product
+    Already present /protein_id
+    Already present /codon_start
+    Already present /transl_table
+    Already present /inference
+    Skipped /standard_name; never transferred
+Exact same-type match found for gene
+    Skipped /standard_name; never transferred
+    Skipped /product; not valid for gene feature
+Exact same-type match found for CDS
+    Added qualifier /db_xref
+    Already present /product
+    Already present /protein_id
+    Already present /codon_start
+    Already present /transl_table
+    Already present /inference
+    Skipped /standard_name; never transferred
+      CDS translated with cds=True
+Exact same-type match found for gene
+    Skipped /standard_name; never transferred
+    Skipped /product; not valid for gene feature
+Removed unpaired CDS; no same-coordinate gene/CDS counterpart
+Removed unpaired CDS; no same-coordinate gene/CDS counterpart
+Writing output file
+Done.
+Total qualifiers added: 4
+Total features added: 2
+Total donor features skipped by duplication/pairing filters: 2
+Total orphan gene/CDS features removed in final cleanup: 2
+Total gene features added to pair unpaired tRNA/rRNA: 0
+Output written to: Limnothrix_sp_HT2024_plasmid_MERGED.gb

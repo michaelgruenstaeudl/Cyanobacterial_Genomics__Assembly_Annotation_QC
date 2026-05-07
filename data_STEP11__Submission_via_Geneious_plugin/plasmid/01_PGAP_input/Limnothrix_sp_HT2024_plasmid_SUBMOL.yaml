@@ -22,7 +22,7 @@ authors:
         first_name: 'Michael'
 bioproject: 'PRJNA1458982'
 biosample: 'SAMN57531434'
-locus_tag_prefix: 'pgaptmp'
+locus_tag_prefix: 'AC2IAX'
 sra:
     - accession: 'SRR38317786'
     - accession: 'SRR38317785'

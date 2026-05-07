@@ -241,7 +241,7 @@ def remove_trna_features_overlapping_cds(record):
     return removed_trna, removed_empty_companion_genes
 
 
-def clean_qualifiers(record):
+def clean_qualifiers(record, remove_note_tags=False):
     gene_features = [feature for feature in record.features if feature.type == "gene"]
 
     removed_dbxref = 0
@@ -254,14 +254,15 @@ def clean_qualifiers(record):
             removed_dbxref += len(feature.qualifiers["db_xref"])
             del feature.qualifiers["db_xref"]
 
-        keep_note = (
-            feature.type == "misc_feature"
-            or (feature.type == "CDS" and "EC_number" in feature.qualifiers)
-        )
+        if remove_note_tags:
+            keep_note = (
+                feature.type == "misc_feature"
+                or (feature.type == "CDS" and "EC_number" in feature.qualifiers)
+            )
 
-        if not keep_note and "note" in feature.qualifiers:
-            removed_notes += len(feature.qualifiers["note"])
-            del feature.qualifiers["note"]
+            if not keep_note and "note" in feature.qualifiers:
+                removed_notes += len(feature.qualifiers["note"])
+                del feature.qualifiers["note"]
 
         if feature.type == "CDS":
             if "gene" not in feature.qualifiers or not feature.qualifiers["gene"]:
@@ -614,7 +615,7 @@ def force_single_line_anticodons(path):
     return replacements
 
 
-def process_file(input_path, output_path, protein_id_db):
+def process_file(input_path, output_path, protein_id_db, remove_note_tags=False):
     logging.info("Reading GenBank file: %s", input_path)
 
     records = list(SeqIO.parse(input_path, "genbank"))
@@ -660,7 +661,7 @@ def process_file(input_path, output_path, protein_id_db):
             added_products,
             removed_notes,
             added_cds_genes,
-        ) = clean_qualifiers(record)
+        ) = clean_qualifiers(record, remove_note_tags=remove_note_tags)
 
         total_removed_dbxref += removed_dbxref
         total_added_products += added_products
@@ -752,13 +753,26 @@ def main():
         default="local",
         help="Database prefix used when setting /protein_id= tags. Default: local",
     )
+    parser.add_argument(
+        "--remove-note-tags",
+        action="store_true",
+        help=(
+            "Remove /note tags using the previous default behavior. "
+            "By default, /note tags are preserved."
+        ),
+    )
 
     args = parser.parse_args()
 
     setup_logging()
 
     try:
-        process_file(args.input, args.output, args.protein_id_db)
+        process_file(
+            args.input,
+            args.output,
+            args.protein_id_db,
+            remove_note_tags=args.remove_note_tags,
+        )
     except Exception as exc:
         logging.exception("Fatal error: %s", exc)
         sys.exit(1)

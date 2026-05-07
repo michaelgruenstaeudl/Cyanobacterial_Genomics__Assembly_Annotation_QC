@@ -1,0 +1,33 @@
+2026-05-07 13:56:33 [INFO] Reading GenBank file: Limnothrix_sp_HT2024_plasmid_MERGED.gb
+2026-05-07 13:56:33 [INFO] Loaded 1 record(s)
+2026-05-07 13:56:33 [INFO] Processing record 1: Limnothrix
+2026-05-07 13:56:33 [INFO] Set /protein_id=gnl|local|AC2IAX_p000001 for CDS at [177:957](+)
+2026-05-07 13:56:33 [INFO] Set /protein_id=gnl|local|AC2IAX_p000002 for CDS at [984:1941](+)
+2026-05-07 13:56:33 [INFO] Set /protein_id=gnl|local|AC2IAX_p000003 for CDS at [1983:2556](+)
+2026-05-07 13:56:33 [INFO] Set /protein_id=gnl|local|AC2IAX_p000004 for CDS at [2707:3199](+)
+2026-05-07 13:56:33 [INFO] Set /protein_id=gnl|local|AC2IAX_p000005 for CDS at [3441:3699](-)
+2026-05-07 13:56:33 [INFO] Set /protein_id=gnl|local|AC2IAX_p000006 for CDS at [3710:3881](+)
+2026-05-07 13:56:33 [INFO] Writing corrected file: Limnothrix_sp_HT2024_plasmid_FINAL.gb
+/home/mi/miniconda3/lib/python3.13/site-packages/Bio/SeqIO/InsdcIO.py:600: BiopythonWarning: Annotation 'Sequence Read Archive: SRR38317786, SRR38317785, SRR38317784, SRR38317783' too long
+  warnings.warn(f"Annotation {text!r} too long", BiopythonWarning)
+2026-05-07 13:56:33 [INFO] Completed processing
+2026-05-07 13:56:33 [INFO] Summary:
+2026-05-07 13:56:33 [INFO]   Added gene features: 0
+2026-05-07 13:56:33 [INFO]   Removed pseudo CDS annotations: 0
+2026-05-07 13:56:33 [INFO]   Removed joined/ribosomal-slippage CDS annotations: 0
+2026-05-07 13:56:33 [INFO]   Removed tRNA features overlapping CDS: 0
+2026-05-07 13:56:33 [INFO]   Removed empty companion genes for removed tRNAs: 0
+2026-05-07 13:56:33 [INFO]   Removed db_xref tags: 2
+2026-05-07 13:56:33 [INFO]   Added CDS product tags: 0
+2026-05-07 13:56:33 [INFO]   CDS product tags added during post-write flatfile repair: 0
+2026-05-07 13:56:33 [INFO]   Removed note tags: 0
+2026-05-07 13:56:33 [INFO]   Added CDS gene tags: 0
+2026-05-07 13:56:33 [INFO]   Set CDS protein_id tags to gnl format: 6
+2026-05-07 13:56:33 [INFO]   Added gene locus_tag qualifiers: 0
+2026-05-07 13:56:33 [INFO]   Cleaned suspect product names: 0
+2026-05-07 13:56:33 [INFO]   Removed empty gene features: 0
+2026-05-07 13:56:33 [INFO]   Removed illegal or malformed EC_number tags: 0
+2026-05-07 13:56:33 [INFO]   Removed CDS /gene= values identical to /locus_tag=: 0
+2026-05-07 13:56:33 [INFO]   Removed superfluous gene features: 0
+2026-05-07 13:56:33 [INFO]   Removed Inversion_1_end misc_features: 0
+2026-05-07 13:56:33 [INFO]   Flattened anticodon tags: 0

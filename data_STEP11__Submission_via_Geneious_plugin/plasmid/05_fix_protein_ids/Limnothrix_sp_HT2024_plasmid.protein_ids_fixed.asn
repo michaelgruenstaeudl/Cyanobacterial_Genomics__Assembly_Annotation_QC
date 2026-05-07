@@ -52,7 +52,7 @@ Seq-submit ::= {
       date std {
         year 2026,
         month 5,
-        day 2
+        day 7
       }
     },
     subtype new,
@@ -147,7 +147,7 @@ Seq-submit ::= {
             create-date std {
               year 2026,
               month 5,
-              day 2
+              day 7
             }
           },
           seq-set {
@@ -158,6 +158,31 @@ Seq-submit ::= {
               descr {
                 molinfo {
                   biomol genomic
+                },
+                user {
+                  type str "StructuredComment",
+                  data {
+                    {
+                      label str "StructuredCommentPrefix",
+                      data str "##Genome-Annotation-Data-START##"
+                    },
+                    {
+                      label str "Annotation Provider",
+                      data str "NCBI, Prokka"
+                    },
+                    {
+                      label str "Annotation Pipeline",
+                      data str "PGAP, Prokka"
+                    },
+                    {
+                      label str "Annotation Method",
+                      data str "GeneMarkS-2+, Prokka"
+                    },
+                    {
+                      label str "StructuredCommentSuffix",
+                      data str "##Genome-Annotation-Data-END##"
+                    }
+                  }
                 }
               },
               inst {
@@ -199,7 +224,7 @@ E322FABC511941C0CD6AAF6F00'H
                     {
                       id local id 2,
                       data gene {
-                        locus-tag "pgaptmp_000001"
+                        locus-tag "AC2IAX_p000001"
                       },
                       location int {
                         from 177,
@@ -216,8 +241,9 @@ E322FABC511941C0CD6AAF6F00'H
                     {
                       id local id 4,
                       data gene {
-                        locus-tag "pgaptmp_000002"
+                        locus-tag "AC2IAX_p000002"
                       },
+                      comment "MGA_2",
                       location int {
                         from 984,
                         to 1940,
@@ -240,7 +266,7 @@ E322FABC511941C0CD6AAF6F00'H
                     {
                       id local id 6,
                       data gene {
-                        locus-tag "pgaptmp_000003"
+                        locus-tag "AC2IAX_p000003"
                       },
                       location int {
                         from 1983,
@@ -257,7 +283,7 @@ E322FABC511941C0CD6AAF6F00'H
                     {
                       id local id 8,
                       data gene {
-                        locus-tag "pgaptmp_000004"
+                        locus-tag "AC2IAX_p000004"
                       },
                       location int {
                         from 2707,
@@ -274,7 +300,7 @@ E322FABC511941C0CD6AAF6F00'H
                     {
                       id local id 10,
                       data gene {
-                        locus-tag "pgaptmp_000005"
+                        locus-tag "AC2IAX_p000005"
                       },
                       location int {
                         from 3441,
@@ -291,7 +317,7 @@ E322FABC511941C0CD6AAF6F00'H
                     {
                       id local id 12,
                       data gene {
-                        locus-tag "pgaptmp_000006"
+                        locus-tag "AC2IAX_p000006"
                       },
                       location int {
                         from 3710,
@@ -313,7 +339,7 @@ E322FABC511941C0CD6AAF6F00'H
               id {
                 general {
                     db "HT2024",
-                    tag str "HT2024_000001"
+                    tag str "AC2IAX_p000001"
                   }
               },
               descr {
@@ -346,7 +372,7 @@ TRQMHKIRCVATGGVLKKYLRELEEDPDDLIGQEESGESDLAELWAVWKRQERKYRLSL"
                         to 258,
                         id general {
                     db "HT2024",
-                    tag str "HT2024_000001"
+                    tag str "AC2IAX_p000001"
                   }
                       }
                     }
@@ -358,11 +384,11 @@ TRQMHKIRCVATGGVLKKYLRELEEDPDDLIGQEESGESDLAELWAVWKRQERKYRLSL"
               id {
                 general {
                     db "HT2024",
-                    tag str "HT2024_000002"
+                    tag str "AC2IAX_p000002"
                   }
               },
               descr {
-                title "hypothetical protein pgaptmp_000002 (plasmid)
+                title "hypothetical protein AC2IAX_p000002 (plasmid)
  [Limnothrix sp.]",
                 molinfo {
                   biomol peptide,
@@ -393,7 +419,7 @@ GLTERVEEVCAIKRMTDKQQQLYENFKKLRSQLLSVDNPG"
                         to 317,
                         id general {
                     db "HT2024",
-                    tag str "HT2024_000002"
+                    tag str "AC2IAX_p000002"
                   }
                       }
                     }
@@ -405,7 +431,7 @@ GLTERVEEVCAIKRMTDKQQQLYENFKKLRSQLLSVDNPG"
               id {
                 general {
                     db "HT2024",
-                    tag str "HT2024_000003"
+                    tag str "AC2IAX_p000003"
                   }
               },
               descr {
@@ -438,7 +464,7 @@ SPNDKLGTLSQGLSARGLAERMNRDHSTILRRSKSPNFSAWSKDLDPENISWIYDEKTKKFFPFSEPR"
                         to 189,
                         id general {
                     db "HT2024",
-                    tag str "HT2024_000003"
+                    tag str "AC2IAX_p000003"
                   }
                       }
                     }
@@ -450,7 +476,7 @@ SPNDKLGTLSQGLSARGLAERMNRDHSTILRRSKSPNFSAWSKDLDPENISWIYDEKTKKFFPFSEPR"
               id {
                 general {
                     db "HT2024",
-                    tag str "HT2024_000004"
+                    tag str "AC2IAX_p000004"
                   }
               },
               descr {
@@ -483,7 +509,7 @@ MLTMRTVNPHVLQWSPAEYLRGMEMVRDDIEEIYGKRDRRG"
                         to 162,
                         id general {
                     db "HT2024",
-                    tag str "HT2024_000004"
+                    tag str "AC2IAX_p000004"
                   }
                       }
                     }
@@ -495,11 +521,11 @@ MLTMRTVNPHVLQWSPAEYLRGMEMVRDDIEEIYGKRDRRG"
               id {
                 general {
                     db "HT2024",
-                    tag str "HT2024_000005"
+                    tag str "AC2IAX_p000005"
                   }
               },
               descr {
-                title "hypothetical protein pgaptmp_000005 (plasmid)
+                title "hypothetical protein AC2IAX_p000005 (plasmid)
  [Limnothrix sp.]",
                 molinfo {
                   biomol peptide,
@@ -527,7 +553,7 @@ QGRVLGSLEGTLEVTGASDGWRAKLTGKISEIVIAFLNLFS"
                         to 84,
                         id general {
                     db "HT2024",
-                    tag str "HT2024_000005"
+                    tag str "AC2IAX_p000005"
                   }
                       }
                     }
@@ -539,7 +565,7 @@ QGRVLGSLEGTLEVTGASDGWRAKLTGKISEIVIAFLNLFS"
               id {
                 general {
                     db "HT2024",
-                    tag str "HT2024_000006"
+                    tag str "AC2IAX_p000006"
                   }
               },
               descr {
@@ -570,7 +596,7 @@ VQGSAAARIHPV"
                         to 55,
                         id general {
                     db "HT2024",
-                    tag str "HT2024_000006"
+                    tag str "AC2IAX_p000006"
                   }
                       }
                     }
@@ -590,9 +616,11 @@ VQGSAAARIHPV"
                       id 11
                     }
                   },
+                  comment "Derived by automated computational analysis using
+ gene prediction method: Protein Homology.",
                   product whole general {
                     db "HT2024",
-                    tag str "HT2024_000001"
+                    tag str "AC2IAX_p000001"
                   },
                   location int {
                     from 177,
@@ -609,7 +637,7 @@ VQGSAAARIHPV"
                   xref {
                     {
                       data gene {
-                        locus-tag "pgaptmp_000001"
+                        locus-tag "AC2IAX_p000001"
                       }
                     },
                     {
@@ -625,9 +653,11 @@ VQGSAAARIHPV"
                       id 11
                     }
                   },
+                  comment "Derived by automated computational analysis using
+ gene prediction method: GeneMarkS-2+.",
                   product whole general {
                     db "HT2024",
-                    tag str "HT2024_000002"
+                    tag str "AC2IAX_p000002"
                   },
                   location int {
                     from 984,
@@ -644,7 +674,7 @@ VQGSAAARIHPV"
                   xref {
                     {
                       data gene {
-                        locus-tag "pgaptmp_000002"
+                        locus-tag "AC2IAX_p000002"
                       }
                     },
                     {
@@ -660,9 +690,14 @@ VQGSAAARIHPV"
                       id 11
                     }
                   },
+                  comment "Derived by automated computational analysis using
+ gene prediction method: GeneMarkS-2+. GO_function: GO:0003677 - DNA binding
+ [Evidence IEA]; GO_function: GO:0003700 - DNA-binding transcription factor
+ activity [Evidence IEA]; GO_process: GO:0006355 - regulation of DNA-templated
+ transcription [Evidence IEA]",
                   product whole general {
                     db "HT2024",
-                    tag str "HT2024_000003"
+                    tag str "AC2IAX_p000003"
                   },
                   location int {
                     from 1983,
@@ -679,7 +714,7 @@ VQGSAAARIHPV"
                   xref {
                     {
                       data gene {
-                        locus-tag "pgaptmp_000003"
+                        locus-tag "AC2IAX_p000003"
                       }
                     },
                     {
@@ -695,9 +730,13 @@ VQGSAAARIHPV"
                       id 11
                     }
                   },
+                  comment "Derived by automated computational analysis using
+ gene prediction method: Protein Homology. GO_function: GO:0003700 -
+ DNA-binding transcription factor activity [Evidence IEA]; GO_function:
+ GO:0043565 - sequence-specific DNA binding [Evidence IEA]",
                   product whole general {
                     db "HT2024",
-                    tag str "HT2024_000004"
+                    tag str "AC2IAX_p000004"
                   },
                   location int {
                     from 2707,
@@ -714,7 +753,7 @@ VQGSAAARIHPV"
                   xref {
                     {
                       data gene {
-                        locus-tag "pgaptmp_000004"
+                        locus-tag "AC2IAX_p000004"
                       }
                     },
                     {
@@ -730,9 +769,11 @@ VQGSAAARIHPV"
                       id 11
                     }
                   },
+                  comment "Derived by automated computational analysis using
+ gene prediction method: GeneMarkS-2+.",
                   product whole general {
                     db "HT2024",
-                    tag str "HT2024_000005"
+                    tag str "AC2IAX_p000005"
                   },
                   location int {
                     from 3441,
@@ -749,7 +790,7 @@ VQGSAAARIHPV"
                   xref {
                     {
                       data gene {
-                        locus-tag "pgaptmp_000005"
+                        locus-tag "AC2IAX_p000005"
                       }
                     },
                     {
@@ -765,9 +806,11 @@ VQGSAAARIHPV"
                       id 11
                     }
                   },
+                  comment "Derived by automated computational analysis using
+ gene prediction method: Protein Homology.",
                   product whole general {
                     db "HT2024",
-                    tag str "HT2024_000006"
+                    tag str "AC2IAX_p000006"
                   },
                   location int {
                     from 3710,
@@ -784,7 +827,7 @@ VQGSAAARIHPV"
                   xref {
                     {
                       data gene {
-                        locus-tag "pgaptmp_000006"
+                        locus-tag "AC2IAX_p000006"
                       }
                     },
                     {
