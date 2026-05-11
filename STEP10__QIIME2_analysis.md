@@ -1,34 +1,28 @@
-### Read processing of 16S rRNA amplicon sequences
 
-#### Installation of the necessary tools
+#### STEP 1. Read processing of 16S rRNA amplicon sequences
 ```bash
 # Installation of seqkit (for correcting paired-end reads)
 conda install -c bioconda seqkit
-
 # Installation of PEAR (for pairing paired-end reads)
 conda install -c bioconda pear
-```
-
-#### STEP 1. Filtering and pairing the paired-end reads
-```bash
 
 SAMPLE=30_1326789214_HTF
 
-# Prepare the paired-end sequence reads
+# Filtering the paired-end reads
 seqkit sana ${SAMPLE}_R1_001.fastq.gz -o ${SAMPLE}_R1_001.cleaned.fastq 2>${SAMPLE}_R1_001.cleaned.fastq.log
 gzip ${SAMPLE}_R1_001.cleaned.fastq
 seqkit sana ${SAMPLE}_R2_001.fastq.gz -o ${SAMPLE}_R2_001.cleaned.fastq 2>${SAMPLE}_R2_001.cleaned.fastq.log
 gzip ${SAMPLE}_R2_001.cleaned.fastq
 seqkit pair -1 ${SAMPLE}_R1_001.cleaned.fastq.gz -2 ${SAMPLE}_R2_001.cleaned.fastq.gz 2>${SAMPLE}_R2_001.cleaned.paired.log
 
-# Paired-end sequence reads
+# Pairing the paired-end reads
 pear -f ${SAMPLE}_R1_001.cleaned.paired.fastq.gz -r ${SAMPLE}_R2_001.cleaned.paired.fastq.gz -o 16S_rRNA_seq_${SAMPLE}
 for i in 16S*_${SAMPLE}*.fastq; do gzip $i; done
 ```
 
 ---
 
-### Comprehensive metagenomic analysis of a 16S rRNA amplicon sequencing sample using QIIME2
+#### STEP 2. Comprehensive metagenomic analysis of a 16S rRNA amplicon sequencing sample using QIIME2
 
 ```bash
 # Load QIIME2
@@ -37,11 +31,8 @@ conda activate qiime2-amplicon-2026.1
 
 # Define log-file
 LOG_FILE="16S_rRNA_seq_30_1326789214_HTF_METRICS.log"
-```
 
-#### STEP 2. Conduct the QIIME2 analysis including sequence classification
-
-```bash
+# Conduct the QIIME2 analysis including sequence classification
 bash BASHSCRIPT_QIIME2_analysis.sh
 ```
 
