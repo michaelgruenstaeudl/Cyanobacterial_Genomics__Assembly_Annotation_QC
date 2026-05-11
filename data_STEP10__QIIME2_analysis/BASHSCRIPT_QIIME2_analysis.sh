@@ -8,8 +8,8 @@ conda activate qiime2-amplicon-2026.1
 # =========================
 # User-configurable values
 # =========================
-LOCATION="FossilLake" # CHANGE AS NEEDED!
-SAMPLE="30_1305444119_FL1"      # CHANGE AS NEEDED!
+LOCATION="HorseThief_Reservoir" # CHANGE AS NEEDED!
+SAMPLE="30_1326789214_HTF"      # CHANGE AS NEEDED!
 THRESHOLD="0.01"               # Donut plot grouping threshold
 TRUNC_LEN="250"                # DADA2 truncation length
 

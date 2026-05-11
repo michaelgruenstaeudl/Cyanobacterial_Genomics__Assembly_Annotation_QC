@@ -1,3 +1,33 @@
+### Read processing of 16S rRNA amplicon sequences
+
+#### Installation of the necessary tools
+```bash
+# Installation of seqkit (for correcting paired-end reads)
+conda install -c bioconda seqkit
+
+# Installation of PEAR (for pairing paired-end reads)
+conda install -c bioconda pear
+```
+
+#### STEP 1. Filtering and pairing the paired-end reads
+```bash
+
+SAMPLE=30_1326789214_HTF
+
+# Prepare the paired-end sequence reads
+seqkit sana ${SAMPLE}_R1_001.fastq.gz -o ${SAMPLE}_R1_001.cleaned.fastq 2>${SAMPLE}_R1_001.cleaned.fastq.log
+gzip ${SAMPLE}_R1_001.cleaned.fastq
+seqkit sana ${SAMPLE}_R2_001.fastq.gz -o ${SAMPLE}_R2_001.cleaned.fastq 2>${SAMPLE}_R2_001.cleaned.fastq.log
+gzip ${SAMPLE}_R2_001.cleaned.fastq
+seqkit pair -1 ${SAMPLE}_R1_001.cleaned.fastq.gz -2 ${SAMPLE}_R2_001.cleaned.fastq.gz 2>${SAMPLE}_R2_001.cleaned.paired.log
+
+# Paired-end sequence reads
+pear -f ${SAMPLE}_R1_001.cleaned.paired.fastq.gz -r ${SAMPLE}_R2_001.cleaned.paired.fastq.gz -o 16S_rRNA_seq_${SAMPLE}
+for i in 16S*_${SAMPLE}*.fastq; do gzip $i; done
+```
+
+---
+
 ### Comprehensive metagenomic analysis of a 16S rRNA amplicon sequencing sample using QIIME2
 
 ```bash
@@ -6,10 +36,10 @@ source ~/miniconda3/etc/profile.d/conda.sh
 conda activate qiime2-amplicon-2026.1
 
 # Define log-file
-LOG_FILE="16S_rRNA_seq_30_1302373217_HT3_METRICS.log"
+LOG_FILE="16S_rRNA_seq_30_1326789214_HTF_METRICS.log"
 ```
 
-#### 1. Conduct the QIIME2 analysis
+#### STEP 2. Conduct the QIIME2 analysis including sequence classification
 
 ```bash
 bash BASHSCRIPT_QIIME2_analysis.sh
@@ -17,8 +47,9 @@ bash BASHSCRIPT_QIIME2_analysis.sh
 
 ---
 
-#### 2. Inference of key metrics: number of raw reads per sample
+#### STEP 3. Inference of key metrics
 
+##### Number of raw reads per sample
 ```bash
 # Summarize the number of raw reads
 qiime tools export \
@@ -41,10 +72,7 @@ NR>1 {
 ' "$RAW_FILE" >> $LOG_FILE
 ```
 
----
-
-#### 3. Inference of key metrics: Number of ASVs (features)
-
+##### Number of ASVs (features)
 ```bash
 # Log ASV inference method because DADA2 uses exact sequence variants rather than OTU clustering by similarity threshold
 echo "ASV method: DADA2 (no similarity threshold, exact sequence inference)" >> $LOG_FILE
@@ -62,10 +90,7 @@ ASV_COUNT=$(biom summarize-table -i exported-table/feature-table.biom | awk -F':
 echo "Number of ASVs: ${ASV_COUNT}" >> $LOG_FILE
 ```
 
----
-
-#### 4a. Inference of key metrics: Number of genera
-
+##### Number of genera
 ```bash
 # Collapse ASVs to genus level and 
 qiime taxa collapse \
@@ -86,10 +111,7 @@ GENUS_COUNT=$(biom summarize-table -i exported-genus/feature-table.biom | awk -F
 echo "Number of genera: ${GENUS_COUNT}" >> $LOG_FILE
 ```
 
----
-
-#### 4b. Inference of key metrics: Number of families
-
+##### Number of families
 ```bash
 # Collapse ASVs to family level
 qiime taxa collapse \
@@ -109,10 +131,7 @@ FAMILY_COUNT=$(biom summarize-table -i exported-family/feature-table.biom | awk 
 echo "Number of families: ${FAMILY_COUNT}" >> $LOG_FILE
 ```
 
----
-
-#### 5. Inference of key metrics: Summary alpha diversity metrics (with values)
-
+##### Summary alpha diversity metrics (with values)
 ```bash
 # Compute alpha diversity metrics
 qiime diversity alpha \
@@ -154,7 +173,7 @@ awk 'BEGIN{FS="\t"} NR>1 {printf "Simpson diversity (%s): %.3f\n", $1, $2}' "$SI
 
 ---
 
-#### 6. Generate visualization across samples
+#### STEP 4. Visualization across samples
 
 ```bash
 # Visualizing diversity at the taxonomic level of class
