@@ -161,15 +161,3 @@ awk 'BEGIN{FS="\t"} NR>1 {printf "Pielou evenness (%s): %.3f\n", $1, $2}' "$PIEL
 SIMPSON_FILE=$(find exported-simpson -type f | grep -E '\.tsv$' | head -n 1)
 awk 'BEGIN{FS="\t"} NR>1 {printf "Simpson diversity (%s): %.3f\n", $1, $2}' "$SIMPSON_FILE" >> $LOG_FILE
 ```
-
----
-
-#### STEP 4. Visualization across samples
-
-```bash
-# Visualizing diversity at the taxonomic level of class
-python stacked_taxonomy_bars.py . -r c -o HorseThief_metagenomics_rank-class -t 1 --metadata metadata_cyanobacteria_samples.tsv
-
-# Visualizing diversity at the taxonomic level of family but only for cyanobacteria
-python stacked_taxonomy_bars.py . -r f -o HorseThief_metagenomics_rank-family_only_cyanos -t 1 --filter-rank c --filter-name Cyanobacteriia --metadata metadata_cyanobacteria_samples.tsv
-```
