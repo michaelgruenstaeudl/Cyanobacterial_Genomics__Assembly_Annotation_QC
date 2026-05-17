@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SAMPLE="${1:?Usage: bash BASHSCRIPT_QIIME2_single_sample.sh SAMPLE_NAME}"
+SAMPLE="${1:?Usage: bash SCRIPT_QIIME2_Step2b__SingleSampleAnalysis.sh SAMPLE_NAME}"
 
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate qiime2-amplicon-2026.1
