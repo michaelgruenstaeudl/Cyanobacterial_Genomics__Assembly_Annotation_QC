@@ -29,11 +29,17 @@ for i in 16S*_${SAMPLE}*.fastq; do gzip $i; done
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate qiime2-amplicon-2026.1
 
-# Define log-file
-LOG_FILE="16S_rRNA_seq_30_1326789214_HTF_METRICS.log"
+# Define input and output
+LOCATION="HorseThief_Reservoir"
 
-# Conduct the QIIME2 analysis including sequence classification
-bash BASHSCRIPT_QIIME2_analysis.sh
+# Conduct the QIIME2 analysis on all samples
+# Purpose: Generating ASVs across samples for estimating optimal quality filtering and minimal frequency levels
+bash SCRIPT_QIIME2_Step1__MultiSampleAnalysis.sh
+
+# Conduct the QIIME2 analysis (incl. sequence classification) on one sample at a time
+for i in 30_1305444119_HT2 30_1326789214_HTF 30_1302373217_HT3; do
+  bash SCRIPT_QIIME2_Step2__SingleSampleAnalysis.sh $i;
+done
 ```
 
 ---
