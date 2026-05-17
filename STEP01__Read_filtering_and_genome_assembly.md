@@ -21,10 +21,10 @@ mamba create -n bactopia -c conda-forge -c bioconda bactopia
 #### Filtering the sequence reads
 ```
 # Combining Illumina reads
-LOC_ILLUMINA_DAT1_R1=~/data/Limnothrix/Limnothrix_Illumina_Jan2025_run1_R1.fastq.gz  # Change!
-LOC_ILLUMINA_DAT1_R2=~/data/Limnothrix/Limnothrix_Illumina_Jan2025_run1_R2.fastq.gz  # Change!
-LOC_ILLUMINA_DAT2_R1=~/data/Limnothrix/Limnothrix_Illumina_Jan2025_run2_R1.fastq.gz  # Change!
-LOC_ILLUMINA_DAT2_R2=~/data/Limnothrix/Limnothrix_Illumina_Jan2025_run2_R2.fastq.gz  # Change!
+LOC_ILLUMINA_DAT1_R1=~/data/HorseThief/HorseThief_Illumina_Jan2025_run1_R1.fastq.gz  # Change!
+LOC_ILLUMINA_DAT1_R2=~/data/HorseThief/HorseThief_Illumina_Jan2025_run1_R2.fastq.gz  # Change!
+LOC_ILLUMINA_DAT2_R1=~/data/HorseThief/HorseThief_Illumina_Jan2025_run2_R1.fastq.gz  # Change!
+LOC_ILLUMINA_DAT2_R2=~/data/HorseThief/HorseThief_Illumina_Jan2025_run2_R2.fastq.gz  # Change!
 
 cat $LOC_ILLUMINA_DAT1_R1 $LOC_ILLUMINA_DAT2_R1 > Illumina_all_R1.fastq.gz
 cat $LOC_ILLUMINA_DAT1_R2 $LOC_ILLUMINA_DAT2_R2 > Illumina_all_R2.fastq.gz
@@ -45,8 +45,8 @@ rm Illumina_all_R1.fastq.gz Illumina_all_R2.fastq.gz
 
 ```
 # Combining Nanopore reads
-LOC_NANOPORE_DAT1=~/data/Limnothrix/Nanopore_2025_06_12__fastq_pass/  # Change!
-LOC_NANOPORE_DAT2=~/data/Limnothrix/Nanopore_2025_06_24__fastq_pass/  # Change!
+LOC_NANOPORE_DAT1=~/data/HorseThief/Nanopore_2025_06_12__fastq_pass/  # Change!
+LOC_NANOPORE_DAT2=~/data/HorseThief/Nanopore_2025_06_24__fastq_pass/  # Change!
 
 zcat $LOC_NANOPORE_DAT1/*.fastq.gz >  Nanopore_all.fastq
 zcat $LOC_NANOPORE_DAT2/*.fastq.gz >> Nanopore_all.fastq
@@ -58,36 +58,36 @@ filtlong --min_length 1 --keep_percent 75 Nanopore_all.fastq |
 rm Nanopore_all.fastq
 ```
 
-#### De Novo Assembly using Bactopia
+#### Hybrid DeNovo Assembly using Bactopia
 
-##### Option that calls Unicycler to generate the assembly
+##### Assembly primarily through Illumina reads
 ```
 conda activate bactopia
 
 # Under this option, Bactopia creates a hybrid assembly using Unicycler to assemble the short reads first, then bridging gaps with long reads.
 # Good for low-coverage noisy long-reads.
 
-# Will take 30-60 min!
 bactopia \
-   --sample Limnothrix_Unicycler \
+   --sample HorseThief_Unicycler \
    --r1 Illumina_filt_R1_paired.fastq.gz \
    --r2 Illumina_filt_R2_paired.fastq.gz \
    --ont Nanopore_filtered.q75.fastq.gz \
    --hybrid
+   --phix /homes/mgruenstaeudl/references/phix174.fasta   # Removal of any PhiX spike-ins
 ```
 
-##### Option that calls Dragonflye to generate the assembly
+##### Assembly primarily through Oxford Nanopore reads
 ```
 conda activate bactopia
 
 # Under this option, Bactopia creates a hybrid assembly using Dragonflye to assemble the long-reads first, then polishing the assembly with the short-reads.
 # Good for high-coverage high-quality long-reads.
 
-# Will take 30-60 min!
 bactopia \
-   --sample Limnothrix_Dragonflye \
+   --sample HorseThief_Dragonflye \
    --r1 Illumina_filt_R1_paired.fastq.gz \
    --r2 Illumina_filt_R2_paired.fastq.gz \
    --ont Nanopore_filtered.q75.fastq.gz \
    --short_polish
+   --phix /homes/mgruenstaeudl/references/phix174.fasta   # Removal of any PhiX spike-ins
 ```
