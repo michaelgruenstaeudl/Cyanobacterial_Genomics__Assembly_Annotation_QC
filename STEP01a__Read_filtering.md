@@ -1,6 +1,6 @@
-### Cyanobacterial Genome Assembly (Hybrid Assembly)
+### Read Filtering
 
-#### Installation of the necessary tools
+#### Installation of tools for quality filtering
 ```
 # Installation of filtlong
 cd ~
@@ -13,12 +13,11 @@ make -j
 cp bin/filtlong ~/bin/filtlong
 echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
-
-# Installation of bactopia
-mamba create -n bactopia -c conda-forge -c bioconda bactopia
 ```
 
-#### Filtering the sequence reads
+#### Quality filtering of sequence reads
+
+##### Illumina reads
 ```
 # Combining Illumina reads
 LOC_ILLUMINA_DAT1_R1=~/data/HorseThief/HorseThief_Illumina_Jan2025_run1_R1.fastq.gz  # Change!
@@ -43,6 +42,7 @@ java -jar $EBROOTTRIMMOMATIC/trimmomatic-0.39.jar PE -threads 8 -phred33 \
 rm Illumina_all_R1.fastq.gz Illumina_all_R2.fastq.gz
 ```
 
+##### NanoPore reads
 ```
 # Combining Nanopore reads
 LOC_NANOPORE_DAT1=~/data/HorseThief/Nanopore_2025_06_12__fastq_pass/  # Change!
@@ -58,47 +58,66 @@ filtlong --min_length 1 --keep_percent 75 Nanopore_all.fastq |
 rm Nanopore_all.fastq
 ```
 
-#### Hybrid DeNovo Assembly using Bactopia
+---
 
-##### Assembly primarily through Illumina reads
+#### Installation of tools for taxonomic filtering
 ```
-conda activate bactopia
+# Installation of Kraken2 and KrakenTools
+conda create -n kraken2_env \
+  -c conda-forge \
+  -c bioconda \
+  kraken2 krakentools
+conda activate kraken2_env
 
-# Under this option, Bactopia creates a hybrid assembly using Unicycler to assemble the short reads first, then bridging gaps with long reads.
-# Good for low-coverage noisy long-reads.
-
-bactopia \
-   --sample HorseThief_Unicycler \
-   --r1 Illumina_filt_R1_paired.fastq.gz \
-   --r2 Illumina_filt_R2_paired.fastq.gz \
-   --ont Nanopore_filtered.q75.fastq.gz \
-   --hybrid
-   --phix /homes/mgruenstaeudl/references/phix174.fasta   # Removal of any PhiX spike-ins
+# Download database (80 GB large!!!) and move into folder
+mkdir -p k2_standard_20260626
+wget  https://genome-idx.s3.amazonaws.com/kraken/k2_standard_20260626.tar.gz
+tar -xzf k2_standard_20260626.tar.gz \
+  -C k2_standard_20260626
 ```
 
-##### Assembly primarily through Oxford Nanopore reads
+#### Taxonomic filtering of sequence reads
+
+##### Illumina reads
 ```
-conda activate bactopia
+kraken2 \
+  --db k2_standard_20260626 \
+  --paired \
+  --threads 8 \
+  --confidence 0.10 \
+  --report illumina.kraken.report \
+  --output illumina.kraken.out \
+  ../01a_processed_reads/Illumina_filt_R1_paired.fastq.gz \
+  ../01a_processed_reads/Illumina_filt_R2_paired.fastq.gz
 
-# Under this option, Bactopia creates a hybrid assembly using Dragonflye to assemble the long-reads first, then polishing the assembly with the short-reads.
-# Good for high-coverage high-quality long-reads.
+extract_kraken_reads.py \
+  -k illumina.kraken.out \
+  -r illumina.kraken.report \
+  -s1 ../01a_processed_reads/Illumina_filt_R1_paired.fastq.gz \
+  -s2 ../01a_processed_reads/Illumina_filt_R2_paired.fastq.gz \
+  -o illumina_R1_cyanosOnly.fastq \
+  -o2 illumina_R2_cyanosOnly.fastq \
+  --taxid 1117 \
+  --include-children \
+  --fastq-output
+```
 
-bactopia \
-  --sample Limnothrix_Unicycler \
-  --r1 ${INPATH}/Illumina_filt_R1_paired.fastq.gz \
-  --r2 ${INPATH}/Illumina_filt_R2_paired.fastq.gz \
-  --ont ${INPATH}/Nanopore_filtered.q75.fastq.gz \
-  --hybrid \
-  --genome_size 4600000 \
-  --coverage 0 \
-  --use_bbmap \
-  --phix /homes/mgruenstaeudl/references/phix174.fasta \
-  --phix_k 31 \
-  --maq 20 \
-  --minlength 75 \
-  --trimq 15 \
-  --min_contig_len 500 \
-  --min_contig_cov 2 \
-  --unicycler_mode conservative \
-  --nfconfig /homes/mgruenstaeudl/hybrid_assembly/Limnothrix_denovo_assembly.conf
+##### Oxford Nanopore
+```
+kraken2 \
+  --db k2_standard_20260626 \
+  --threads 16 \
+  --confidence 0.10 \
+  --report nanopore.kraken.report \
+  --output nanopore.kraken.out \
+  ../01a_processed_reads/Nanopore_filtered.q75.fastq.gz
+
+extract_kraken_reads.py \
+  -k nanopore.kraken.out \
+  -r nanopore.kraken.report \
+  -s ../01a_processed_reads/Nanopore_filtered.q75.fastq.gz \
+  -o nanopore_cyanosOnly.fastq \
+  --taxid 1117 \
+  --include-children \
+  --fastq-output
 ```

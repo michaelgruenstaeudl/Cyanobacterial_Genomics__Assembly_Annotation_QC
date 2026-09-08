@@ -11,7 +11,8 @@ This repository contains step-by-step protocols and scripts for generating high-
 ---
 
 ### 01. Genome Assembly
-- [Hybrid genome assembly](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP01__Read_filtering_and_genome_assembly.md)
+- [Read filtering](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP01a__Read_filtering.md)
+- [Hybrid genome assembly](https://github.com/michaelgruenstaeudl/CyanobacterialGenomeAssemblyAndAnnotation/blob/main/STEP01b__Genome_assembly.md)
 
 ---
 
