@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --mail-user=m_gruenstaeudl@fhsu.edu
-#SBATCH --job-name=Kraken2
+#SBATCH --job-name=Kraken2_16GB
 #SBATCH --mail-type=all
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16
@@ -15,7 +15,7 @@ INPATH=/homes/mgruenstaeudl/HorseThiefReservoir_Fall2024
 
 ## Illumina data
 kraken2 \
-  --db ${INPATH}/01b_Kraken2_filtering/k2_standard_20260626 \
+  --db ${INPATH}/01b_Kraken2_filtering/k2_standard_16_GB_20260626 \
   --paired \
   --threads 16 \
   --confidence 0.10 \
@@ -37,17 +37,17 @@ extract_kraken_reads.py \
 
 ## Nanopore data
 kraken2 \
-  --db k2_standard_20260626 \
+  --db ${INPATH}/01b_Kraken2_filtering/k2_standard_16_GB_20260626 \
   --threads 16 \
   --confidence 0.10 \
   --report nanopore.kraken.report \
   --output nanopore.kraken.out \
-  ../01a_processed_reads/Nanopore_filtered.q75.fastq.gz
+  ${INPATH}/01a_processed_reads/Nanopore_filtered.q75.fastq.gz
 
 extract_kraken_reads.py \
   -k nanopore.kraken.out \
   -r nanopore.kraken.report \
-  -s ../01a_processed_reads/Nanopore_filtered.q75.fastq.gz \
+  -s ${INPATH}/01a_processed_reads/Nanopore_filtered.q75.fastq.gz \
   -o nanopore_cyanosOnly.fastq \
   --taxid 1117 \
   --include-children \

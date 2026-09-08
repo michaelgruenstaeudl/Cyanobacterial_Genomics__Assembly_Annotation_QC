@@ -28,7 +28,7 @@ LOC_ILLUMINA_DAT2_R2=~/data/HorseThief/HorseThief_Illumina_Jan2025_run2_R2.fastq
 cat $LOC_ILLUMINA_DAT1_R1 $LOC_ILLUMINA_DAT2_R1 > Illumina_all_R1.fastq.gz
 cat $LOC_ILLUMINA_DAT1_R2 $LOC_ILLUMINA_DAT2_R2 > Illumina_all_R2.fastq.gz
 
-# Filtering the Illumina reads using \texttt{Trimmomatic
+# Filtering the Illumina reads using Trimmomatic
 module load Trimmomatic
 
 # Note: This will take 20-30 min!
@@ -69,9 +69,15 @@ conda create -n kraken2_env \
   kraken2 krakentools
 conda activate kraken2_env
 
-# Download database (80 GB large!!!) and move into folder
+# Download standard database capped at 16 GB and move into folder
+mkdir -p k2_standard_16_GB_20260626
+wget https://genome-idx.s3.amazonaws.com/kraken/k2_standard_16_GB_20260626.tar.gz
+tar -xzf k2_standard_16_GB_20260626.tar.gz \
+  -C k2_standard_16_GB_20260626
+
+# Download full standard database (80 GB large!!!) and move into folder
 mkdir -p k2_standard_20260626
-wget  https://genome-idx.s3.amazonaws.com/kraken/k2_standard_20260626.tar.gz
+wget https://genome-idx.s3.amazonaws.com/kraken/k2_standard_20260626.tar.gz
 tar -xzf k2_standard_20260626.tar.gz \
   -C k2_standard_20260626
 ```
@@ -81,7 +87,7 @@ tar -xzf k2_standard_20260626.tar.gz \
 ##### Illumina reads
 ```
 kraken2 \
-  --db k2_standard_20260626 \
+  --db k2_standard_16_GB_20260626 \
   --paired \
   --threads 8 \
   --confidence 0.10 \
@@ -105,7 +111,7 @@ extract_kraken_reads.py \
 ##### Oxford Nanopore
 ```
 kraken2 \
-  --db k2_standard_20260626 \
+  --db k2_standard_16_GB_20260626 \
   --threads 16 \
   --confidence 0.10 \
   --report nanopore.kraken.report \
