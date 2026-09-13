@@ -83,14 +83,15 @@ tar -xzf k2_standard_20260626.tar.gz \
 ```
 
 #### Taxonomic filtering of sequence reads
+` --taxid 0 1117` means unclassified and Cyanobacteriota reads
 
 ##### Illumina reads
 ```
 kraken2 \
   --db k2_standard_16_GB_20260626 \
   --paired \
-  --threads 8 \
-  --confidence 0.10 \
+  --threads 16 \
+  --confidence 0.06 \
   --report illumina.kraken.report \
   --output illumina.kraken.out \
   ../01a_processed_reads/Illumina_filt_R1_paired.fastq.gz \
@@ -103,9 +104,12 @@ extract_kraken_reads.py \
   -s2 ../01a_processed_reads/Illumina_filt_R2_paired.fastq.gz \
   -o illumina_R1_cyanosOnly.fastq \
   -o2 illumina_R2_cyanosOnly.fastq \
-  --taxid 1117 \
+  --taxid 0 1117 \
   --include-children \
   --fastq-output
+
+gzip illumina_R1_cyanosOnly.fastq
+gzip illumina_R2_cyanosOnly.fastq
 ```
 
 ##### Oxford Nanopore
@@ -113,7 +117,7 @@ extract_kraken_reads.py \
 kraken2 \
   --db k2_standard_16_GB_20260626 \
   --threads 16 \
-  --confidence 0.10 \
+  --confidence 0.02 \
   --report nanopore.kraken.report \
   --output nanopore.kraken.out \
   ../01a_processed_reads/Nanopore_filtered.q75.fastq.gz
@@ -123,7 +127,9 @@ extract_kraken_reads.py \
   -r nanopore.kraken.report \
   -s ../01a_processed_reads/Nanopore_filtered.q75.fastq.gz \
   -o nanopore_cyanosOnly.fastq \
-  --taxid 1117 \
+  --taxid 0 1117 \
   --include-children \
   --fastq-output
+
+gzip nanopore_cyanosOnly.fastq
 ```
